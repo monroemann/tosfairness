@@ -9,22 +9,22 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
 
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="../../dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
+    <!-- <link href="jumbotron.css" rel="stylesheet"> -->
   </head>
 
   <body>
 
-    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-      <button class="navbar-toggler navbar-toggler-right" aria-expanded="false" aria-controls="navbarsExampleDefault" aria-label="Toggle navigation" type="button" data-target="#navbarsExampleDefault" data-toggle="collapse">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarsExampleDefault" aria-label="Toggle navigation" type="button" data-target="#navbarsExampleDefault" data-toggle="collapse">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">Navbar</a>
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
@@ -84,6 +84,7 @@
 
       <hr>
 
+      <%= yield %>
       <footer>
         <p>© Company 2017</p>
       </footer>
@@ -96,11 +97,10 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" crossorigin="anonymous" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" crossorigin="anonymous" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  
+    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <%= yield %>
   </body>
 </html>
