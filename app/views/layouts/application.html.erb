@@ -28,7 +28,15 @@
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-           
+
+          <% if user_signed_in? %>
+            <li class="nav-item">Welcome! <%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li class="nav-item"><%= link_to "Sign In", new_user_session_path %></li>
+            <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path %></li>
+          <% end %>
+
+
           <li class="nav-item active">
             <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
           </li>
@@ -59,6 +67,14 @@
         </form>
       </div>
     </nav>
+
+    <% if notice.present? %>
+      <p class="alert alert-info"><%= notice %></p>
+    <% end %>
+
+    <% if alert.present? %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
 
     
       <%= yield %>
