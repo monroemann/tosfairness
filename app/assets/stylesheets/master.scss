@@ -1,0 +1,24 @@
+div.card {
+  background-color: #fff;
+  border-radius: 1.50rem;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  border: 2px solid #a60024;
+  margin-top: 40px;
+  padding: 0;
+}
+
+.handle {
+  margin: 10px;
+  color: #125688;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.card p, .card .message {
+  font-size: 18px;
+  margin: 20px;
+}
+
+.card.form {
+  padding: 20px;
+}
