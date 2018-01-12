@@ -9,7 +9,7 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <!-- Bootstrap core CSS -->
     <!-- <link href="../../dist/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -19,67 +19,67 @@
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">TOSfairness</a>
+        <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarsExampleDefault" aria-label="Toggle navigation" type="button" data-target="#navbarsExampleDefault" data-toggle="collapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">TOSfairness</a>
-      <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarsExampleDefault" aria-label="Toggle navigation" type="button" data-target="#navbarsExampleDefault" data-toggle="collapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-
-          <% if user_signed_in? %>
-            <li class="nav-item">Welcome! <%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-          <% else %>
-            <li class="nav-item"><%= link_to "Sign In", new_user_session_path %></li>
-            <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path %></li>
-          <% end %>
+            <% if user_signed_in? %>
+              <li class="nav-item">Welcome! <%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li class="nav-item"><%= link_to "Sign In", new_user_session_path %></li>
+              <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path %></li>
+            <% end %>
 
 
-          <li class="nav-item active">
-            <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">The Rating System</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Volunteer</a>
-          </li>
-          <li class="nav-item">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Donate</a>
-          </li>
-            <a class="nav-link disabled" href="#">Break Diving</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="dropdown01" aria-expanded="false" aria-haspopup="true" href="http://example.com" data-toggle="dropdown">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-        </ul>      
-      </div>
-    </nav>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">The Rating System</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Volunteer</a>
+            </li>
+            <li class="nav-item">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Donate</a>
+            </li>
+              <a class="nav-link disabled" href="#">Break Diving</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="dropdown01" aria-expanded="false" aria-haspopup="true" href="http://example.com" data-toggle="dropdown">Dropdown</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+      <% if notice.present? %>
+        <p class="alert alert-info"><%= notice %></p>
+      <% end %>
 
-    <% if notice.present? %>
-      <p class="alert alert-info"><%= notice %></p>
-    <% end %>
-
-    <% if alert.present? %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-
+      <% if alert.present? %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
 
       <%= yield %>
-
-    <footer>
-        <p>© Company 2017</p>
-      </footer>
-    </div> <!-- /container -->
-
+    </main>
+    <%= render "layouts/footer" %>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -90,7 +90,7 @@
     <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
 
   </body>
 </html>
