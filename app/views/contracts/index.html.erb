@@ -1,0 +1,30 @@
+<div class="container pt-5">
+  <h2>Alphabetical List of Contracts By Company Name</h2>
+  <br />
+  <div class="row">
+    <div class="col-md-7">
+      <% if @contracts.size > 0 %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Company Name</th>
+              <th scope="col">Website</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @contracts %>
+          </tbody>
+        </table>
+      <% else %>
+        No record found.
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-7">
+      <p>Not what's you are looking for? Do you want to add to a waiting list?</p>
+      <%= render 'form', contract: @contract %>
+    </div>
+  </div>
+</div>

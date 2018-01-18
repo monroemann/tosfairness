@@ -1,0 +1,21 @@
+<%= form_for contract do |f| %>
+  <% if contract.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h3><%= pluralize(contract.errors.count, "error") %> prohibited this company from being saved:</h3>
+      <ul>
+        <% contract.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :company_name, "Company Name" %>
+    <%= f.text_field :company_name, :class => "form-control", :placeholder => "Enter Company Name" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :website, "Website" %>
+    <%= f.text_field :website, :class => "form-control", :placeholder => "Enter URL" %>
+  </div>
+  <%= f.submit "Add", :class => "btn btn-primary" %>
+<% end %>

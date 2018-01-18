@@ -1,0 +1,9 @@
+<tr>
+  <td><%= contract.company_name %></td>
+  <td><%= contract.website %></td>
+  <td><%= link_to 'View', contract_path(contract) %>
+  <% if user_signed_in? && current_user.admin? %>
+    <%= link_to 'Edit', edit_contract_path(contract) %>
+  <% end %>
+  </td>
+</tr>

@@ -1,4 +1,4 @@
-
+<div class="container">
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
@@ -9,14 +9,20 @@
         <p>Brought to you by Break Diving, Inc. a 501(c)(3) not-for-profit with one primary mission: helping individuals succeed in life.  It follows that in order for people to succeed in life, they should know exactly what they are actually signing.  Right?  Let's get started!</p>
         <p class="text-right"><a class="btn btn-primary btn-sm" role="button" href="#">Learn more about us »</a></p>
 
-        <form class="form-inline my-2 my-lg-0 pull-left">
-          <input class="form-control mr-sm-2" type="search" placeholder="Company Name" aria-label="Company">
-          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search Company</button>
-        </form>&nbsp;&nbsp; OR &nbsp;&nbsp;
-        <form class="form-inline my-2 my-lg-0 pull-left">
-          <input class="form-control mr-sm-2" type="search" placeholder="Website URL" aria-label="URL">
-          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">URL</button>
-        </form>
+        <div class="row">
+          <div class="col-md-10">
+            <%= form_tag contracts_path, :method => 'get', :class => 'my-2 my-lg-0 pull-left' do %>
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <%= text_field_tag 'search', params[:search], placeholder: "Enter Company Name or URL", :class => 'form-control mr-sm-2' %>
+                  </div>
+                  <div class="col-md-3">
+                    <%= submit_tag 'Search Company', :class => 'btn btn-outline-info my-2 my-sm-0'%>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -78,3 +84,4 @@
 
       <hr>
     </div>
+</div>

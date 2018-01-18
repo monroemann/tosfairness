@@ -1,0 +1,30 @@
+<div class="container pt-5">
+  <div class="col-md-7">
+  <h1><%= @contract.company_name %></h1>
+
+  <table class="table">
+    <tbody>
+      <tr>
+        <th scope="col">Website</th>
+        <td><%= @contract.website %></td>
+      </tr>
+      <tr>
+        <th scope="col">Contract Title</th>
+        <td><%= @contract.contract_title%></td>
+      </tr>
+      <tr>
+        <th scope="col">Contract Date</th>
+        <td><%= @contract.contract_date%></td>
+      </tr>
+      <tr>
+        <th scope="col">Total Rating</th>
+        <td><%= @contract.total_rating%></td>
+      </tr>
+      <tr>
+        <th scope="col">Description</th>
+        <td><%= @contract.description%></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
