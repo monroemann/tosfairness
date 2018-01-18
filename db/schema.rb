@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117233015) do
+ActiveRecord::Schema.define(version: 20180118232108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,20 +20,22 @@ ActiveRecord::Schema.define(version: 20180117233015) do
     t.string   "website"
     t.string   "contract_title"
     t.string   "contract_date"
-    t.integer  "rating_1"
-    t.integer  "rating_2"
-    t.integer  "rating_3"
-    t.integer  "rating_4"
-    t.integer  "rating_5"
-    t.integer  "rating_6"
-    t.integer  "rating_7"
-    t.integer  "rating_8"
-    t.integer  "rating_9"
-    t.integer  "rating_10"
-    t.integer  "total_rating"
+    t.integer  "rating_1",       default: 0
+    t.integer  "rating_2",       default: 0
+    t.integer  "rating_3",       default: 0
+    t.integer  "rating_4",       default: 0
+    t.integer  "rating_5",       default: 0
+    t.integer  "rating_6",       default: 0
+    t.integer  "rating_7",       default: 0
+    t.integer  "rating_8",       default: 0
+    t.integer  "rating_9",       default: 0
+    t.integer  "rating_10",      default: 0
+    t.integer  "total_rating",   default: 0
     t.text     "description"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_contracts_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

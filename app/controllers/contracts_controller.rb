@@ -1,6 +1,6 @@
 class ContractsController < ApplicationController
   before_action :set_contract, only: [:show, :edit, :update]
-  before_action :authorize_admin!, except: [:index, :show, :new, :create]
+  before_action :authorize_admin!, only: [:edit, :update]
 
   def index
     respond_to do |format|
@@ -38,6 +38,8 @@ class ContractsController < ApplicationController
   end
 
   def update
+    @contract.user = current_user
+
     if @contract.update_attributes(contract_params)
       redirect_to contracts_path, notice: 'Contract was successfully updated.'
     else
@@ -53,7 +55,19 @@ class ContractsController < ApplicationController
   def contract_params
     params.require(:contract).permit(
       :company_name,
-      :website
+      :website,
+      :contract_title,
+      :contract_date,
+      :rating_1,
+      :rating_2,
+      :rating_3,
+      :rating_4,
+      :rating_5,
+      :rating_6,
+      :rating_7,
+      :rating_8,
+      :rating_9,
+      :rating_10
     )
   end
 end

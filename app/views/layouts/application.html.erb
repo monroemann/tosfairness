@@ -39,7 +39,6 @@
                 <a class="nav-link" href="#">Volunteer</a>
               </li>
               <li class="nav-item">
-              <li class="nav-item">
                 <a class="nav-link" href="#">Donate</a>
               </li>
                 <a class="nav-link disabled" href="#">Break Diving</a>
@@ -53,11 +52,12 @@
                 </div>
               </li>
             </ul>
-            <ul class="nav justify-content-end">
+            <ul class="navbar-nav justify-content-end">
               <% if user_signed_in? %>
-                <li class="nav-item">Welcome! <%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+                <li class="nav-item"><%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => "nav-link" %></li>
               <% else %>
-                <li class="nav-item"><%= link_to "Sign In", new_user_session_path %></li>
+                <li class="nav-item"><%= link_to "Sign In", new_user_session_path, :class => "nav-link" %></li>
+                <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, :class => "nav-link" %></li>
               <% end %>
             </ul>
           </div>

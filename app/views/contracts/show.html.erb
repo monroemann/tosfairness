@@ -24,6 +24,12 @@
         <th scope="col">Description</th>
         <td><%= @contract.description%></td>
       </tr>
+      <% if @contract.user %>
+        <tr>
+          <th scope="col">Updated By</th>
+          <td><%= @contract.user.email %></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
   </div>
