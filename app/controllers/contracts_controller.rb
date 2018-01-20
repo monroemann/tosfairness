@@ -4,7 +4,7 @@ class ContractsController < ApplicationController
 
   def index
     respond_to do |format|
-      if params[:search]
+      if !params[:search].blank?
         @contracts = Contract.company_search(params[:search]).order(:company_name)
       else
         @contracts = Contract.order(:company_name)
