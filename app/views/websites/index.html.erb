@@ -1,4 +1,4 @@
-
+<div class="container">
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
@@ -7,11 +7,28 @@
         <p>Most online user agreements are stacked in favor of the corporation, and not in favor of the individual user.  We aim to change that, and keep it that way.  TOSfairness is a collective of volunteer attorneys and netizens focused on corporate transparency in murky 'click' agreements on the web, on phones, on games, and online.</p>
         <p>No one (and we mean NO ONE) reads every word of every agreement before joining a new website or agreeing to new terms of service, whether on a computer, or on your phone.  Well, until now.  Now, we read and rate as many of them for you as we can, in order of demand, so you can feel safer signing them.  Awesome, right?  You're welcome.</p>
         <p>Brought to you by Break Diving, Inc. a 501(c)(3) not-for-profit with one primary mission: helping individuals succeed in life.  It follows that in order for people to succeed in life, they should know exactly what they are actually signing.  Right?  Let's get started!</p>
-        <p><a class="btn btn-primary btn-sm" role="button" href="#">Learn more about us »</a></p>
+        <p class="text-right"><a class="btn btn-primary btn-sm" role="button" href="#">Learn more about us »</a></p>
 
-        <form class='text-center'>Company Name:<input type="text"></form> 
-        <p class='text-center'>OR</p>
-        <form class='text-center'>Website URL: www.<input type="text"></form>
+        <div class="row">
+          <div class="col-md-10">
+            <%= form_tag contracts_path, :method => 'get', :class => 'my-2 my-lg-0 pull-left' do %>
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <%= text_field_tag 'search', params[:search], placeholder: "Enter Company Name or URL", :class => 'form-control mr-sm-2' %>
+                  </div>
+                  <div class="col-md-3">
+                    <%= submit_tag 'Search Company', :class => 'btn btn-outline-info my-2 my-sm-0'%>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+        </div>
+        <br />&nbsp;
+        <div class="row">
+          <div class="col-md-10">
+            <%= link_to "Request Service", new_contract_path, :class => 'btn btn-primary my-2 my-sm-0' %>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -72,3 +89,5 @@
       </div>
 
       <hr>
+    </div>
+</div>
