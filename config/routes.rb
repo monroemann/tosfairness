@@ -13,5 +13,10 @@ Rails.application.routes.draw do
   get "contract_detail", to: "contracts#contract_detail"
   get "contract_list", to: "contracts#contract_list"
   get "bill_of_rights", to: "websites#bill_of_rights"
+  get "rating_system", to: "websites#rating_system"
+  get "volunteer", to: "websites#volunteer"
+  get "about", to: "websites#about"
+  get "break_diving", to: "websites#break_diving"
+  get "donate", to: "websites#donate"
 
 end
