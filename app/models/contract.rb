@@ -1,14 +1,14 @@
 class Contract < ApplicationRecord
-  include PgSearch
   belongs_to :user, optional: true
-
-  pg_search_scope :company_search,
-                  :against => [:company_name, :website]
 
   validates :company_name, uniqueness: true, presence: true
   validates :website, uniqueness: true, presence: true
 
   before_save :calculate_total
+
+  scope :name_like, -> (name) { where("company_name ilike ? or website ilike ?", name, name) }
+  scope :top_ten,   -> { order(total_rating: :desc).limit(10) }
+  scope :last_ten,  -> { order(total_rating: :asc).limit(10) }
 
   def calculate_total
     self.total_rating = self.rating_1 +
