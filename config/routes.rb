@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get "top_ten_unfair", to: "websites#top_ten_unfair"
   get "contract_detail", to: "contracts#contract_detail"
   get "contract_list", to: "contracts#contract_list"
+  get "bill_of_rights", to: "websites#bill_of_rights"
 
 end
