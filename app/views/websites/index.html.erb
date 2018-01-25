@@ -14,7 +14,7 @@
             <%= form_tag contracts_path, :method => 'get', :class => 'my-2 my-lg-0 pull-left' do %>
                 <div class="form-row">
                   <div class="col-md-6">
-                    <%= text_field_tag 'search', params[:search], placeholder: "Enter Company Name or URL", :class => 'form-control mr-sm-2' %>
+                    <%= autocomplete_field_tag 'search', '', autocomplete_contract_company_name_contracts_path, :class => 'form-control mr-sm-2', placeholder: "Enter Company Name or URL"  %>
                   </div>
                   <div class="col-md-3">
                     <%= submit_tag 'Search Company', :class => 'btn btn-outline-info my-2 my-sm-0'%>
@@ -23,7 +23,7 @@
             <% end %>
           </div>
         </div>
-        <br />&nbsp;
+        <br />
         <div class="row">
           <div class="col-md-10">
             <%= link_to "Request Service", new_contract_path, :class => 'btn btn-primary my-2 my-sm-0' %>
@@ -39,18 +39,13 @@
           <h2>Top Ten Daily Fair</h2>
           <p>Here are the top ten agreements for the day that we deem most transparent, fair, and reasonable, where we feel the company is genuinely concerned about you, the user or customer, your best interests, and your welfare.  We applaud them for leading the way!</p>
             <ol>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
+              <% if !@top_ten_fairs.nil? %>
+                <% @top_ten_fairs.each do |c| %>
+                  <li><%= c.company_name %></li>
+                <% end %>
+              <% end %>
             </ol>
-          <p><a class="btn btn-secondary" role="button" href="#">View details »</a></p>
+          <p><a class="btn btn-secondary" role="button" href="/top_ten_fair.html">View details »</a></p>
         </div>
         <div class="col-md-4">
           <h2>Our Online User Bill of Rights</h2>
@@ -73,17 +68,12 @@
           <h2>Top Ten Daily Unfair</h2>
           <p>Here are the top ten agreements for the day that we deem most unclear, most unfair, and unreasonable, where we feel the company is genuinely unconcerned about you, the user or customer, your best interests, and your welfare.  We urge them to stop trying to take advantage of their users.</p>
           <ol>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ol>
+            <% if !@top_ten_unfairs.nil? %>
+              <% @top_ten_unfairs.each do |c| %>
+                <li><%= c.company_name %></li>
+              <% end %>
+            <% end %>
+          </ol>
           <p><a class="btn btn-secondary" role="button" href="#">View details »</a></p>
         </div>
       </div>

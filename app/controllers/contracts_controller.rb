@@ -1,16 +1,12 @@
 class ContractsController < ApplicationController
   before_action :set_contract, only: [:show, :edit, :update]
   before_action :authorize_admin!, only: [:edit, :update]
+  autocomplete :contract, :company_name, :full => true
 
   def index
-    respond_to do |format|
-      if !params[:search].blank?
-        @contracts = Contract.company_search(params[:search]).order(:company_name)
-      else
-        @contracts = Contract.order(:company_name)
-      end
-      format.json
-      format.html
+    @contracts = Contract.order('company_name')
+    if params[:search]
+      @contracts = Contract.name_like("%#{params[:search]}%").order('company_name')
     end
 
     @contract = Contract.new
@@ -45,6 +41,15 @@ class ContractsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def autocomplete_contract_company_name
+    term = params[:term]
+    query = "%#{term}%"
+
+    contracts = Contract.name_like(query).order('company_name').all
+
+    render :json => contracts.map { |contract| {:id => contract.id, :label => contract.company_name, :value => contract.company_name }}
   end
 
   private
