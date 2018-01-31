@@ -1,0 +1,2 @@
+Microsoft,www.microsoft.com
+Yahoo,www.yahoo.com
