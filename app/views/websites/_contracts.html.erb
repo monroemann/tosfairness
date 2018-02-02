@@ -1,0 +1,10 @@
+<tr>
+  <td><%= item.company_name %></td>
+  <td><%= item.website %></td>
+  <td><%= item.total_rating %></td>
+  <td><%= link_to 'View', contract_path(item) %>
+  <% if user_signed_in? && current_user.admin? %>
+    <%= link_to 'Edit', edit_contract_path(item) %>
+  <% end %>
+  </td>
+</tr>

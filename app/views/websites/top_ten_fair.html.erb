@@ -1,6 +1,25 @@
-<br><br>
-<div class="col-10 offset-1 col-sm-8 offset-sm-2 card form">
-
-  <h1>Daily Top Ten Fair Contracts</h1>
-
+<div class="container pt-5">
+  <h2>Daily Top Ten Fair Contracts</h2>
+  <br />
+  <div class="row">
+    <div class="col-md-7">
+      <% if @top_ten_fairs.size > 0 %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Company Name</th>
+              <th scope="col">Website</th>
+              <th scope="col">Total Rating</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render partial: 'contracts', :collection => @top_ten_fairs, as: :item%>
+          </tbody>
+        </table>
+      <% else %>
+        No record found.
+      <% end %>
+    </div>
+  </div>
 </div>
