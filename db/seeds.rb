@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Contract.destroy_all
+Company.destroy_all
 
 File.foreach("db/company.txt") do |company|
   data = company.split(',')
-  Contract.create!(company_name: data[0], website: data[1])
+  Company.create!(company_name: data[0], website: data[1])
 end

@@ -1,30 +1,52 @@
 <div class="container pt-5">
-  <h2>Alphabetical List of Contracts By Company Name</h2>
-  <br />
-  <div class="row">
-    <div class="col-md-7">
-      <% if @contracts.size > 0 %>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Company Name</th>
-              <th scope="col">Website</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <%= render @contracts %>
-          </tbody>
-        </table>
-      <% else %>
-        No record found.
+  <div class="col-md-6">
+  <p class="h3"><%= @company.company_name %> - <%= @company.website %></p>
+
+  <% if @contracts.size > 0 %>
+  <table class="table">
+    <tbody>
+      <% @contracts.each do |contract| %>
+        <tr>
+          <th scope="col">Contract Title</th>
+          <td><%= contract.contract_title %></td>
+        </tr>
+        <tr>
+          <th scope="col">Contract Date</th>
+          <td><%= contract.contract_date %></td>
+        </tr>
+        <tr>
+          <th scope="col">Contract Type</th>
+          <td><%= contract.contract_type %></td>
+        </tr>
+        <tr>
+          <th scope="col">Total Rating</th>
+          <td><%= contract.total_rating %></td>
+        </tr>
+        <tr>
+          <th scope="col">Description</th>
+          <td><%= contract.description %></td>
+        </tr>
+        <tr>
+          <th scope="col">Updated By</th>
+          <td><%= contract.user.email %></td>
+          <td>
+            <% if user_signed_in? && current_user.admin? %>
+              <%= link_to 'Edit', edit_company_contract_path(@company,contract) %>
+            <% end %>
+          </td>
+        </tr>
+        <tr><th scope="col"></th><td></td></tr>
       <% end %>
+    </tbody>
+  </table>
+
+  <% else %>
+    <div class="alert alert-info" role="alert">
+      Waiting to be reviewed
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-7">
-      <p>Not what's you are looking for? Do you want to add to a waiting list?</p>
-      <%= render 'form', contract: @contract %>
-    </div>
+  <% end %>
+  <% if user_signed_in? && current_user.admin? %>
+    <%= link_to 'Create New Contract', new_company_contract_path(@company) %>
+  <% end %>
   </div>
 </div>

@@ -1,19 +1,13 @@
 class ContractsController < ApplicationController
-  before_action :set_contract, only: [:show, :edit, :update]
+  before_action :set_company
   before_action :authorize_admin!, only: [:edit, :update]
-  autocomplete :contract, :company_name, :full => true
 
   def index
-    @contracts = Contract.order('company_name')
-    if params[:search]
-      @contracts = Contract.name_like("%#{params[:search]}%").order('company_name')
-    end
-
-    @contract = Contract.new
+    @contracts = @company.contracts
   end
 
   def show
-
+    @contract = Contract.find(params[:id])
   end
 
   def new
@@ -21,48 +15,41 @@ class ContractsController < ApplicationController
   end
 
   def create
-    @contract = Contract.new(contract_params)
+    @contract = @company.contracts.build(contract_params)
+    @contract.user = current_user
 
     if @contract.save
-      redirect_to root_path, notice: 'Company was successfully created and added to a waitlist.'
+      redirect_to company_contracts_path(@company), notice: 'Contract was successfully created.'
     else
       render :new
     end
   end
 
   def edit
+    @contract = Contract.find(params[:id])
   end
 
   def update
+    @contract = Contract.find(params[:id])
     @contract.user = current_user
 
     if @contract.update_attributes(contract_params)
-      redirect_to contracts_path, notice: 'Contract was successfully updated.'
+      redirect_to company_contracts_path(@company), notice: 'Contract was successfully updated.'
     else
       render :edit
     end
   end
 
-  def autocomplete_contract_company_name
-    term = params[:term]
-    query = "%#{term}%"
-
-    contracts = Contract.name_like(query).order('company_name').all
-
-    render :json => contracts.map { |contract| {:id => contract.id, :label => contract.company_name, :value => contract.company_name }}
-  end
-
   private
-  def set_contract
-    @contract = Contract.find(params[:id])
+  def set_company
+    @company = Company.find(params[:company_id])
   end
 
   def contract_params
     params.require(:contract).permit(
-      :company_name,
-      :website,
       :contract_title,
       :contract_date,
+      :contract_type,
       :rating_1,
       :rating_2,
       :rating_3,
@@ -72,7 +59,12 @@ class ContractsController < ApplicationController
       :rating_7,
       :rating_8,
       :rating_9,
-      :rating_10
+      :rating_10,
+      :rating_11,
+      :rating_12,
+      :rating_13,
+      :rating_14,
+      :rating_15
     )
   end
 end
