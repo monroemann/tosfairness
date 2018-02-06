@@ -1,2 +1,10 @@
 Microsoft,www.microsoft.com
 Yahoo,www.yahoo.com
+Chase,www.chase.com
+Bank of America,www.bankofamerica.com
+MSN,www.msn.com
+Pluralsight,www.pluralsight.com
+Google,www.google.com
+Verizon,www.verizon.com
+AT&T,www.att.com
+Comcast,www.comcast.com

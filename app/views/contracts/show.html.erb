@@ -1,28 +1,88 @@
 <div class="container pt-5">
   <div class="col-md-7">
-  <h1><%= @contract.company_name %></h1>
-
+  <p class="h3"><%= @company.company_name %> - <%= @company.website %></p>
+  
   <table class="table">
     <tbody>
       <tr>
-        <th scope="col">Website</th>
-        <td><%= @contract.website %></td>
-      </tr>
-      <tr>
         <th scope="col">Contract Title</th>
-        <td><%= @contract.contract_title%></td>
+        <td><%= @contract.contract_title %></td>
       </tr>
       <tr>
         <th scope="col">Contract Date</th>
-        <td><%= @contract.contract_date%></td>
+        <td><%= @contract.contract_date %></td>
+      </tr>
+      <tr>
+        <th scope="col">Contract Type</th>
+        <td><%= @contract.contract_type %></td>
+      </tr>
+      <tr>
+        <th scope="col">The Right to Sue</th>
+        <td><%= @contract.rating_1 %></td>
+      </tr>
+      <tr>
+        <th scope="col">The Right to Low-Cost Arbitration</th>
+        <td><%= @contract.rating_2 %></td>
+      </tr>
+      <tr>
+        <th scope="col">The Right to a Class Action</th>
+        <td><%= @contract.rating_3 %></td>
+      </tr>
+      <tr>
+        <th scope="col">The Right to Due Process</th>
+        <td><%= @contract.rating_4 %></td>
+      </tr>
+      <tr>
+        <th scope="col">The Right to No Hidden Terms or Fees</th>
+        <td><%= @contract.rating_5 %></td>
+      </tr>
+      <tr>
+        <th scope="col">The Right to Defend Myself & Be Heard</th>
+        <td><%= @contract.rating_6 %></td>
+      </tr>
+      <tr>
+        <th scope="col">The Right to Control My Intellectual Property</th>
+        <td><%= @contract.rating_7 %></td>
+      </tr>
+      <tr>
+        <th scope="col">The Right to Freedom of Expression</th>
+        <td><%= @contract.rating_8 %></td>
+      </tr>
+      <tr>
+        <th scope="col">The Right to Privacy</th>
+        <td><%= @contract.rating_9 %></td>
+      </tr>
+      <tr>
+        <th scope="col">The Right to Reasonable Terms</th>
+        <td><%= @contract.rating_10 %></td>
+      </tr>
+      <tr>
+        <th scope="col">Historical Fairness</th>
+        <td><%= @contract.rating_11 %></td>
+      </tr>
+      <tr>
+        <th scope="col">Historical User Ratings</th>
+        <td><%= @contract.rating_12 %></td>
+      </tr>
+      <tr>
+        <th scope="col">Historical Lack of Lawsuits or Arbitrations</th>
+        <td><%= @contract.rating_13 %></td>
+      </tr>
+      <tr>
+        <th scope="col">Historical Transparency Rating</th>
+        <td><%= @contract.rating_14 %></td>
+      </tr>
+      <tr>
+        <th scope="col">Double Public Placement of TOS Rating Badge</th>
+        <td><%= @contract.rating_15 %></td>
       </tr>
       <tr>
         <th scope="col">Total Rating</th>
-        <td><%= @contract.total_rating%></td>
+        <td><%= @contract.total_rating %></td>
       </tr>
       <tr>
         <th scope="col">Description</th>
-        <td><%= @contract.description%></td>
+        <td><%= @contract.description %></td>
       </tr>
       <% if @contract.user %>
         <tr>

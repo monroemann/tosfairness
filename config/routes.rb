@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
   root "websites#index"
 
-  resources :contracts do
-    get :autocomplete_contract_company_name, :on => :collection
+  resources :companies do
+    get :autocomplete_company_company_name, :on => :collection
+    resources :contracts
   end
 
   get "top_ten_fair", to: "websites#top_ten_fair"
