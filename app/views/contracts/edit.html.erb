@@ -1,4 +1,22 @@
 <div class="container pt-5">
   <h2>Contract for <%= @company.company_name %></h2>
-    <%= render partial: 'form', locals: {company: @company, contract: @contract} %>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#contract" role="tab">Contract</a>
+    </li>
+    <% if user_signed_in? && current_user.admin? %>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#lawsuit">Lawsuits</a>
+      </li>
+    <% end %>
+  </ul>
+  <br />
+  <div class="tab-content">
+    <div class="tab-pane active" id="contract" role="tabpanel">
+      <%= render partial: 'form', locals: {company: @company, contract: @contract} %>
+    </div>
+    <div class="tab-pane" id="lawsuit" role="tabpanel">
+      <%= render 'contract_lawsuit', locals: {company: @company, contract: @contract} %>
+    </div>
+  </div>
 </div>

@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :contracts
-  
+  has_many :user_loggings, dependent: :destroy
+  has_many :contracts, through: :user_loggings
+
   validates :role, inclusion: { in: ['member', 'admin'] }
 
   def admin?

@@ -1,0 +1,21 @@
+<%= form_for(@contract.contract_user_ratings.build(:contract_id => @contract.id, :user_id => current_user.id), html: { class: 'edit-rating' }) do |f| %>
+  <fieldset>
+    <div class="form-group row">
+      <%= f.label :rating, "User Rating", :class => "col-3 col-form-label" %>
+      <div class='col-2 read-only form-control'>
+        <% if @contract_user_rating.nil? %>
+          0
+        <% else %>
+          <%= @contract_user_rating.rating %>
+        <% end %>
+      </div>
+      <div class="col-2 editable">
+        <%= f.select :rating, ContractUserRating::USER_RATINGS, {} ,{class: 'form-control'} %>
+      </div>
+    </div>
+    <div><%= f.hidden_field :contract_id %></div>
+    <div><%= f.hidden_field :user_id %></div>
+    <a id="toggle-edit" class="btn btn-primary" role="button">Edit Rating</a>
+    <%= f.submit "Save Rating", class: "btn rating-save", disabled: "disabled" %>
+  </fieldset>
+<% end %>

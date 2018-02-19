@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180205154344) do
+ActiveRecord::Schema.define(version: 20180218143209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,33 +22,59 @@ ActiveRecord::Schema.define(version: 20180205154344) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "contract_user_ratings", force: :cascade do |t|
+    t.integer  "contract_id"
+    t.integer  "user_id"
+    t.integer  "rating",      default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "contracts", force: :cascade do |t|
     t.string   "contract_title"
-    t.string   "contract_date"
-    t.integer  "rating_1",       default: 0
-    t.integer  "rating_2",       default: 0
-    t.integer  "rating_3",       default: 0
-    t.integer  "rating_4",       default: 0
-    t.integer  "rating_5",       default: 0
-    t.integer  "rating_6",       default: 0
-    t.integer  "rating_7",       default: 0
-    t.integer  "rating_8",       default: 0
-    t.integer  "rating_9",       default: 0
-    t.integer  "rating_10",      default: 0
-    t.integer  "total_rating",   default: 0
-    t.text     "description"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.integer  "user_id"
-    t.integer  "rating_11",      default: 0
-    t.integer  "rating_12",      default: 0
-    t.integer  "rating_13",      default: 0
-    t.integer  "rating_14",      default: 0
-    t.integer  "rating_15",      default: 0
+    t.date     "contract_date",                 null: false
+    t.integer  "rating_1",        default: 0
+    t.integer  "rating_2",        default: 0
+    t.integer  "rating_3",        default: 0
+    t.integer  "rating_4",        default: 0
+    t.integer  "rating_5",        default: 0
+    t.integer  "rating_6",        default: 0
+    t.integer  "rating_7",        default: 0
+    t.integer  "rating_8",        default: 0
+    t.integer  "rating_9",        default: 0
+    t.integer  "rating_10",       default: 0
+    t.integer  "total_rating",    default: 0
+    t.text     "additional_note"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.float    "rating_11",       default: 0.0
+    t.float    "rating_12",       default: 0.0
+    t.float    "rating_13",       default: 0.0
+    t.float    "rating_14",       default: 0.0
     t.string   "contract_type"
     t.integer  "company_id"
+    t.text     "rating_1_note"
+    t.text     "rating_2_note"
+    t.text     "rating_3_note"
+    t.text     "rating_4_note"
+    t.text     "rating_5_note"
+    t.string   "website"
+    t.string   "application"
+    t.text     "rating_6_note"
+    t.text     "rating_7_note"
+    t.text     "rating_8_note"
+    t.text     "rating_9_note"
+    t.text     "rating_10_note"
+    t.string   "number_lawsuit",  default: "0"
+    t.integer  "lawsuit_score",   default: 0
     t.index ["company_id"], name: "index_contracts_on_company_id", using: :btree
-    t.index ["user_id"], name: "index_contracts_on_user_id", using: :btree
+  end
+
+  create_table "user_loggings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "contract_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,6 +91,9 @@ ActiveRecord::Schema.define(version: 20180205154344) do
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.string   "role",                   default: "member", null: false
+    t.string   "first_name",             default: "",       null: false
+    t.string   "last_name",              default: "",       null: false
+    t.string   "country",                default: "",       null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

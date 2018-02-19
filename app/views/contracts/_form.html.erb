@@ -1,127 +1,145 @@
-<div class="container pt-5 col-md-8">
+<div class="col-md-10 col-sm-12">
   <%= form_for ([@company,@contract]) do |f| %>
-  <% if contract.errors.any? %>
-    <div class="alert alert-danger" role="alert">
-      <h3><%= pluralize(contract.errors.count, "error") %> prohibited this contract from being saved:</h3>
-      <ul>
-        <% contract.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <% if contract.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <h3><%= pluralize(contract.errors.count, "error") %> prohibited this contract from being saved:</h3>
+        <ul>
+          <% contract.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <div class="form-group row">
-      <%= f.label :contract_title, "Title", :class => "col-2 col-form-label" %>
+      <%= f.label :contract_title, "Title", :class => "col-md-2 col-sm-4 col-form-label" %>
       <div class="col-7">
         <%= f.text_field :contract_title, :class => "form-control", :placeholder => "Enter Contract Title" %>
       </div>
     </div>
     <div class="form-group row">
+      <%= f.label :website, "Website", :class => "col-2 col-form-label" %>
+      <div class="col-7">
+        <%= f.text_field :website, :class => "form-control", :placeholder => "Enter Contract Website" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :application, "Application", :class => "col-2 col-form-label" %>
+      <div class="col-7">
+        <%= f.text_field :application, :class => "form-control", :placeholder => "Enter Contract Title" %>
+      </div>
+    </div>
+    <div class="form-group row">
       <%= f.label :contract_date, "Date", :class => "col-2 col-form-label" %>
       <div class="col-7">
-        <%= f.text_field :contract_date, data:{ provide:'datepicker' }, :class => "form-control", :placeholder => "Enter Contract Date" %>
+        <%= f.text_field :contract_date, value: @contract.contract_date.strftime('%m/%d/%Y'), data:{ provide:'datepicker' }, :class => "form-control", :placeholder => "Enter Contract Date" %>
       </div>
     </div>
     <div class="form-group row">
       <%= f.label :contract_type, "Type", :class => "col-2 col-form-label" %>
       <div class="col-7">
-        <%= f.select(:contract_type, Contract::TYPES, {prompt: '-select-'},{class: 'form-control'}) %>
+        <%= f.select(:contract_type, Contract::TYPES, {},{class: 'form-control'}) %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_1, "The Right to Sue", :class => "col-6 col-form-label" %>
-      <div class="col-3">
-        <%= f.text_field :rating_1, :class => "form-control" %>
+      <%= f.label :rating_1, "The Right to Sue", :class => "col-md-4 col-sm-5 col-form-label" %>
+      <div class="col-2">
+        <%= f.select(:rating_1, Contract::SCORES, {}, {class: 'form-control'}) %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= f.text_area :rating_1_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_2, "The Right to Low-Cost Arbitration", :class => "col-6 col-form-label" %>
-      <div class="col-3">
-        <%= f.text_field :rating_2, :class => "form-control" %>
+      <%= f.label :rating_2, "The Right to Low-Cost Arbitration", :class => "col-4 col-form-label" %>
+      <div class="col-2">
+        <%= f.select(:rating_2, Contract::SCORES, {}, {class: 'form-control'}) %>
+      </div>
+      <div class="col-4">
+        <%= f.text_area :rating_2_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_3, "The Right to a Class Action", :class => "col-6 col-form-label" %>
-      <div class="col-3">
-        <%= f.text_field :rating_3, :class => "form-control" %>
+      <%= f.label :rating_3, "The Right to a Class Action", :class => "col-4 col-form-label" %>
+      <div class="col-2">
+        <%= f.select(:rating_3, Contract::SCORES, {}, {class: 'form-control'}) %>
+      </div>
+      <div class="col-4">
+        <%= f.text_area :rating_3_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_4, "The Right to Due Process", :class => "col-6 col-form-label" %>
-      <div class="col-3">
-        <%= f.text_field :rating_4, :class => "form-control" %>
+      <%= f.label :rating_4, "The Right to Due Process", :class => "col-4 col-form-label" %>
+      <div class="col-2">
+        <%= f.select(:rating_4, Contract::SCORES, {}, {class: 'form-control'}) %>
+      </div>
+      <div class="col-4">
+        <%= f.text_area :rating_4_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_5, "The Right to No Hidden Terms or Fees", :class => "col-6 col-form-label" %>
-      <div class="col-3">
-        <%= f.text_field :rating_5, :class => "form-control" %>
+      <%= f.label :rating_5, "The Right to No Hidden Terms or Fees", :class => "col-4 col-form-label" %>
+      <div class="col-2">
+        <%= f.select(:rating_5, Contract::SCORES, {}, {class: 'form-control'}) %>
+      </div>
+      <div class="col-4">
+        <%= f.text_area :rating_5_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_6, "The Right to Defend Myself & Be Heard", :class => "col-6 col-form-label" %>
-      <div class="col-3">
-        <%= f.text_field :rating_6, :class => "form-control" %>
+      <%= f.label :rating_6, "The Right to Defend Myself & Be Heard", :class => "col-4 col-form-label" %>
+      <div class="col-2">
+        <%= f.select(:rating_6, Contract::SCORES, {}, {class: 'form-control'}) %>
+      </div>
+      <div class="col-4">
+        <%= f.text_area :rating_6_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_7, "The Right to Control My Intellectual Property", :class => "col-6 col-form-label" %>
-      <div class="col-3">
-        <%= f.text_field :rating_7, :class => "form-control" %>
+      <%= f.label :rating_7, "The Right to Control My Intellectual Property", :class => "col-4 col-form-label" %>
+      <div class="col-2">
+        <%= f.select(:rating_7, Contract::SCORES, {}, {class: 'form-control'}) %>
+      </div>
+      <div class="col-4">
+        <%= f.text_area :rating_7_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_8, "The Right to Freedom of Expression", :class => "col-6 col-form-label" %>
-      <div class="col-3">
-        <%= f.text_field :rating_8, :class => "form-control" %>
+      <%= f.label :rating_8, "The Right to Freedom of Expression", :class => "col-4 col-form-label" %>
+      <div class="col-2">
+        <%= f.select(:rating_8, Contract::SCORES, {}, {class: 'form-control'}) %>
+      </div>
+      <div class="col-4">
+        <%= f.text_area :rating_8_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_9, "The Right to Privacy", :class => "col-6 col-form-label" %>
-      <div class="col-3">
-        <%= f.text_field :rating_9, :class => "form-control" %>
+      <%= f.label :rating_9, "The Right to Privacy", :class => "col-4 col-form-label" %>
+      <div class="col-2">
+        <%= f.select(:rating_9, Contract::SCORES, {}, {class: 'form-control'}) %>
+      </div>
+      <div class="col-4">
+        <%= f.text_area :rating_9_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_10, "The Right to Reasonable Terms", :class => "col-6 col-form-label" %>
-      <div class="col-3">
-        <%= f.text_field :rating_10, :class => "form-control" %>
+      <%= f.label :rating_10, "The Right to Reasonable Terms", :class => "col-4 col-form-label" %>
+      <div class="col-2">
+        <%= f.select(:rating_10, Contract::SCORES, {}, {class: 'form-control'}) %>
+      </div>
+      <div class="col-4">
+        <%= f.text_area :rating_10_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_11, "Historical Fairness", :class => "col-6 col-form-label" %>
-      <div class="col-3">
-        <%= f.text_field :rating_11, :class => "form-control" %>
+      <%= f.label :rating_14, "Public Placement of TOS Rating Badge", :class => "col-6 col-form-label" %>
+      <div class="col-2">
+        <%= f.select(:rating_14, Contract::BADGES, {}, {class: 'form-control'}) %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_12, "Historical User Ratings", :class => "col-6 col-form-label" %>
-      <div class="col-3">
-        <%= f.text_field :rating_12, :class => "form-control" %>
-      </div>
-    </div>
-    <div class="form-group row">
-      <%= f.label :rating_13, "Historical Lack of Lawsuits or Arbitrations", :class => "col-6 col-form-label" %>
-      <div class="col-3">
-        <%= f.text_field :rating_13, :class => "form-control" %>
-      </div>
-    </div>
-    <div class="form-group row">
-      <%= f.label :rating_14, "Historical Transparency Rating", :class => "col-6 col-form-label" %>
-      <div class="col-3">
-        <%= f.text_field :rating_14, :class => "form-control" %>
-      </div>
-    </div>
-    <div class="form-group row">
-      <%= f.label :rating_15, "Double Public Placement of TOS Rating Badge", :class => "col-6 col-form-label" %>
-      <div class="col-3">
-        <%= f.text_field :rating_15, :class => "form-control" %>
-      </div>
-    </div>
-    <div class="form-group row">
-      <%= f.label :description, "Description", :class => "col-2 col-form-label" %>
+      <%= f.label :additional_note, :class => "col-2 col-form-label" %>
       <div class="col-7">
-        <%= f.text_area :description, :class => "form-control", :placeholder => "Enter Description", :row => 3 %>
+        <%= f.text_area :additional_note, :class => "form-control", :placeholder => "Enter additional note", :row => 3 %>
       </div>
     </div>
     <%= f.submit "Save", :class => "btn btn-primary" %>
