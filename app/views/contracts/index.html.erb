@@ -1,52 +1,47 @@
 <div class="container pt-5">
-  <div class="col-md-6">
-  <p class="h3"><%= @company.company_name %> - <%= @company.website %></p>
+  <div class="col-md-9">
+    <p class="h3"><%= @company.company_name %> - <%= @company.website %></p>
 
-  <% if @contracts.size > 0 %>
-  <table class="table">
-    <tbody>
-      <% @contracts.each do |contract| %>
-        <tr>
-          <th scope="col">Contract Title</th>
-          <td><%= contract.contract_title %></td>
-        </tr>
-        <tr>
-          <th scope="col">Contract Date</th>
-          <td><%= contract.contract_date %></td>
-        </tr>
-        <tr>
-          <th scope="col">Contract Type</th>
-          <td><%= contract.contract_type %></td>
-        </tr>
-        <tr>
-          <th scope="col">Total Rating</th>
-          <td><%= contract.total_rating %></td>
-        </tr>
-        <tr>
-          <th scope="col">Description</th>
-          <td><%= contract.description %></td>
-        </tr>
-        <tr>
-          <th scope="col">Updated By</th>
-          <td><%= contract.user.email %></td>
-          <td>
-            <% if user_signed_in? && current_user.admin? %>
-              <%= link_to 'Edit', edit_company_contract_path(@company,contract) %>
-            <% end %>
-          </td>
-        </tr>
-        <tr><th scope="col"></th><td></td></tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <% else %>
-    <div class="alert alert-info" role="alert">
-      Waiting to be reviewed
-    </div>
-  <% end %>
-  <% if user_signed_in? && current_user.admin? %>
-    <%= link_to 'Create New Contract', new_company_contract_path(@company) %>
-  <% end %>
+    <% if @contracts.size > 0 %>
+      <table class="table">
+        <thead class="thead-default">
+          <tr>
+            <th>Title</th>
+            <th>Website</th>
+            <th>Application</th>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Total Rating</th>
+            <th> </th>
+            <th> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @contracts.each do |contract| %>
+            <tr>
+              <th><%= contract.contract_title %></th>
+              <td><%= contract.website %></td>
+              <td><%= contract.application %></td>
+              <td><%= contract.contract_date.strftime('%m/%d/%Y') %></td>
+              <td><%= contract.contract_type %></td>
+              <td><%= contract.total_rating %></td>
+              <td><%= link_to 'View', company_contract_path(@company, contract) %></td>
+              <td>
+                <% if user_signed_in? && current_user.admin? %>
+                  <%= link_to 'Edit', edit_company_contract_path(@company,contract) %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <div class="alert alert-info" role="alert">
+        Waiting to be reviewed
+      </div>
+    <% end %>
+    <% if user_signed_in? && current_user.admin? %>
+      <%= link_to 'Create New Contract', new_company_contract_path(@company) %>
+    <% end %>
   </div>
 </div>

@@ -1,0 +1,14 @@
+<%= form_for ([@company,@contract]), html: { class: 'edit-lawsuit' } do |f| %>
+  <div class="form-group row">
+    <%= f.label :number_lawsuit, "No. Lawsuits", :class => "col-3 col-form-label" %>
+    <div class='col-2 read-only form-control'>
+      <%= @contract.number_lawsuit %>
+    </div>
+    <div class="col-2 editable">
+      <%= f.select(:number_lawsuit,
+        Contract::LAWSUITS.collect {|c| [c, Contract::LAWSUITS.index(c)] },{}, {class: 'form-control'}) %>
+    </div>
+  </div>
+  <a id="toggle-edit-lawsuit" class="btn btn-primary" role="button">Edit Lawsuits</a>
+  <%= f.submit "Save Lawsuits", class: "btn lawsuit-save", disabled: "disabled" %>
+<% end %>

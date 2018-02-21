@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     resources :contracts
   end
 
+  resources :contracts
+
+  resources :contract_user_ratings, only: [:index, :show, :new, :create]
+  resources :user_loggings, only: [:index, :show, :new, :create]
+
   get "top_ten_fair", to: "websites#top_ten_fair"
   get "top_ten_unfair", to: "websites#top_ten_unfair"
   get "contract_detail", to: "contracts#contract_detail"

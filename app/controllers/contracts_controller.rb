@@ -3,11 +3,16 @@ class ContractsController < ApplicationController
   before_action :authorize_admin!, only: [:edit, :update]
 
   def index
-    @contracts = @company.contracts
+    @contracts = @company.contracts.order(contract_date: :desc)
   end
 
   def show
     @contract = Contract.find(params[:id])
+    @user_loggings = UserLogging.where(contract_id: params[:id])
+
+    if !current_user.nil?
+      @contract_user_rating = ContractUserRating.where(contract_id: params[:id], user_id: current_user.id).first
+    end
   end
 
   def new
@@ -16,12 +21,23 @@ class ContractsController < ApplicationController
 
   def create
     @contract = @company.contracts.build(contract_params)
-    @contract.user = current_user
 
-    if @contract.save
-      redirect_to company_contracts_path(@company), notice: 'Contract was successfully created.'
-    else
-      render :new
+    saved = false
+
+    Contract.transaction do
+      saved = @contract.save
+
+      if saved
+        UserLogging.create(:contract_id => @contract.id, :user_id => current_user.id)
+      end
+    end
+
+    respond_to do |format|
+      if saved
+        format.html { redirect_to company_contracts_path(@company), :notice => 'Contract was successfully created.' }
+      else
+        format.html { render :action => "new" }
+      end
     end
   end
 
@@ -31,12 +47,23 @@ class ContractsController < ApplicationController
 
   def update
     @contract = Contract.find(params[:id])
-    @contract.user = current_user
 
-    if @contract.update_attributes(contract_params)
-      redirect_to company_contracts_path(@company), notice: 'Contract was successfully updated.'
-    else
-      render :edit
+    saved = false
+
+    Contract.transaction do
+      saved = @contract.update_attributes(contract_params)
+
+      if saved
+        UserLogging.create(:contract_id => @contract.id, :user_id => current_user.id)
+      end
+    end
+
+    respond_to do |format|
+      if saved
+        format.html { redirect_to company_contracts_path(@company), :notice => 'Contract was successfully updated.' }
+      else
+        format.html { render :action => "edit" }
+      end
     end
   end
 
@@ -47,7 +74,10 @@ class ContractsController < ApplicationController
 
   def contract_params
     params.require(:contract).permit(
+      :company_id,
       :contract_title,
+      :website,
+      :application,
       :contract_date,
       :contract_type,
       :rating_1,
@@ -60,11 +90,19 @@ class ContractsController < ApplicationController
       :rating_8,
       :rating_9,
       :rating_10,
-      :rating_11,
-      :rating_12,
-      :rating_13,
       :rating_14,
-      :rating_15
+      :rating_1_note,
+      :rating_2_note,
+      :rating_3_note,
+      :rating_4_note,
+      :rating_5_note,
+      :rating_6_note,
+      :rating_7_note,
+      :rating_8_note,
+      :rating_9_note,
+      :rating_10_note,
+      :additional_note,
+      :number_lawsuit
     )
   end
 end

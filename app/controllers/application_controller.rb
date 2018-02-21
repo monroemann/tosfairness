@@ -7,4 +7,20 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def authenticate_user
+    if !user_signed_in?
+      raise ActionController::RountingError.new("Not Found")
+    end
+  end
+
+  helper_method :handle_redirect
+
+  def handle_redirect
+    if request.xhr?
+      head 200
+    else
+      redirect_to request.referer
+    end
+  end
 end
