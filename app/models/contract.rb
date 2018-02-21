@@ -59,6 +59,14 @@ class Contract < ApplicationRecord
                     type, company_id, prior_date, current_date)
   end
 
+  def calculate_historical(val)
+    if val.nil?
+      0
+    else
+      val/10
+    end
+  end
+
   def calculate_total
     # Get prior 5 years date
     prior_5_year_date = contract_date - 5.years
@@ -84,9 +92,9 @@ class Contract < ApplicationRecord
                             average(:lawsuit_score)
 
 
-    self.rating_11 = 0 if self.rating_11.nil?
-    self.rating_12 = 0 if self.rating_12.nil?
-    self.rating_13 = 0 if self.rating_13.nil?
+    self.rating_11 = calculate_historical(self.rating_11)
+    self.rating_12 = calculate_historical(self.rating_12)
+    self.rating_13 = calculate_historical(self.rating_13)
 
     self.total_rating = self.rating_1 +
                           self.rating_2 +
