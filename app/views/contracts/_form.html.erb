@@ -31,7 +31,7 @@
     <div class="form-group row">
       <%= f.label :contract_date, "Date", :class => "col-2 col-form-label" %>
       <div class="col-7">
-        <%= f.text_field :contract_date, value: @contract.contract_date.strftime('%m/%d/%Y'), data:{ provide:'datepicker' }, :class => "form-control", :placeholder => "Enter Contract Date" %>
+        <%= f.text_field :contract_date, value: @contract.contract_date.try(:strftime, '%m/%d/%Y'), data:{ provide:'datepicker' }, :class => "form-control", :placeholder => "Enter Contract Date" %>
       </div>
     </div>
     <div class="form-group row">
