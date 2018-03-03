@@ -20,7 +20,7 @@
       <%= f.label :country %><br />
       <%= f.text_field :country, autocomplete: "country", :class => "form-control"  %>
     </div>
-    
+
     <div class="form-group">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control"  %>
@@ -54,9 +54,7 @@
     </div>
   <% end %>
 
-  <h3>Cancel my account</h3>
-
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p>Unhappy?, cancel my account <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "btn btn-secondary" %></p>
 
   <%= link_to "Back", :back %>
 
