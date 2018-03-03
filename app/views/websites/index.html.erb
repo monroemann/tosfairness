@@ -41,7 +41,7 @@
             <ol>
               <% if !@top_ten_fairs.nil? %>
                 <% @top_ten_fairs.each do |c| %>
-                  <li><%= c.contract_title %></li>
+                  <li><%= c.contract.contract_title %></li>
                 <% end %>
               <% end %>
             </ol>
@@ -70,7 +70,7 @@
           <ol>
             <% if !@top_ten_unfairs.nil? %>
               <% @top_ten_unfairs.each do |c| %>
-                <li><%= c.contract_title %></li>
+                <li><%= c.contract.contract_title %></li>
               <% end %>
             <% end %>
           </ol>

@@ -1,0 +1,4 @@
+<div class="container pt-5">
+  <h2>Contract for <%= @contract.company.company_name %></h2>
+  <%= render partial: 'form', locals: {contract: @contract, contract_revision: @contract_revision} %>
+</div>

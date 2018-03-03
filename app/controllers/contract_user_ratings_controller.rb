@@ -1,6 +1,6 @@
 class ContractUserRatingsController < ApplicationController
   before_action :authenticate_user
-  before_action :load_contract, only: %i(create)
+  before_action :load_contract_revision, only: %i(create)
   before_action :load_user, only: %i(create)
 
   def create
@@ -17,8 +17,8 @@ class ContractUserRatingsController < ApplicationController
     @contract_user_rating = ContractUserRating.find(params[:id])
   end
 
-  def load_contract
-    @contract = Contract.find(contract_user_rating_params[:contract_id])
+  def load_contract_revision
+    @contract_revision = ContractRevision.find(contract_user_rating_params[:contract_revision_id])
   end
 
   def load_user
@@ -26,13 +26,13 @@ class ContractUserRatingsController < ApplicationController
   end
 
   def create_params
-    { contract: @contract, user: @user }
+    { contract_revision: @contract_revision, user: @user }
   end
 
   def contract_user_rating_params
     params
       .require(:contract_user_rating)
-      .permit(:contract_id,
+      .permit(:contract_revision_id,
               :user_id,
               :rating)
   end

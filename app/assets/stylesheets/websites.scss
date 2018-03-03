@@ -17,3 +17,12 @@ main {
 .editable {
   display: none;
 }
+
+ul.contract-revision-list {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    margin: 0 0 5px 0;
+  }
+}
