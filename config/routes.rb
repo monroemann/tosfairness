@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     resources :contracts
   end
 
-  resources :contracts
+  resources :contracts do
+    resources :contract_revisions
+  end
 
   resources :contract_user_ratings, only: [:index, :show, :new, :create]
   resources :user_loggings, only: [:index, :show, :new, :create]

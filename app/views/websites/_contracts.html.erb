@@ -1,9 +1,9 @@
 <tr>
-  <td><%= item.contract_title %></td>
+  <td><%= item.contract.contract_title %></td>
   <td><%= item.total_rating %></td>
-  <td><%= link_to 'View', company_contract_path(item.company_id, item) %>
+  <td><%= link_to 'View', contract_contract_revision_path(item.contract, item) %>
   <% if user_signed_in? && current_user.admin? %>
-    <%= link_to 'Edit', edit_company_contract_path(item.company_id,item) %>
+    <%= link_to 'Edit', edit_contract_contract_revision_path(item.contract,item) %>
   <% end %>
   </td>
 </tr>
