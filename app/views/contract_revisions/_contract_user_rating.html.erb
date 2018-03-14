@@ -1,7 +1,7 @@
 <%= form_for(@contract_revision.contract_user_ratings.build(:contract_revision_id => @contract_revision.id, :user_id => current_user.id), html: { class: 'edit-rating' }) do |f| %>
   <fieldset>
     <div class="form-group row">
-      <%= f.label :rating, "User Rating", :class => "col-3 col-form-label" %>
+      <%= f.label :rating, "User Ratings", :class => "col-3 col-form-label" %>
       <div class='col-2 read-only form-control'>
         <% if @contract_user_rating.nil? %>
           0
@@ -10,7 +10,7 @@
         <% end %>
       </div>
       <div class="col-2 editable">
-        <%= f.select :rating, ContractUserRating::USER_RATINGS, {} ,{class: 'form-control'} %>
+        <%= f.select(:rating, options_for_select(ContractUserRating::USER_RATINGS, f.object.rating), {} ,{class: 'form-control'}) %>
       </div>
     </div>
     <div><%= f.hidden_field :contract_revision_id %></div>

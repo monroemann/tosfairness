@@ -1,12 +1,21 @@
 <%= form_for ([@contract,@contract_revision]), html: { class: 'edit-lawsuit' } do |f| %>
   <div class="form-group row">
-    <%= f.label :number_lawsuit, "No. Lawsuits", :class => "col-3 col-form-label" %>
+    <%= f.label :number_lawsuit, "No. Lawsuits", :class => "col-2 col-form-label" %>
     <div class='col-2 read-only form-control'>
       <%= @contract_revision.number_lawsuit %>
     </div>
     <div class="col-2 editable">
       <%= f.select(:number_lawsuit,
-        ContractRevision::LAWSUITS.collect {|c| [c, ContractRevision::LAWSUITS.index(c)] },{}, {class: 'form-control'}) %>
+        options_for_select(ContractRevision::LAWSUITS.collect {|c| [c, ContractRevision::LAWSUITS.index(c)] }, f.object.number_lawsuit),{}, {class: 'form-control'}) %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :lawsuit_note, "Notes:", :class => "col-2 col-form-label" %>
+    <div class="col-10 read-only">
+      <%= @contract_revision.lawsuit_note %>
+    </div>
+    <div class="col-10 editable">
+      <%= f.text_area :lawsuit_note, :class => "form-control", :placeholder => "Enter Notes", :row => 5 %>
     </div>
   </div>
   <a id="toggle-edit-lawsuit" class="btn btn-primary" role="button">Edit Lawsuits</a>
