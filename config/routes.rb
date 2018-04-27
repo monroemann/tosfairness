@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get "rating_system", to: "websites#rating_system"
   get "volunteer", to: "websites#volunteer"
   get "about", to: "websites#about"
+  get "team", to: "websites#team"
   get "break_diving", to: "websites#break_diving"
   get "donate", to: "websites#donate"
 
