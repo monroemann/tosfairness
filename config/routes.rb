@@ -28,5 +28,6 @@ Rails.application.routes.draw do
   get "break_diving", to: "websites#break_diving"
   get "terms", to: "websites#terms"
   get "donate", to: "websites#donate"
+  get "index", to: "websites#index"
 
 end
