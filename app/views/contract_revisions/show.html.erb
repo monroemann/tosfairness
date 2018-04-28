@@ -39,6 +39,10 @@
               <td><%= @contract_revision.contract_date.strftime('%m/%d/%Y') %></td>
             </tr>
             <tr>
+              <th scope="col">Total Rating</th>
+              <td><b><%= @contract_revision.total_rating %></b></td>
+            </tr>
+            <tr>
               <th scope="col">The Right to Privacy</th>
               <td><%= @contract_revision.rating_1 %></td>
               <% if !@contract_revision.rating_1_note.nil? %>

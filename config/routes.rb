@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get "about", to: "websites#about"
   get "team", to: "websites#team"
   get "break_diving", to: "websites#break_diving"
+  get "terms", to: "websites#terms"
   get "donate", to: "websites#donate"
 
 end
