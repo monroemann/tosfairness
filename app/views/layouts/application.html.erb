@@ -29,27 +29,32 @@
 
           <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="/about">About <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/bill_of_rights">Bill of Rights</a>
+                <a class="nav-link" href="/team">The Team</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/bill_of_rights">The Bill of Rights</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/rating_system">The Rating System</a>
               </li>
               <li class="nav-item">
+                <%= link_to "The Ratings", companies_path, :class => "nav-link" %>
+              </li>
+              <li class="nav-item">
+              <li class="nav-item">
+                <a class="nav-link" href="/break_diving">Break Diving</a>
+              </li>
                 <a class="nav-link" href="/volunteer">Volunteer</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/donate">Donate</a>
               </li>
-              <li class="nav-item">
-                <%= link_to "Contracts", companies_path, :class => "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="/break_diving">Break Diving</a>
-              </li>
+              
+              
             </ul>
             <ul class="navbar-nav justify-content-end">
               <% if user_signed_in? %>

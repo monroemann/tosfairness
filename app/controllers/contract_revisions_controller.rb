@@ -99,7 +99,9 @@ class ContractRevisionsController < ApplicationController
       :rating_10_note,
       :additional_note,
       :number_lawsuit,
-      :ways_to_improve
+      :ways_to_improve,
+      :lawsuit_note,
+      :tos_url
     )
   end
 end

@@ -1,8 +1,8 @@
 <tr>
   <td><%= item.contract.contract_title %></td>
-  <td><%= item.total_rating %></td>
-  <td><%= link_to 'View', contract_contract_revision_path(item.contract, item) %>
-  <% if user_signed_in? && current_user.admin? %>
+  <td><%= "#{item.total_rating.round(2)}" %></td>
+  <td><%= link_to 'View', contract_contract_revision_path(item.contract, item) %></td>
+  <td><% if user_signed_in? && current_user.admin? %>
     <%= link_to 'Edit', edit_contract_contract_revision_path(item.contract,item) %>
   <% end %>
   </td>

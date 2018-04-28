@@ -120,7 +120,7 @@ class ContractRevision < ApplicationRecord
 
     # historical ratings
     if (prior_years_count[0] != nil && prior_years_count[0] > 0)
-      self.rating_11 = ((prior_years_total[0] + current_year_total)/(prior_years_count[0]+1))
+      self.rating_11 = (1.0*(prior_years_total[0] + current_year_total)/(prior_years_count[0]+1))
     else
       self.rating_11 = current_year_total
     end
@@ -128,24 +128,24 @@ class ContractRevision < ApplicationRecord
     # historical user ratings
     if (prior_years_user_ratings_count[0] != nil && prior_years_user_ratings_count[0] > 0)
       if (current_user_ratings_count[0] != nil && current_user_ratings_count[0] > 0)
-        self.rating_12 = ((prior_years_user_ratings[0]+current_user_ratings[0])/(prior_years_user_ratings_count[0]+current_user_ratings_count[0]))
+        self.rating_12 = (1.0*(prior_years_user_ratings[0]+current_user_ratings[0])/(prior_years_user_ratings_count[0]+current_user_ratings_count[0]))
       else
-        self.rating_12 = (prior_years_user_ratings[0]/prior_years_user_ratings_count[0])
+        self.rating_12 = (1.0*prior_years_user_ratings[0]/prior_years_user_ratings_count[0])
       end
     elsif (current_user_ratings_count[0] != nil && current_user_ratings_count[0] > 0)
-      self.rating_12 = (current_user_ratings[0]/current_user_ratings_count[0])
+      self.rating_12 = (1.0*current_user_ratings[0]/current_user_ratings_count[0])
     else
       self.rating_12 = 0
     end
 
     # historical lawsuit scores
     if (prior_years_count[0] != nil && prior_years_count[0] > 0)
-      self.rating_13 = ((prior_years_lawsuits[0] + lawsuit_score)/ (prior_years_count[0]+1))
+      self.rating_13 = (1.0*(prior_years_lawsuits[0] + lawsuit_score)/ (prior_years_count[0]+1))
     else
       self.rating_13 = lawsuit_score
     end
 
-    self.rating_11 = calculate_historical(self.rating_11,5)
+    self.rating_11 = calculate_historical(self.rating_11,5.0)
 
     self.total_rating = self.rating_1 +
                           self.rating_2 +

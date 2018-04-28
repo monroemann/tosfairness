@@ -1,7 +1,7 @@
 <div class="container pt-5">
   <div class="col-md-10">
     <p class="h3"><%= @company.company_name %> - <%= @company.website %></p>
-
+    <%= render 'shared/fine_print' %>
     <% if @contracts.size > 0 %>
       <table class="table">
         <thead class="thead-default">
@@ -10,6 +10,7 @@
             <th>Website</th>
             <th>Application</th>
             <th>Date</th>
+            <th>Total Rating</th>
             <th>Type</th>
             <th> </th>
             <th> </th>
@@ -21,15 +22,24 @@
               <th><%= contract.contract_title %></th>
               <td><%= contract.website %></td>
               <td><%= contract.application %></td>
+              <% if contract.contract_revisions.size > 0 %>
               <td>
-                <% if contract.contract_revisions.size > 0 %>
-                  <ul class="contract-revision-list">
-                  <% contract.contract_revisions.each do |revision| %>
-                    <li><%= link_to revision.contract_date.strftime('%m/%d/%Y'), contract_contract_revision_path(contract,revision) %></li>
-                  <% end %>
-                  </ul>
+                <ul class="contract-revision-list">
+                <% contract.contract_revisions.each do |revision| %>
+                  <li><a href="http://<%= revision.tos_url %>" target="_blank"><%= revision.contract_date.strftime('%m/%d/%Y') %></a></li>
                 <% end %>
+                </ul>
               </td>
+              <td>
+                <ul class="contract-revision-list">
+                <% contract.contract_revisions.each do |revision| %>
+                  <li><%= link_to "#{revision.total_rating.round(2)}", contract_contract_revision_path(contract,revision) %></li>
+                <% end %>
+                </ul>
+              </td>
+              <% else %>
+              <td> </td><td> </td>
+              <% end %>
               <td><%= contract.contract_type %></td>
               <% if user_signed_in? && current_user.admin? %>
                 <td>
@@ -51,5 +61,6 @@
     <% if user_signed_in? && current_user.admin? %>
       <%= link_to 'Create New Contract', new_company_contract_path(@company) %>
     <% end %>
+    <%= render 'shared/large_fine_print' %>
   </div>
 </div>
