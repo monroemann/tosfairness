@@ -1,5 +1,5 @@
 <div class="container pt-5">
-  <div class="col-md-10">
+  <div class="col-md-7">
     <p class="h3"><%= @contract.company.company_name %> - <%= @contract.company.website %></p>
     <ul class="nav nav-tabs">
       <li class="nav-item">
@@ -8,18 +8,14 @@
       <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#review" role="tab">Reviewed by</a>
       </li>
-      <% if user_signed_in? && !current_user.admin? %>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#rating">User Rating</a>
-        </li>
-      <% end %>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#rating">User Rating</a>
+      </li>
     </ul>
     <br />
     <!-- Tab panes -->
     <div class="tab-content">
       <div class="tab-pane active" id="contract" role="tabpanel">
-        <%= render 'shared/fine_print' %>
-        <br />
         <table class="table">
           <tbody>
             <tr>
@@ -39,15 +35,11 @@
               <td><%= @contract.contract_type %></td>
             </tr>
             <tr>
-              <th scope="col">Direct URL to TOS</th>
-              <td><%= @contract_revision.tos_url %></td>
-            </tr>
-            <tr>
               <th scope="col">Contract Date</th>
               <td><%= @contract_revision.contract_date.strftime('%m/%d/%Y') %></td>
             </tr>
             <tr>
-              <th scope="col">The Right to Sue</th>
+              <th scope="col">The Right to Privacy</th>
               <td><%= @contract_revision.rating_1 %></td>
               <% if !@contract_revision.rating_1_note.nil? %>
                 <td>
@@ -56,7 +48,7 @@
               <% end %>
             </tr>
             <tr>
-              <th scope="col">The Right to Low-Cost Arbitration</th>
+              <th scope="col">The Right to Equal, Fair, & Reasonable Expression</th>
               <td><%= @contract_revision.rating_2 %></td>
               <% if !@contract_revision.rating_2_note.nil? %>
                 <td>
@@ -65,7 +57,7 @@
               <% end %>
             </tr>
             <tr>
-              <th scope="col">The Right to a Class Action</th>
+              <th scope="col">The Right to Control My Intellectual Property</th>
               <td><%= @contract_revision.rating_3 %></td>
               <% if !@contract_revision.rating_3_note.nil? %>
                 <td>
@@ -74,7 +66,7 @@
               <% end %>
             </tr>
             <tr>
-              <th scope="col">The Right to Due Process</th>
+              <th scope="col">The Right to Sue</th>
               <td><%= @contract_revision.rating_4 %></td>
               <% if !@contract_revision.rating_4_note.nil? %>
                 <td>
@@ -83,7 +75,7 @@
               <% end %>
             </tr>
             <tr>
-              <th scope="col">The Right to No Hidden Terms or Fees</th>
+              <th scope="col">The Right to Low-Cost Arbitration</th>
               <td><%= @contract_revision.rating_5 %></td>
               <% if !@contract_revision.rating_5_note.nil? %>
                 <td>
@@ -92,7 +84,7 @@
               <% end %>
             </tr>
             <tr>
-              <th scope="col">The Right to Defend Myself & Be Heard</th>
+              <th scope="col">The Right to Join a Class Action</th>
               <td><%= @contract_revision.rating_6 %></td>
               <% if !@contract_revision.rating_6_note.nil? %>
                 <td>
@@ -101,7 +93,7 @@
               <% end %>
             </tr>
             <tr>
-              <th scope="col">The Right to Control My Intellectual Property</th>
+              <th scope="col">The Right to No Hidden Terms or Fees</th>
               <td><%= @contract_revision.rating_7 %></td>
               <% if !@contract_revision.rating_7_note.nil? %>
                 <td>
@@ -110,7 +102,7 @@
               <% end %>
             </tr>
             <tr>
-              <th scope="col">The Right to Freedom of Expression</th>
+              <th scope="col">The Right to Fair Process & To Be Heard</th>
               <td><%= @contract_revision.rating_8 %></td>
               <% if !@contract_revision.rating_8_note.nil? %>
                 <td>
@@ -119,7 +111,7 @@
               <% end %>
             </tr>
             <tr>
-              <th scope="col">The Right to Privacy</th>
+              <th scope="col">The Right to Appeal & The Right to Return</th>
               <td><%= @contract_revision.rating_9 %></td>
               <% if !@contract_revision.rating_9_note.nil? %>
                 <td>
@@ -138,23 +130,23 @@
             </tr>
             <tr>
               <th scope="col">Historical Fairness</th>
-              <td><%= "#{@contract_revision.rating_11.round(2)}" %></td>
+              <td><%= @contract_revision.rating_11 %></td>
             </tr>
             <tr>
               <th scope="col">Historical User Ratings</th>
-              <td><%= "#{@contract_revision.rating_12.round(2)}" %></td>
+              <td><%= @contract_revision.rating_12 %></td>
             </tr>
             <tr>
               <th scope="col">Historical Lack of Lawsuits or Arbitrations</th>
-              <td><%= "#{@contract_revision.rating_13.round(2)}" %></td>
+              <td><%= @contract_revision.rating_13 %></td>
             </tr>
             <tr>
               <th scope="col">Public Placement of TOS Rating Badge</th>
-              <td><%= "#{@contract_revision.rating_14.round(2)}" %></td>
+              <td><%= @contract_revision.rating_14 %></td>
             </tr>
             <tr>
               <th scope="col">Total Rating</th>
-              <td><%= "#{@contract_revision.total_rating.round(2)}" %></td>
+              <td><%= @contract_revision.total_rating %></td>
             </tr>
             <tr>
               <th scope="col">Additional Note</th>
@@ -166,35 +158,12 @@
             </tr>
           </tbody>
         </table>
-        <div class="btn-group" role="group" >
-          <% if user_signed_in? && current_user.admin? %>
-            <%= button_to 'Edit', edit_contract_contract_revision_path(@contract, @contract_revision), method: :get, class: 'btn btn-primary' %>
-          <% end %>
-          &nbsp;
-          <%= link_to 'Back', company_contracts_path(@contract.company_id), class: 'btn btn-outline-secondary' %>
-        </div>
-        <br />
-        <%= render 'shared/large_fine_print' %>
+        <% if user_signed_in? && current_user.admin? %>
+          <%= button_to 'Edit', edit_contract_contract_revision_path(@contract, @contract_revision), method: :get, class: 'btn btn-primary' %>
+        <% end %>
       </div>
       <div class="tab-pane" id="rating" role="tabpanel">
-        <% if user_signed_in? && !current_user.admin? %>
-          <div class="col-12">
-            <p>
-            Are you a user of this particular website and have you used this PARTICULAR terms of service? If so,
-            please feel free to rate this agreement here. You do not need to be an attorney.
-            <br /><br />&nbsp;
-            A 0 means your experience with this terms of service has been terrible and that you do not like the terms.
-            <br />&nbsp;
-            A 10 means your experience with this terms of service has been wonderful and that you very much like the terms.
-            <br /><br />
-            As much as you can, please try to separate your personal feelings about the company itself and really make
-            an effort to provide an honest analysis of the contents of the actual terms of service and your interactions
-            with the company based on this particular terms of service. You may change your rating at any time.
-            </p>
-          </div>
-          <br />
-          <%= render 'contract_user_rating' %>
-        <% end %>
+        <%= render 'contract_user_review' %>
       </div>
       <div class="tab-pane" id="review" role="tabpanel">
         <% if @user_loggings.size > 0 %>

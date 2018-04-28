@@ -1,0 +1,43 @@
+<% if user_signed_in? && !current_user.admin? %>
+  <%= form_for(@contract_revision.contract_user_ratings.build(:contract_revision_id => @contract_revision.id, :user_id => current_user.id)) do |f| %>
+    <fieldset>
+      <div class="form-group row">
+        <%= f.label :rating, "User Rating", :class => "col-3 col-form-label" %>
+        <div class="col-2">
+          <%= f.select(:rating,
+          ContractUserRating::USER_RATINGS.collect { |c| [c, ContractUserRating::USER_RATINGS.index(c)]}, {} ,{class: 'form-control'}) %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :comment, :class => "col-3 col-form-label" %>
+        <div class="col-8">
+          <%= f.text_area :comment, :class => "form-control", :placeholder => "Enter comment", :row => 3 %>
+        </div>
+      </div>
+      <div><%= f.hidden_field :contract_revision_id %></div>
+      <div><%= f.hidden_field :user_id %></div>
+      <%= f.submit "Save Rating", :id => "user_rating_submit", class: "btn btn-primary" %>
+    </fieldset>
+  <% end %>
+<% end %>
+<br />
+<div id="user_comments_table">
+  <table class="table">
+    <thead>
+      <tr class="d-flex">
+        <th scope="col" class="col-3">First Name</th>
+        <th scope="col" class="col-2">Rating</th>
+        <th scope="col" class="col-6">Comment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @contract_revision.contract_user_ratings.order("updated_at DESC").each do |c| %>
+        <tr class="d-flex">
+          <td class="col-sm-3"><%= c.user.first_name %></td>
+          <td class="col-sm-2"><%= c.rating %></td>
+          <td class="col-sm-6"><%= c.comment %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

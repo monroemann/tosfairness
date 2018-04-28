@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :contract_revisions
   end
 
-  resources :contract_user_ratings, only: [:index, :show, :new, :create]
+  resources :contract_user_ratings
   resources :user_loggings, only: [:index, :show, :new, :create]
 
   get "top_ten_fair", to: "websites#top_ten_fair"

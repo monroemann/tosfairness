@@ -1,5 +1,5 @@
 class ContractsController < ApplicationController
-  before_action :set_company
+  before_action :set_company, except: [:show]
   before_action :authorize_admin!, only: [:edit, :update]
 
   def index

@@ -18,87 +18,81 @@
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :tos_url, "URL of TOS", :class => "col-2 col-form-label" %>
-      <div class="col-5">
-        <%= f.text_field :tos_url, :class => "form-control", :placeholder => "Direct URL to TOS: Optional" %>
-      </div>
-    </div>
-    <div class="form-group row">
-      <%= f.label :rating_1, "The Right to Sue", :class => "col-md-4 col-sm-5 col-form-label" %>
+      <%= f.label :rating_1, "The Right to Privacy", :class => "col-md-4 col-sm-5 col-form-label" %>
       <div class="col-2">
-        <%= f.select(:rating_1, options_for_select(ContractRevision::SCORES, f.object.rating_1), {}, {class: 'form-control'}) %>
+        <%= f.select(:rating_1, ContractRevision::SCORES, {}, {class: 'form-control'}) %>
       </div>
       <div class="col-md-4 col-sm-6">
         <%= f.text_area :rating_1_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_2, "The Right to Low-Cost Arbitration", :class => "col-4 col-form-label" %>
+      <%= f.label :rating_2, "The Right to Equal, Fair, & Reasonable Expression", :class => "col-4 col-form-label" %>
       <div class="col-2">
-        <%= f.select(:rating_2, options_for_select(ContractRevision::SCORES, f.object.rating_2), {}, {class: 'form-control'}) %>
+        <%= f.select(:rating_2, ContractRevision::SCORES, {}, {class: 'form-control'}) %>
       </div>
       <div class="col-4">
         <%= f.text_area :rating_2_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_3, "The Right to a Class Action", :class => "col-4 col-form-label" %>
+      <%= f.label :rating_3, "The Right to Control My Intellectual Property", :class => "col-4 col-form-label" %>
       <div class="col-2">
-        <%= f.select(:rating_3, options_for_select(ContractRevision::SCORES, f.object.rating_3), {}, {class: 'form-control'}) %>
+        <%= f.select(:rating_3, ContractRevision::SCORES, {}, {class: 'form-control'}) %>
       </div>
       <div class="col-4">
         <%= f.text_area :rating_3_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_4, "The Right to Due Process", :class => "col-4 col-form-label" %>
+      <%= f.label :rating_4, "The Right to Sue", :class => "col-4 col-form-label" %>
       <div class="col-2">
-        <%= f.select(:rating_4, options_for_select(ContractRevision::SCORES,f.object.rating_4), {}, {class: 'form-control'}) %>
+        <%= f.select(:rating_4, ContractRevision::SCORES, {}, {class: 'form-control'}) %>
       </div>
       <div class="col-4">
         <%= f.text_area :rating_4_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_5, "The Right to No Hidden Terms or Fees", :class => "col-4 col-form-label" %>
+      <%= f.label :rating_5, "The Right to Low-Cost Arbitration", :class => "col-4 col-form-label" %>
       <div class="col-2">
-        <%= f.select(:rating_5, options_for_select(ContractRevision::SCORES,f.object.rating_5), {}, {class: 'form-control'}) %>
+        <%= f.select(:rating_5, ContractRevision::SCORES, {}, {class: 'form-control'}) %>
       </div>
       <div class="col-4">
         <%= f.text_area :rating_5_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_6, "The Right to Defend Myself & Be Heard", :class => "col-4 col-form-label" %>
+      <%= f.label :rating_6, "The Right to Join a Class Action", :class => "col-4 col-form-label" %>
       <div class="col-2">
-        <%= f.select(:rating_6, options_for_select(ContractRevision::SCORES, f.object.rating_6), {}, {class: 'form-control'}) %>
+        <%= f.select(:rating_6, ContractRevision::SCORES, {}, {class: 'form-control'}) %>
       </div>
       <div class="col-4">
         <%= f.text_area :rating_6_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_7, "The Right to Control My Intellectual Property", :class => "col-4 col-form-label" %>
+      <%= f.label :rating_7, "The Right to No Hidden Terms or Fees", :class => "col-4 col-form-label" %>
       <div class="col-2">
-        <%= f.select(:rating_7, options_for_select(ContractRevision::SCORES, f.object.rating_7), {}, {class: 'form-control'}) %>
+        <%= f.select(:rating_7, ContractRevision::SCORES, {}, {class: 'form-control'}) %>
       </div>
       <div class="col-4">
         <%= f.text_area :rating_7_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_8, "The Right to Freedom of Expression", :class => "col-4 col-form-label" %>
+      <%= f.label :rating_8, "The Right to Fair Process & To Be Heard", :class => "col-4 col-form-label" %>
       <div class="col-2">
-        <%= f.select(:rating_8, options_for_select(ContractRevision::SCORES, f.object.rating_8), {}, {class: 'form-control'}) %>
+        <%= f.select(:rating_8, ContractRevision::SCORES, {}, {class: 'form-control'}) %>
       </div>
       <div class="col-4">
         <%= f.text_area :rating_8_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :rating_9, "The Right to Privacy", :class => "col-4 col-form-label" %>
+      <%= f.label :rating_9, "The Right to Appeal & The Right to Return", :class => "col-4 col-form-label" %>
       <div class="col-2">
-        <%= f.select(:rating_9, options_for_select(ContractRevision::SCORES, f.object.rating_9), {}, {class: 'form-control'}) %>
+        <%= f.select(:rating_9, ContractRevision::SCORES, {}, {class: 'form-control'}) %>
       </div>
       <div class="col-4">
         <%= f.text_area :rating_9_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
@@ -107,7 +101,7 @@
     <div class="form-group row">
       <%= f.label :rating_10, "The Right to Reasonable Terms", :class => "col-4 col-form-label" %>
       <div class="col-2">
-        <%= f.select(:rating_10, options_for_select(ContractRevision::SCORES, f.object.rating_10), {}, {class: 'form-control'}) %>
+        <%= f.select(:rating_10, ContractRevision::SCORES, {}, {class: 'form-control'}) %>
       </div>
       <div class="col-4">
         <%= f.text_area :rating_10_note, :class => "form-control", :placeholder => "Enter Note", :row => 4 %>
@@ -121,13 +115,13 @@
     </div>
     <div class="form-group row">
       <%= f.label :additional_note, :class => "col-2 col-form-label" %>
-      <div class="col-10">
+      <div class="col-7">
         <%= f.text_area :additional_note, :class => "form-control", :placeholder => "Enter additional note", :row => 3 %>
       </div>
     </div>
     <div class="form-group row">
       <%= f.label :ways_to_improve, :class => "col-2 col-form-label" %>
-      <div class="col-10">
+      <div class="col-7">
         <%= f.text_area :ways_to_improve, :class => "form-control", :placeholder => "Enter ways to improve", :row => 3 %>
       </div>
     </div>
