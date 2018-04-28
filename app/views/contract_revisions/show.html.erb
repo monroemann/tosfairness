@@ -8,11 +8,9 @@
       <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#review" role="tab">Reviewed by</a>
       </li>
-      <% if user_signed_in? && !current_user.admin? %>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#rating">User Rating</a>
-        </li>
-      <% end %>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#rating">User Rating</a>
+      </li>
     </ul>
     <br />
     <!-- Tab panes -->
@@ -41,7 +39,7 @@
               <td><%= @contract_revision.contract_date.strftime('%m/%d/%Y') %></td>
             </tr>
             <tr>
-              <th scope="col">The Right to Sue</th>
+              <th scope="col">The Right to Privacy</th>
               <td><%= @contract_revision.rating_1 %></td>
               <% if !@contract_revision.rating_1_note.nil? %>
                 <td>
@@ -50,7 +48,7 @@
               <% end %>
             </tr>
             <tr>
-              <th scope="col">The Right to Low-Cost Arbitration</th>
+              <th scope="col">The Right to Equal, Fair, & Reasonable Expression</th>
               <td><%= @contract_revision.rating_2 %></td>
               <% if !@contract_revision.rating_2_note.nil? %>
                 <td>
@@ -59,7 +57,7 @@
               <% end %>
             </tr>
             <tr>
-              <th scope="col">The Right to a Class Action</th>
+              <th scope="col">The Right to Control My Intellectual Property</th>
               <td><%= @contract_revision.rating_3 %></td>
               <% if !@contract_revision.rating_3_note.nil? %>
                 <td>
@@ -68,7 +66,7 @@
               <% end %>
             </tr>
             <tr>
-              <th scope="col">The Right to Due Process</th>
+              <th scope="col">The Right to Sue</th>
               <td><%= @contract_revision.rating_4 %></td>
               <% if !@contract_revision.rating_4_note.nil? %>
                 <td>
@@ -77,7 +75,7 @@
               <% end %>
             </tr>
             <tr>
-              <th scope="col">The Right to No Hidden Terms or Fees</th>
+              <th scope="col">The Right to Low-Cost Arbitration</th>
               <td><%= @contract_revision.rating_5 %></td>
               <% if !@contract_revision.rating_5_note.nil? %>
                 <td>
@@ -86,7 +84,7 @@
               <% end %>
             </tr>
             <tr>
-              <th scope="col">The Right to Defend Myself & Be Heard</th>
+              <th scope="col">The Right to Join a Class Action</th>
               <td><%= @contract_revision.rating_6 %></td>
               <% if !@contract_revision.rating_6_note.nil? %>
                 <td>
@@ -95,7 +93,7 @@
               <% end %>
             </tr>
             <tr>
-              <th scope="col">The Right to Control My Intellectual Property</th>
+              <th scope="col">The Right to No Hidden Terms or Fees</th>
               <td><%= @contract_revision.rating_7 %></td>
               <% if !@contract_revision.rating_7_note.nil? %>
                 <td>
@@ -104,7 +102,7 @@
               <% end %>
             </tr>
             <tr>
-              <th scope="col">The Right to Freedom of Expression</th>
+              <th scope="col">The Right to Fair Process & To Be Heard</th>
               <td><%= @contract_revision.rating_8 %></td>
               <% if !@contract_revision.rating_8_note.nil? %>
                 <td>
@@ -113,7 +111,7 @@
               <% end %>
             </tr>
             <tr>
-              <th scope="col">The Right to Privacy</th>
+              <th scope="col">The Right to Appeal & The Right to Return</th>
               <td><%= @contract_revision.rating_9 %></td>
               <% if !@contract_revision.rating_9_note.nil? %>
                 <td>
@@ -165,9 +163,7 @@
         <% end %>
       </div>
       <div class="tab-pane" id="rating" role="tabpanel">
-        <% if user_signed_in? && !current_user.admin? %>
-          <%= render 'contract_user_rating' %>
-        <% end %>
+        <%= render 'contract_user_review' %>
       </div>
       <div class="tab-pane" id="review" role="tabpanel">
         <% if @user_loggings.size > 0 %>
