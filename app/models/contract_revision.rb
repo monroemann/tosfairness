@@ -57,7 +57,7 @@ class ContractRevision < ApplicationRecord
 
   def calculate_historical(val, division)
     if val.nil?
-      10
+      0
     else
       val/division
     end
