@@ -2,11 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body, wrapper {
+body, html, wrapper {
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
-main {
+main, header, footer {
   flex:1;
 }
 
@@ -25,4 +27,34 @@ ul.contract-revision-list {
   li {
     margin: 0 0 5px 0;
   }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  h1 { font-size: 1.6em; }
+  h2 { font-size: 1.3em; }
+  h3 { font-size: 1.2em; }
+  h4 { font-size: 1.15em; }
+  a.request span {
+    display: block;
+  }
+  a.request span::before {
+    content: attr(data-text);
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  h1 { font-size: 1.7em; }
+  h2 { font-size: 1.5em; }
+  h3 { font-size: 1.4em; }
+  h4 { font-size: 1.35em; }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  h1 { font-size: 1.8em; }
+  h2 { font-size: 1.6em; }
+  h3 { font-size: 1.5em; }
+  h4 { font-size: 1.45em; }
 }

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
      <link href="../../favicon.ico" rel="icon">
 
     <title>TOS Fairness Project</title>
@@ -21,7 +21,7 @@
   <body>
     <wrapper class="d-flex flex-column">
       <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
           <%= link_to "TOSfairness", root_path, :class => "navbar-brand" %>
           <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarsExampleDefault" aria-label="Toggle navigation" type="button" data-target="#navbarsExampleDefault" data-toggle="collapse">
             <span class="navbar-toggler-icon"></span>
@@ -52,8 +52,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="/donate">Donate</a>
               </li>
-              
-              
+
+
             </ul>
             <ul class="navbar-nav justify-content-end">
               <% if user_signed_in? %>
