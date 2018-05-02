@@ -35,11 +35,10 @@ ul.contract-revision-list {
   h2 { font-size: 1.3em; }
   h3 { font-size: 1.2em; }
   h4 { font-size: 1.15em; }
-  a.request span {
-    display: block;
-  }
+
   a.request span::before {
-    content: attr(data-text);
+    content: "\A";
+    white-space: pre;
   }
 
   table.company-list,
@@ -49,6 +48,7 @@ ul.contract-revision-list {
   table.company-list td,
   table.company-list tr {
     display: block;
+    table-layout: fixed;
   }
 
   table.company-list thead tr {
@@ -66,11 +66,12 @@ ul.contract-revision-list {
     border-bottom: 1px solid #eee;
     position: relative;
     padding-left: 50%;
+    word-wrap: break-word;
   }
 
   table.company-list td:before {
     position: absolute;
-    top: 6px;
+    top: 12px;
     left: 6px;
     width: 45%;
     padding-right: 10px;
