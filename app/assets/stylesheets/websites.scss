@@ -9,7 +9,9 @@ body, html, wrapper {
 }
 
 main, header, footer {
-  flex:1;
+  -webkit-box-flex:1;
+      -ms-flex:1;
+          flex:1;
 }
 
 .list-group-item {
@@ -41,6 +43,9 @@ ul.contract-revision-list {
   a.request span::before {
     content: attr(data-text);
   }
+  .btn-search {
+    margin-top: 15px;
+  }
 }
 
 // Small devices (landscape phones, less than 768px)
@@ -49,6 +54,11 @@ ul.contract-revision-list {
   h2 { font-size: 1.5em; }
   h3 { font-size: 1.4em; }
   h4 { font-size: 1.35em; }
+  .request {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 // Medium devices (tablets, less than 992px)
