@@ -3,7 +3,7 @@
     <p class="h3"><%= @company.company_name %> - <%= @company.website %></p>
     <%= render 'shared/fine_print' %>
     <% if @contracts.size > 0 %>
-      <table class="table">
+      <table class="table" id="view-lg">
         <thead class="thead-default">
           <tr>
             <th>Title</th>
@@ -53,6 +53,62 @@
           <% end %>
         </tbody>
       </table>
+      <table class="table" style="display: none;" id="view-sm">
+        <tbody>
+          <% @contracts.each_with_index do |contract, index| %>
+            <tr class="clickable">
+              <th scope="col">Title</th>
+              <td><%= contract.contract_title %></td>
+            </tr>
+            <tr class="hidden">
+              <th scope="col">Website</th>
+              <td><%= contract.website %></td>
+            </tr>
+            <tr class="hidden">
+              <th scope="col">Application</th>
+              <td><%= contract.application %></td>
+            </tr>
+            <!--
+            <tr class="hidden">
+              <th scope="col">Date</th>
+              <td>Date Here</td>
+            </tr>
+            -->
+            <tr class="hidden">
+              <th scope="col">Type</th>
+              <td><%= contract.contract_type %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <script type="text/javascript">
+        var RESIZE_WIDTH = 767;
+        function resizeTables(){
+          if($(window).width() > RESIZE_WIDTH){
+            $("#view-lg").show();
+            $("#view-sm").hide();
+          }else{
+            $("#view-lg").hide();
+            
+            $("#view-sm").show();
+            //Reset small table's hidden rows
+            $(".hidden").hide();
+          }
+        }
+        $(window).resize(resizeTables);
+        $(document).ready(resizeTables);
+        $(".clickable").click(function(){
+          $(this).nextUntil(".clickable").toggle();
+        });
+      </script>
+      <style>
+        .hidden{
+          display: none;
+        }
+        .clickable{
+          background-color: #F0F8FF;
+        }
+      </style>
     <% else %>
       <div class="alert alert-info" role="alert">
         Waiting to be reviewed
