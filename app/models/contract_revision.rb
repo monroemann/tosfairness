@@ -57,7 +57,7 @@ class ContractRevision < ApplicationRecord
 
   def calculate_historical(val, division)
     if val.nil?
-      10
+      0
     else
       val/division
     end
@@ -135,7 +135,7 @@ class ContractRevision < ApplicationRecord
     elsif (current_user_ratings_count[0] != nil && current_user_ratings_count[0] > 0)
       self.rating_12 = (1.0*current_user_ratings[0]/current_user_ratings_count[0])
     else
-      self.rating_12 = 0
+      self.rating_12 = 10
     end
 
     # historical lawsuit scores
