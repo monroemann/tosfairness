@@ -35,12 +35,51 @@ ul.contract-revision-list {
   h2 { font-size: 1.3em; }
   h3 { font-size: 1.2em; }
   h4 { font-size: 1.15em; }
-  a.request span {
-    display: block;
-  }
+
   a.request span::before {
-    content: attr(data-text);
+    content: "\A";
+    white-space: pre;
   }
+
+  table.company-list,
+  table.company-list thead,
+  table.company-list tbody,
+  table.company-list th,
+  table.company-list td,
+  table.company-list tr {
+    display: block;
+    table-layout: fixed;
+  }
+
+  table.company-list thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  table.company-list tr {
+    border: 1px solid #ccc;
+  }
+
+  table.company-list td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+    word-wrap: break-word;
+  }
+
+  table.company-list td:before {
+    position: absolute;
+    top: 12px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  table.company-list td:nth-of-type(1):before { content: "Company Name"; }
+  table.company-list td:nth-of-type(2):before { content: "Web Site"; }
 }
 
 // Small devices (landscape phones, less than 768px)
