@@ -18,7 +18,7 @@
                     <%= autocomplete_field_tag 'search', '', autocomplete_company_company_name_companies_path, :class => 'form-control mr-sm-2', placeholder: "Enter Company Name or URL"  %>
                   </div>
                   <div class="col-md-3">
-                    <%= submit_tag 'Search Company', :class => 'btn btn-primary my-2 my-sm-0'%>
+                    <%= submit_tag 'Search Company', :class => 'btn btn-primary my-2 my-sm-0 btn-search'%>
                   </div>
                 </div>
             <% end %>
@@ -27,10 +27,7 @@
         <br />
         <div class="row">
           <div class="col-md-10">
-            <small>Don't see what you want?</small>
-            <div>
-              <%= link_to "Request New Review", new_company_path, :class => 'btn btn-outline-info my-2 my-sm-0' %>
-            </div>
+            <%= link_to "Don't See What You Want? <span>Request New Review.</span>".html_safe, new_company_path, :class => 'btn btn-outline-info my-2 my-sm-0 request' %>
           </div>
         </div>
       </div>
@@ -39,7 +36,7 @@
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-lg-4">
           <h2>Top Ten Daily Fair</h2>
           <p>Here are the top ten agreements for the day that we deem most transparent, fair, and reasonable, where we feel the company is genuinely concerned about you, the user or customer, your best interests, and your welfare.  We applaud them for leading the way!</p>
             <ol>
@@ -51,7 +48,7 @@
             </ol>
           <p><a class="btn btn-secondary" role="button" href="/top_ten_fair.html">View details »</a></p>
         </div>
-        <div class="col-md-4">
+        <div class="col-lg-4">
           <h2>Our Online User Bill of Rights</h2>
           <p>It's time we banded together as users and consumers and demanded to be treated better.  This is your online user bill of rights, brought to you by the volunteer attorneys at the TOS Fairness Project.</p>
           <ol>
@@ -68,7 +65,7 @@
           </ol>
           <p><a class="btn btn-secondary" role="button" href="/bill_of_rights.html">View details »</a></p>
        </div>
-        <div class="col-md-4">
+        <div class="col-lg-4">
           <h2>Top Ten Daily Unfair</h2>
           <p>Here are the top ten agreements for the day that we deem most unclear, most unfair, and unreasonable, where we feel the company is genuinely unconcerned about you, the user or customer, your best interests, and your welfare.  We urge them to stop trying to take advantage of their users.</p>
           <ol>

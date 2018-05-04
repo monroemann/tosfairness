@@ -26,20 +26,4 @@ $( function() {
     });
   }
 
-  // $('#new_user_rating').submit( function(e) {
-  //   e.preventDefault();
-  //
-  //   $.ajax({
-  //     type: 'POST',
-  //     url: this.action,
-  //     data: $('#new_user_rating').serialize(),
-  //     success: function(data) {
-  //       alert("success " + data);
-  //     },
-  //     error: function(a, b, c) {
-  //       $('#user_rating_submit').prop('disabled', false);
-  //       alert(b + ': ' + c);
-  //     }
-  //   });
-  // })
 });
