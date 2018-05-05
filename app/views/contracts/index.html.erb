@@ -56,20 +56,20 @@
       <table class="table" style="display: none;" id="view-sm">
         <tbody>
           <% @contracts.each_with_index do |contract, index| %>
-            <tr class="clickable">
+            <tr class="dropdown-head">
               <th scope="col">Title</th>
               <td><%= contract.contract_title %></td>
             </tr>
-            <tr class="hidden">
+            <tr class="dropdown-element">
               <th scope="col">Website</th>
               <td><%= contract.website %></td>
             </tr>
-            <tr class="hidden">
+            <tr class="dropdown-element">
               <th scope="col">Application</th>
               <td><%= contract.application %></td>
             </tr>
             <% if contract.contract_revisions.size > 0 %>
-              <tr class="hidden">
+              <tr class="dropdown-element">
                 <th scope="col">Date</th>
                 <td>
                   <ul class="contract-revision-list">
@@ -79,7 +79,7 @@
                   </ul>
                 </td>
               </tr>
-              <tr class="hidden">
+              <tr class="dropdown-element">
                 <th scope="col">Total Rating</th>
                 <td>
                   <ul class="contract-revision-list">
@@ -90,7 +90,7 @@
                 </td>
               </tr>
             <% end %>
-            <tr class="hidden">
+            <tr class="dropdown-element">
               <th scope="col">Type</th>
               <td><%= contract.contract_type %></td>
             </tr>
@@ -108,23 +108,15 @@
             
             $("#view-sm").show();
             //Reset small table's hidden rows
-            $(".hidden").hide();
+            $(".dropdown-element").hide();
           }
         }
         $(window).resize(resizeTables);
         $(document).ready(resizeTables);
-        $(".clickable").click(function(){
-          $(this).nextUntil(".clickable").toggle();
+        $(".dropdown-head").click(function(){
+          $(this).nextUntil(".dropdown-head").toggle();
         });
       </script>
-      <style>
-        .hidden{
-          display: none;
-        }
-        .clickable{
-          background-color: #F0F8FF;
-        }
-      </style>
     <% else %>
       <div class="alert alert-info" role="alert">
         Waiting to be reviewed

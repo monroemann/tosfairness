@@ -30,6 +30,13 @@ ul.contract-revision-list {
     margin: 0 0 5px 0;
   }
 }
+//Css for contracts > index.html.erb
+.dropdown-element{
+  display: none;
+}
+.dropdown-head{
+  background-color: #F0F8FF;
+}
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) {
