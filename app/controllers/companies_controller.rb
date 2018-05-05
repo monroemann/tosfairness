@@ -1,8 +1,5 @@
 class CompaniesController < ApplicationController
     autocomplete :company, :company_name, :full => true
-    validates :company_name, presence: true
-    validates :website, presence: true
-
 
     def index
       @companies = Company.order('company_name')
