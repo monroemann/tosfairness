@@ -97,26 +97,6 @@
           <% end %>
         </tbody>
       </table>
-      <script type="text/javascript">
-        var RESIZE_WIDTH = 767;
-        function resizeTables(){
-          if($(window).width() > RESIZE_WIDTH){
-            $("#view-lg").show();
-            $("#view-sm").hide();
-          }else{
-            $("#view-lg").hide();
-            
-            $("#view-sm").show();
-            //Reset small table's hidden rows
-            $(".dropdown-element").hide();
-          }
-        }
-        $(window).resize(resizeTables);
-        $(document).ready(resizeTables);
-        $(".dropdown-head").click(function(){
-          $(this).nextUntil(".dropdown-head").toggle();
-        });
-      </script>
     <% else %>
       <div class="alert alert-info" role="alert">
         Waiting to be reviewed
@@ -128,3 +108,23 @@
     <%= render 'shared/large_fine_print' %>
   </div>
 </div>
+<script type="text/javascript">
+  var RESIZE_WIDTH = 767;
+  function resizeTables(){
+    if($(window).width() > RESIZE_WIDTH){
+      $("#view-lg").show();
+      $("#view-sm").hide();
+    }else{
+      $("#view-lg").hide();
+      
+      $("#view-sm").show();
+      //Reset small table's hidden rows
+      $(".dropdown-element").hide();
+    }
+  }
+  $(window).resize(resizeTables);
+  $(document).ready(resizeTables);
+  $(".dropdown-head").click(function(){
+    $(this).nextUntil(".dropdown-head").toggle();
+  });
+</script>
