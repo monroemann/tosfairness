@@ -101,7 +101,9 @@ class ContractRevisionsController < ApplicationController
       :number_lawsuit,
       :ways_to_improve,
       :lawsuit_note,
-      :tos_url
+      :tos_url,
+      :total_page,
+      :total_page_note
     )
   end
 end

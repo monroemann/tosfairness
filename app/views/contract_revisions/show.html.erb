@@ -1,5 +1,5 @@
-<div class="container pt-5">
-  <div class="col-md-7">
+<div class="container pt-4">
+  <div class="col-md-9">
     <p class="h3"><%= @contract.company.company_name %> - <%= @contract.company.website %></p>
     <ul class="nav nav-tabs">
       <li class="nav-item">
@@ -153,6 +153,15 @@
             <tr>
               <th scope="col">Total Rating</th>
               <td><%= @contract_revision.total_rating %></td>
+            </tr>
+            <tr>
+              <th scope="col">Total Page Count</th>
+              <td><%= @contract_revision.total_page %></td>
+              <% if !@contract_revision.total_page_note.nil? %>
+                <td>
+                  <%= @contract_revision.total_page_note %>
+                </td>
+              <% end %>
             </tr>
             <tr>
               <th scope="col">Additional Note</th>
