@@ -16,7 +16,7 @@
     <!-- Tab panes -->
     <div class="tab-content">
       <div class="tab-pane active" id="contract" role="tabpanel">
-        <table class="table">
+        <table class="table contract-table">
           <tbody>
             <tr>
               <th scope="col">Contract Title</th>
@@ -154,13 +154,15 @@
               <th scope="col">Total Rating</th>
               <td><%= @contract_revision.total_rating %></td>
             </tr>
+          </tbody>
+          <tbody>
             <tr>
-              <th scope="col">Additional Note</th>
+              <th scope="col" class="col-4">Additional Note</th>
               <td><%= @contract_revision.additional_note %></td>
             </tr>
             <tr>
               <th scope="col">Ways to improve</th>
-              <td><%= @contract_revision.ways_to_improve %></td>
+              <td><div><%= @contract_revision.ways_to_improve %></div></td>
             </tr>
           </tbody>
         </table>
