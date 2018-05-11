@@ -1,8 +1,26 @@
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,300i,400');
 
 // Place all the styles related to the websites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body, html {
+  background-color: #fff;
+  color: #555;
+  font-family: 'Lato', 'Ariel', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
 
 body, html, wrapper {
   min-height: 100vh;
@@ -42,6 +60,7 @@ ul.contract-revision-list {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  color: #fff;
 }
 
 //Css for contracts > index.html.erb
