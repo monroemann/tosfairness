@@ -3,6 +3,7 @@
   <!-- Main jumbotron for a primary marketing message or call to action -->
     <!-- <div class="jumbotron"> -->
       <div class="container">
+        <br />
         <h1 class="display-5 text-center">The Terms of Service Fairness Project</h1>
         <h6 class="text-center">This Website's TOS Fairness Rating Score: 100 / 100</h6>
         <br>
@@ -10,19 +11,21 @@
           <div class="col-md-10">
             <%= form_tag companies_path, :method => 'get', :class => 'my-2 my-lg-0 pull-left' do %>
                 <div class="form-row">
-                  <div class="col-md-6">
+                  <div class="col-md-9">
                     <%= autocomplete_field_tag 'search', '', autocomplete_company_company_name_companies_path, :class => 'form-control mr-sm-2', placeholder: "Enter Company Name or URL"  %>
-                  </div>
-                  <div class="col-md-3">
-                    <%= submit_tag 'Search Company', :class => 'btn btn-primary my-2 my-sm-0 btn-search'%>
                   </div>
                 </div>
             <% end %>
           </div>
         </div>
         <br />
-        <div class="row">
-          <div class="col-md-10">
+        <div class="row search-buttons">
+          <div class="col-md-2">
+            <%= submit_tag 'Search Company', :class => 'btn btn-primary my-2 my-sm-0 btn-search'%>
+          </div>
+          &nbsp;
+          &nbsp;
+          <div class="col-md-6">
             <%= link_to "Don't See What You Want? <span>Request New Review.</span>".html_safe, new_company_path, :class => 'btn btn-outline-info my-2 my-sm-0 request' %>
           </div>
         </div>
@@ -44,7 +47,7 @@
         <!-- Example row of columns -->
         <div class="row">
           <div class="col-lg-4">
-            <h2>Top Ten Daily Fair</h2>
+            <h3>Top Ten Daily Fair</h2>
             <p>Here are the top ten agreements for the day that we deem most transparent, fair, and reasonable, where we feel the company is genuinely concerned about you, the user or customer, your best interests, and your welfare.  We applaud them for leading the way!</p>
               <ol>
                 <% if !@top_ten_fairs.nil? %>
@@ -56,7 +59,7 @@
             <p><a class="btn btn-secondary" role="button" href="/top_ten_fair.html">View details »</a></p>
           </div>
           <div class="col-lg-4">
-            <h2>Our Online User Bill of Rights</h2>
+            <h3>Our Online User Bill of Rights</h2>
             <p>It's time we banded together as users and consumers and demanded to be treated better.  This is your online user bill of rights, brought to you by the volunteer attorneys at the TOS Fairness Project.</p>
             <ol>
               <li>The Right to Privacy</li>
@@ -73,7 +76,7 @@
             <p><a class="btn btn-secondary" role="button" href="/bill_of_rights.html">View details »</a></p>
          </div>
          <div class="col-lg-4">
-            <h2>Top Ten Daily Unfair</h2>
+            <h3>Top Ten Daily Unfair</h2>
             <p>Here are the top ten agreements for the day that we deem most unclear, most unfair, and unreasonable, where we feel the company is genuinely unconcerned about you, the user or customer, your best interests, and your welfare.  We urge them to stop trying to take advantage of their users.</p>
             <ol>
               <% if !@top_ten_unfairs.nil? %>
