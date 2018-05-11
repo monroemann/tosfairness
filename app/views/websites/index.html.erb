@@ -1,7 +1,7 @@
-<div class="container">
-
-<!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+<div id="hero">
+  <div class="container">
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+    <!-- <div class="jumbotron"> -->
       <div class="container">
         <h1 class="display-5 text-center">The Terms of Service Fairness Project</h1>
         <h6 class="text-center">This Website's TOS Fairness Rating Score: 100 / 100</h6>
@@ -33,57 +33,58 @@
         <p>Brought to you by Break Diving, Inc. a 501(c)(3) not-for-profit with one primary mission: helping individuals succeed in life.  It follows that in order for people to succeed in life, they should know exactly what they are actually signing.  Right?  Let's get started!</p>
         <p class="text-right"><a class="btn btn-primary btn-sm" role="button" href="about.html">Learn more about us »</a></p>
          <p class="text-center"><strong>&#8623; SCROLL DOWN FOR THE TOP TENS &#8623;</strong></p>
-
-        
       </div>
-    </div>
+    <!-- </div> -->
+  </div>
+</div>
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-lg-4">
-          <h2>Top Ten Daily Fair</h2>
-          <p>Here are the top ten agreements for the day that we deem most transparent, fair, and reasonable, where we feel the company is genuinely concerned about you, the user or customer, your best interests, and your welfare.  We applaud them for leading the way!</p>
+<div id="top-ten">
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-lg-4">
+            <h2>Top Ten Daily Fair</h2>
+            <p>Here are the top ten agreements for the day that we deem most transparent, fair, and reasonable, where we feel the company is genuinely concerned about you, the user or customer, your best interests, and your welfare.  We applaud them for leading the way!</p>
+              <ol>
+                <% if !@top_ten_fairs.nil? %>
+                  <% @top_ten_fairs.each do |c| %>
+                    <li><%= c.contract.contract_title %></li>
+                  <% end %>
+                <% end %>
+              </ol>
+            <p><a class="btn btn-secondary" role="button" href="/top_ten_fair.html">View details »</a></p>
+          </div>
+          <div class="col-lg-4">
+            <h2>Our Online User Bill of Rights</h2>
+            <p>It's time we banded together as users and consumers and demanded to be treated better.  This is your online user bill of rights, brought to you by the volunteer attorneys at the TOS Fairness Project.</p>
             <ol>
-              <% if !@top_ten_fairs.nil? %>
-                <% @top_ten_fairs.each do |c| %>
+              <li>The Right to Privacy</li>
+              <li>The Right to Equal, Fair, &amp; Reasonable Expression</li>
+              <li>The Right to Control My Intellectual Property</li>
+              <li>The Right to Sue</li>
+              <li>The Right to Low-Cost Arbitration</li>
+              <li>The Right to Join a Class Action</li>
+              <li>The Right to No Hidden Terms or Fees</li>
+              <li>The Right to Fair Process &amp; To Be Heard</li>
+              <li>The Right To Appeal &amp; The Right to Return</li>
+              <li>The Right to Reasonable Terms</li>
+            </ol>
+            <p><a class="btn btn-secondary" role="button" href="/bill_of_rights.html">View details »</a></p>
+         </div>
+         <div class="col-lg-4">
+            <h2>Top Ten Daily Unfair</h2>
+            <p>Here are the top ten agreements for the day that we deem most unclear, most unfair, and unreasonable, where we feel the company is genuinely unconcerned about you, the user or customer, your best interests, and your welfare.  We urge them to stop trying to take advantage of their users.</p>
+            <ol>
+              <% if !@top_ten_unfairs.nil? %>
+                <% @top_ten_unfairs.each do |c| %>
                   <li><%= c.contract.contract_title %></li>
                 <% end %>
               <% end %>
             </ol>
-          <p><a class="btn btn-secondary" role="button" href="/top_ten_fair.html">View details »</a></p>
-        </div>
-        <div class="col-lg-4">
-          <h2>Our Online User Bill of Rights</h2>
-          <p>It's time we banded together as users and consumers and demanded to be treated better.  This is your online user bill of rights, brought to you by the volunteer attorneys at the TOS Fairness Project.</p>
-          <ol>
-            <li>The Right to Privacy</li>
-            <li>The Right to Equal, Fair, &amp; Reasonable Expression</li>
-            <li>The Right to Control My Intellectual Property</li>
-            <li>The Right to Sue</li>
-            <li>The Right to Low-Cost Arbitration</li>
-            <li>The Right to Join a Class Action</li>
-            <li>The Right to No Hidden Terms or Fees</li>
-            <li>The Right to Fair Process &amp; To Be Heard</li>
-            <li>The Right To Appeal &amp; The Right to Return</li>
-            <li>The Right to Reasonable Terms</li>
-          </ol>
-          <p><a class="btn btn-secondary" role="button" href="/bill_of_rights.html">View details »</a></p>
-       </div>
-        <div class="col-lg-4">
-          <h2>Top Ten Daily Unfair</h2>
-          <p>Here are the top ten agreements for the day that we deem most unclear, most unfair, and unreasonable, where we feel the company is genuinely unconcerned about you, the user or customer, your best interests, and your welfare.  We urge them to stop trying to take advantage of their users.</p>
-          <ol>
-            <% if !@top_ten_unfairs.nil? %>
-              <% @top_ten_unfairs.each do |c| %>
-                <li><%= c.contract.contract_title %></li>
-              <% end %>
-            <% end %>
-          </ol>
-          <p><a class="btn btn-secondary" role="button" href="/top_ten_unfair">View details »</a></p>
+            <p><a class="btn btn-secondary" role="button" href="/top_ten_unfair">View details »</a></p>
         </div>
       </div>
-
-      <hr>
+        <hr>
     </div>
+  </div>
 </div>

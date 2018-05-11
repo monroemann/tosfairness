@@ -1,24 +1,129 @@
-div.card {
-  background-color: #fff;
-  border-radius: 1.50rem;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-  border: 2px solid #a60024;
-  margin-top: 40px;
+@import "bootstrap";
+
+// Place all the styles related to the websites controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body, html, wrapper {
+  min-height: 100vh;
+  margin: 0;
   padding: 0;
 }
 
-.handle {
-  margin: 10px;
-  color: #125688;
-  font-weight: bold;
-  font-size: 18px;
+main, header, footer {
+  -webkit-box-flex:1;
+      -ms-flex:1;
+          flex:1;
 }
 
-.card p, .card .message {
-  font-size: 18px;
-  margin: 20px;
+.list-group-item {
+  display: list-item;
 }
 
-.card.form {
-  padding: 20px;
+.editable {
+  display: none;
+}
+
+ul.contract-revision-list {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    margin: 0 0 5px 0;
+  }
+}
+
+// CSS for website > index.html.erb
+#hero {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), image-url('hero-background.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), image-url('hero-background.jpg');
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+//Css for contracts > index.html.erb
+.dropdown-element{
+  display: none;
+}
+.dropdown-head{
+  background-color: #F0F8FF;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  h1 { font-size: 1.6em; }
+  h2 { font-size: 1.3em; }
+  h3 { font-size: 1.2em; }
+  h4 { font-size: 1.15em; }
+
+  a.request span::before {
+    content: "\A";
+    white-space: pre;
+  }
+
+  table.company-list,
+  table.company-list thead,
+  table.company-list tbody,
+  table.company-list th,
+  table.company-list td,
+  table.company-list tr {
+    display: block;
+    table-layout: fixed;
+  }
+
+  table.company-list thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .btn-search { margin-top: 15px;}
+
+  table.company-list tr {
+    border: 1px solid #ccc;
+  }
+
+  table.company-list td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+    word-wrap: break-word;
+  }
+
+  table.company-list td:before {
+    position: absolute;
+    top: 12px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  table.company-list td:nth-of-type(1):before { content: "Company Name"; }
+  table.company-list td:nth-of-type(2):before { content: "Web Site"; }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  h1 { font-size: 1.7em; }
+  h2 { font-size: 1.5em; }
+  h3 { font-size: 1.4em; }
+  h4 { font-size: 1.35em; }
+  .request {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  h1 { font-size: 1.8em; }
+  h2 { font-size: 1.6em; }
+  h3 { font-size: 1.5em; }
+  h4 { font-size: 1.45em; }
 }
