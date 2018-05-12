@@ -15,6 +15,12 @@
   </div>
 </div>
 <div class="form-group row">
+  <%= f.label :tos_url, "TOS website", :class => "col-2 col-form-label" %>
+  <div class="col-7">
+    <%= f.text_field :tos_url, :class => "form-control", :placeholder => "Enter TOS website" %>
+  </div>
+</div>
+<div class="form-group row">
   <%= f.label :rating_1, "The Right to Privacy", :class => "col-md-4 col-sm-5 col-form-label" %>
   <div class="col-2">
     <%= f.select(:rating_1, ContractRevision::SCORES, {}, {class: 'form-control'}) %>

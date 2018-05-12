@@ -38,7 +38,8 @@ class ContractRevision < ApplicationRecord
 
   scope :top_ten,   -> { where("total_rating > 0").order(total_rating: :desc).limit(10) }
   scope :last_ten,  -> { where("total_rating > 0").order(total_rating: :asc).limit(10) }
-
+  scope :recent_review, -> { where("total_rating > 0").order(updated_at: :desc).limit(10) }
+  
   def contract_date=(val)
     date = Date.strptime(val, "%m/%d/%Y") if val.present?
     write_attribute(:contract_date, date)
