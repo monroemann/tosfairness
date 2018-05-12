@@ -120,6 +120,15 @@
       </div>
     </div>
     <div class="form-group row">
+      <%= f.label :total_page, "Total page count", :class => "col-4 col-form-label" %>
+      <div class="col-2">
+        <%= f.text_field :total_page, :class => "form-control", :placeholder => "Page count" %>
+      </div>
+      <div class="col-4">
+        <%= f.text_area :total_page_note, :class => "form-control", :placeholder => "Enter page count note", :row => 4 %>
+      </div>
+    </div>
+    <div class="form-group row">
       <%= f.label :additional_note, :class => "col-2 col-form-label" %>
       <div class="col-7">
         <%= f.text_area :additional_note, :class => "form-control", :placeholder => "Enter additional note", :row => 3 %>
