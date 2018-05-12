@@ -15,7 +15,7 @@
         <td><%= u.user.first_name %></td>
         <td><%= u.user.last_name %></td>
         <td><%= u.user.country %></td>
-        <td><%= u.updated_at %></td>
+        <td><%= u.updated_at.strftime('%m/%d/%Y') %></td>
       </tr>
     <% end %>
   </tbody>
