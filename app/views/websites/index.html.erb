@@ -34,7 +34,7 @@
         <p class="text-right"><a class="btn btn-primary btn-sm" role="button" href="about.html">Learn more about us »</a></p>
          <p class="text-center"><strong>&#8623; SCROLL DOWN FOR THE TOP TENS &#8623;</strong></p>
 
-        
+
       </div>
     </div>
 
@@ -54,21 +54,16 @@
           <p><a class="btn btn-secondary" role="button" href="/top_ten_fair.html">View details »</a></p>
         </div>
         <div class="col-lg-4">
-          <h2>Our Online User Bill of Rights</h2>
-          <p>It's time we banded together as users and consumers and demanded to be treated better.  This is your online user bill of rights, brought to you by the volunteer attorneys at the TOS Fairness Project.</p>
+          <h2>Most Recent 10 Reviews</h2>
+          <p>Here are the most recently reviewed contracts.</p>
           <ol>
-            <li>The Right to Privacy</li>
-            <li>The Right to Equal, Fair, &amp; Reasonable Expression</li>
-            <li>The Right to Control My Intellectual Property</li>
-            <li>The Right to Sue</li>
-            <li>The Right to Low-Cost Arbitration</li>
-            <li>The Right to Join a Class Action</li>
-            <li>The Right to No Hidden Terms or Fees</li>
-            <li>The Right to Fair Process &amp; To Be Heard</li>
-            <li>The Right To Appeal &amp; The Right to Return</li>
-            <li>The Right to Reasonable Terms</li>
+            <% if !@latest_reviews.nil? %>
+              <% @latest_reviews.each do |c| %>
+                <li><%= c.contract.contract_title %></li>
+              <% end %>
+            <% end %>
           </ol>
-          <p><a class="btn btn-secondary" role="button" href="/bill_of_rights.html">View details »</a></p>
+          <p><a class="btn btn-secondary" role="button" href="/latest_reviews.html">View details »</a></p>
        </div>
         <div class="col-lg-4">
           <h2>Top Ten Daily Unfair</h2>

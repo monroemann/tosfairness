@@ -39,6 +39,10 @@
               <td><%= @contract_revision.contract_date.strftime('%m/%d/%Y') %></td>
             </tr>
             <tr>
+              <th scope="col">TOS Website</th>
+              <td><%= @contract_revision.tos_url %></td>
+            </tr>
+            <tr>
               <th scope="col">Total Rating</th>
               <td><b><%= @contract_revision.total_rating %></b></td>
             </tr>

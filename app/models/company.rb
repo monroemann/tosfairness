@@ -4,5 +4,5 @@ class Company < ApplicationRecord
   validates :company_name, uniqueness: true, presence: true
   validates :website, uniqueness: true
 
-  scope :name_like, -> (name) { where("company_name ilike ? or website ilike ?", name, name) }
+  scope :name_like, -> (name) { where("company_name ilike ? or companies.website ilike ?", name, name) }
 end

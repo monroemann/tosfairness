@@ -26,7 +26,15 @@
               <td>
                 <ul class="contract-revision-list">
                 <% contract.contract_revisions.each do |revision| %>
-                  <li><a href="http://<%= revision.tos_url %>" target="_blank"><%= revision.contract_date.strftime('%m/%d/%Y') %></a></li>
+                  <li>
+                    <% if revision.tos_url.present? %>
+                      <a href="http://<%= revision.tos_url %>" target="_blank">
+                        <%= revision.contract_date.strftime('%m/%d/%Y') %>
+                      </a>
+                    <% else %>
+                      <%= revision.contract_date.strftime('%m/%d/%Y') %>
+                    <% end %>
+                  </li>
                 <% end %>
                 </ul>
               </td>
@@ -116,7 +124,7 @@
       $("#view-sm").hide();
     }else{
       $("#view-lg").hide();
-      
+
       $("#view-sm").show();
       //Reset small table's hidden rows
       $(".dropdown-element").hide();
