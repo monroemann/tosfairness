@@ -12,12 +12,16 @@
           box-sizing: border-box;
 }
 
+h1, h2, h3, h4, h5, h6, .navbar {
+  margin: 0;
+}
+
 body, html {
   background-color: #fff;
   color: #555;
   font-family: 'Lato', 'Ariel', sans-serif;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 16px;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
