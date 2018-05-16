@@ -21,7 +21,7 @@ body, html {
   color: #555;
   font-family: 'Lato', 'Ariel', sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 20px;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
@@ -57,8 +57,8 @@ h2 {
 }
 
 h3 {
-  font-size: 110%;
-  margin-bottom: 15px;
+  font-size: 120%;
+  margin-bottom: 10px;
 }
 
 .list-group-item {
@@ -78,6 +78,15 @@ ul.contract-revision-list {
   }
 }
 
+// Navigation Bar
+
+.navbar {
+  font-weight: bold;
+  -webkit-box-shadow: 0px 1px 3px #2a2a2a;
+          box-shadow: 0px 1px 3px #2a2a2a;
+  position: relative;
+}
+
 // CSS for website > index.html.erb
 #hero {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), image-url('hero-background.jpg');
@@ -87,27 +96,42 @@ ul.contract-revision-list {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  color: #fff;
   -webkit-box-shadow: 0px 3px 8px #2a2a2a;
           box-shadow: 0px 3px 8px #2a2a2a;
+}
+
+.hero-box {
+  position: absolute;
+  width: 1140px;
+  top: 10%;
+  color: #fff;
 }
 
 .request {
   color: #fff;
   border-color: #fff;
   float: left;
+  -webkit-transform: translate(54.5%, -35%);
+          transform: translate(54.5%, -35%);
 }
 
 .btn-search {
   float: left;
+  -webkit-transform: translate(127%, -35%);
+          transform: translate(127%, -35%);
 }
 
 .form-control {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  width: 110%;
+  left: 50%;
+  -webkit-transform: translate(33%, 5%);
+          transform: translate(33%, 5%);
 }
 
+.features-col p, ol, li {
+  font-size: 90%;
+  text-align: justify;
+}
 
 //Css for contracts > index.html.erb
 .dropdown-element{
@@ -201,4 +225,8 @@ ul.contract-revision-list {
   h2 { font-size: 1.6em; }
   h3 { font-size: 1.5em; }
   h4 { font-size: 1.45em; }
+
+  .hero-box {
+    width: 100%;
+  }
 }

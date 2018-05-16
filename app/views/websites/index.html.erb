@@ -4,38 +4,40 @@
     <!-- <div class="jumbotron"> -->
       <div class="container">
         <br />
-        <h1 class="display-5 text-center">The Terms of Service Fairness Project</h1>
-        <h6 class="text-center">This Website's TOS Fairness Rating Score: 100 / 100</h6>
-        <br>
-        <div class="row">
-          <div class="col-md-10">
-            <%= form_tag companies_path, :method => 'get', :class => 'my-2 my-lg-0 pull-left' do %>
-                <div class="form-row">
-                  <div class="col-md-9">
-                    <%= autocomplete_field_tag 'search', '', autocomplete_company_company_name_companies_path, :class => 'form-control mr-sm-2', placeholder: "Enter Company Name or URL"  %>
+        <div class="hero-box">
+          <h1 class="display-5 text-center">The Terms of Service Fairness Project</h1>
+          <h6 class="text-center">This Website's TOS Fairness Rating Score: 100 / 100</h6>
+          <br>
+          <div class="row">
+            <div class="col-md-10">
+              <%= form_tag companies_path, :method => 'get', :class => 'my-2 my-lg-0' do %>
+                  <div class="form-row">
+                    <div class="col-md-8">
+                      <%= autocomplete_field_tag 'search', '', autocomplete_company_company_name_companies_path, :class => 'form-control mr-sm-2', placeholder: "Enter Company Name or URL"  %>
+                    </div>
                   </div>
-                </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
-        </div>
-        <br />
-        <div class="row search-buttons">
-          <div class="col-md-2">
-            <%= submit_tag 'Search Company', :class => 'btn btn-primary my-2 my-sm-0 btn-search'%>
+          <br />
+          <div class="row">
+            <div class="col-md-2">
+              <%= submit_tag 'Search Company', :class => 'btn btn-primary my-2 my-sm-0 btn-search'%>
+            </div>
+            &nbsp;
+            &nbsp;
+            <div class="col-md-6">
+              <%= link_to "Don't See What You Want? <span>Request New Review.</span>".html_safe, new_company_path, :class => 'btn btn-outline-info my-2 my-sm-0 request' %>
+            </div>
           </div>
-          &nbsp;
-          &nbsp;
-          <div class="col-md-6">
-            <%= link_to "Don't See What You Want? <span>Request New Review.</span>".html_safe, new_company_path, :class => 'btn btn-outline-info my-2 my-sm-0 request' %>
-          </div>
-        </div>
 
-        <br>
-        <p>Most online user agreements are stacked in favor of the corporation, and not in favor of the individual user.  We aim to change that, and keep it that way.  TOSfairness is a collective of volunteer attorneys and netizens focused on corporate transparency in murky 'click' agreements on the web, on phones, on games, and online.</p>
-        <p>No one (and we mean NO ONE) reads every word of every agreement before joining a new website or agreeing to new terms of service, whether on a computer, or on your phone.  Well, until now.  Now, we read and rate as many of them for you as we can, in order of demand, so you can feel safer signing them.  Awesome, right?  You're welcome.</p>
-        <p>Brought to you by Break Diving, Inc. a 501(c)(3) not-for-profit with one primary mission: helping individuals succeed in life.  It follows that in order for people to succeed in life, they should know exactly what they are actually signing.  Right?  Let's get started!</p>
-        <p class="text-right"><a class="btn btn-primary btn-sm" role="button" href="about.html">Learn more about us »</a></p>
-        <p class="text-center"><strong>&#8623; SCROLL DOWN FOR THE TOP TENS &#8623;</strong></p>
+          <br>
+          <p>Most online user agreements are stacked in favor of the corporation, and not in favor of the individual user.  We aim to change that, and keep it that way.  TOSfairness is a collective of volunteer attorneys and netizens focused on corporate transparency in murky 'click' agreements on the web, on phones, on games, and online.</p>
+          <p>No one (and we mean NO ONE) reads every word of every agreement before joining a new website or agreeing to new terms of service, whether on a computer, or on your phone.  Well, until now.  Now, we read and rate as many of them for you as we can, in order of demand, so you can feel safer signing them.  Awesome, right?  You're welcome.</p>
+          <p>Brought to you by Break Diving, Inc. a 501(c)(3) not-for-profit with one primary mission: helping individuals succeed in life.  It follows that in order for people to succeed in life, they should know exactly what they are actually signing.  Right?  Let's get started!</p>
+          <p class="text-right"><a class="btn btn-primary btn-sm" role="button" href="about.html">Learn more about us »</a></p>
+          <p class="text-center"><strong>&#8623; SCROLL DOWN FOR THE TOP TENS &#8623;</strong></p>
+        </div>
       </div>
     <!-- </div> -->
   <!-- </div> -->
@@ -46,8 +48,8 @@
       <div class="container">
         <!-- Example row of columns -->
         <div class="row">
-          <div class="col-lg-4">
-            <h3>Top Ten Daily Fair</h2>
+          <div class="col-lg-4 features-col">
+            <h3>Top Ten Daily Fair</h3>
             <p>Here are the top ten agreements for the day that we deem most transparent, fair, and reasonable, where we feel the company is genuinely concerned about you, the user or customer, your best interests, and your welfare.  We applaud them for leading the way!</p>
               <ol>
                 <% if !@top_ten_fairs.nil? %>
@@ -58,8 +60,8 @@
               </ol>
             <p><a class="btn btn-secondary" role="button" href="/top_ten_fair.html">View details »</a></p>
           </div>
-          <div class="col-lg-4">
-            <h3>Our Online User Bill of Rights</h2>
+          <div class="col-lg-4 features-col">
+            <h3>Our Online User Bill of Rights</h3>
             <p>It's time we banded together as users and consumers and demanded to be treated better.  This is your online user bill of rights, brought to you by the volunteer attorneys at the TOS Fairness Project.</p>
             <ol>
               <li>The Right to Privacy</li>
@@ -75,8 +77,8 @@
             </ol>
             <p><a class="btn btn-secondary" role="button" href="/bill_of_rights.html">View details »</a></p>
          </div>
-         <div class="col-lg-4">
-            <h3>Top Ten Daily Unfair</h2>
+         <div class="col-lg-4 features-col">
+            <h3>Top Ten Daily Unfair</h3>
             <p>Here are the top ten agreements for the day that we deem most unclear, most unfair, and unreasonable, where we feel the company is genuinely unconcerned about you, the user or customer, your best interests, and your welfare.  We urge them to stop trying to take advantage of their users.</p>
             <ol>
               <% if !@top_ten_unfairs.nil? %>
