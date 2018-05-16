@@ -18,6 +18,12 @@
       </div>
     </div>
     <div class="form-group row">
+      <%= f.label :tos_url, "TOS website", :class => "col-2 col-form-label" %>
+      <div class="col-7">
+        <%= f.text_field :tos_url, :class => "form-control", :placeholder => "Enter TOS website" %>
+      </div>
+    </div>
+    <div class="form-group row">
       <%= f.label :rating_1, "The Right to Privacy", :class => "col-md-4 col-sm-5 col-form-label" %>
       <div class="col-2">
         <%= f.select(:rating_1, ContractRevision::SCORES, {}, {class: 'form-control'}) %>
@@ -111,6 +117,15 @@
       <%= f.label :rating_14, "Public Placement of TOS Rating Badge", :class => "col-6 col-form-label" %>
       <div class="col-2">
         <%= f.select(:rating_14, ContractRevision::BADGES, {}, {class: 'form-control'}) %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :total_page, "Total page count", :class => "col-4 col-form-label" %>
+      <div class="col-2">
+        <%= f.text_field :total_page, :class => "form-control", :placeholder => "Page count" %>
+      </div>
+      <div class="col-4">
+        <%= f.text_area :total_page_note, :class => "form-control", :placeholder => "Enter page count note", :row => 4 %>
       </div>
     </div>
     <div class="form-group row">

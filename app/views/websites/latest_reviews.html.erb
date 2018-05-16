@@ -1,0 +1,25 @@
+<div class="container pt-5">
+  <h2>Most Recent 10 Reviews</h2>
+  <br />
+  <div class="row">
+    <div class="col-md-7">
+      <% if @latest_reviews.size > 0 %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Contract Title</th>
+              <th scope="col">Total Rating</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render partial: 'contracts', :collection => @latest_reviews, as: :item%>
+          </tbody>
+        </table>
+      <% else %>
+        No record found.
+      <% end %>
+    </div>
+  </div>
+</div>

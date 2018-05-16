@@ -2,10 +2,16 @@ class CompaniesController < ApplicationController
     autocomplete :company, :company_name, :full => true
 
     def index
-      @companies = Company.order('company_name')
+      @companies = Company.all
+
       if params[:search]
-        @companies = Company.name_like("%#{params[:search]}%").order('company_name')
+        @companies = Company.name_like("%#{params[:search]}%")
       end
+
+      @companies = @companies.
+                      select("companies.*, COUNT(contracts.id) AS contract_count").
+                      left_outer_joins(:contracts).group("companies.id").
+                      order("companies.company_name")
 
       @company = Company.new
     end
