@@ -158,6 +158,8 @@
               <th scope="col">Total Rating</th>
               <td><%= @contract_revision.total_rating %></td>
             </tr>
+          </tbody>
+          <tbody>
             <tr>
               <th scope="col">Total Page Count</th>
               <td><%= @contract_revision.total_page %></td>
@@ -173,7 +175,7 @@
             </tr>
             <tr>
               <th scope="col">Ways to improve</th>
-              <td><%= @contract_revision.ways_to_improve %></td>
+              <td><div><%= @contract_revision.ways_to_improve %></div></td>
             </tr>
           </tbody>
         </table>
