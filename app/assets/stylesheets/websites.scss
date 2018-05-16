@@ -70,6 +70,7 @@ ul.contract-revision-list {
 
   table.company-list tr {
     border: 1px solid #ccc;
+    width: 100%;
   }
 
   table.company-list td {
@@ -78,6 +79,7 @@ ul.contract-revision-list {
     position: relative;
     padding-left: 50%;
     word-wrap: break-word;
+    width: 100%;
   }
 
   table.company-list td:before {
