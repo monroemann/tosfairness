@@ -140,15 +140,15 @@
             </tr>
             <tr>
               <th scope="col">Historical Fairness</th>
-              <td><%= @contract_revision.rating_11 %></td>
+              <td><%= @contract_revision.rating_11.round(2) %></td>
             </tr>
             <tr>
               <th scope="col">Historical User Ratings</th>
-              <td><%= @contract_revision.rating_12 %></td>
+              <td><%= @contract_revision.rating_12.round(2) %></td>
             </tr>
             <tr>
               <th scope="col">Historical Lack of Lawsuits or Arbitrations</th>
-              <td><%= @contract_revision.rating_13 %></td>
+              <td><%= @contract_revision.rating_13.round(2) %></td>
             </tr>
             <tr>
               <th scope="col">Public Placement of TOS Rating Badge</th>
