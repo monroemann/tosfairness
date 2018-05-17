@@ -34,12 +34,12 @@ class ContractRevision < ApplicationRecord
   has_many :users, through: :user_loggings
   belongs_to :contract
 
-  before_save :calculate_total
+  before_save :downcase_tos_url, :calculate_total
 
   scope :top_ten,   -> { where("total_rating > 0").order(total_rating: :desc).limit(10) }
   scope :last_ten,  -> { where("total_rating > 0").order(total_rating: :asc).limit(10) }
   scope :recent_review, -> { where("total_rating > 0").order(updated_at: :desc).limit(10) }
-  
+
   def contract_date=(val)
     date = Date.strptime(val, "%m/%d/%Y") if val.present?
     write_attribute(:contract_date, date)
@@ -66,6 +66,10 @@ class ContractRevision < ApplicationRecord
 
   def self.historical_user_rating(contract_revision)
     contract_revision.save
+  end
+
+  def downcase_tos_url
+    self.tos_url.downcase!
   end
 
   def calculate_total

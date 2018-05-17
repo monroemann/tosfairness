@@ -7,4 +7,10 @@ class Contract < ApplicationRecord
 
   belongs_to :company
   has_many :contract_revisions, dependent: :destroy, inverse_of: :contract
+
+  before_save :downcase_website
+
+  def downcase_website
+    self.website.downcase!
+  end
 end
