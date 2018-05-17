@@ -1,0 +1,45 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#flex-content-container {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+#footer {
+  position: relative;
+  width: 100%;
+  min-height: 80px;
+  background-color: rgba(36, 32, 33, 0.9);
+  color: white;
+  font-family: 'Lato', 'Ariel', sans-serif;
+  padding: 10px 0 10px 0;
+  margin-top: 30px;
+  font-weight: 100;
+}
+
+#footer a {
+  color: white;
+  font-weight: 100;
+}
+
+.social-button {
+  margin: 4px;
+}
+
+.social a:hover {
+  text-decoration: none;
+}

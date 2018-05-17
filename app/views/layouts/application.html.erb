@@ -19,67 +19,91 @@
   </head>
 
   <body>
-    <wrapper class="d-flex flex-column">
-      <header>
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-secondary">
-          <%= link_to "TOSfairness", root_path, :class => "navbar-brand" %>
-          <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarsExampleDefault" aria-label="Toggle navigation" type="button" data-target="#navbarsExampleDefault" data-toggle="collapse">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+    <div class="d-flex flex-column">
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-secondary">
+        <%= link_to "TOSfairness", root_path, :class => "navbar-brand" %>
+        <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarsExampleDefault" aria-label="Toggle navigation" type="button" data-target="#navbarsExampleDefault" data-toggle="collapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="/about">About <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <%= link_to "All Ratings", companies_path, :class => "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/team">The Team</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/bill_of_rights">The Bill of Rights</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/rating_system">The Rating System</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/break_diving">Break Diving</a>
-              </li>
-                <a class="nav-link" href="/volunteer">Volunteer</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/donate">Donate</a>
-              </li>
-
-
-            </ul>
-            <ul class="navbar-nav justify-content-end">
-              <% if user_signed_in? %>
-                <li class="nav-item"><%= link_to "Profile", edit_user_registration_path, :class => "nav-link" %></li>
-                <li class="nav-item"><%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => "nav-link" %></li>
-              <% else %>
-                <li class="nav-item"><%= link_to "Sign In", new_user_session_path, :class => "nav-link" %></li>
-                <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, :class => "nav-link" %></li>
-              <% end %>
-            </ul>
-          </div>
-        </nav>
-      </header>
-      <main role="main" class="container pt-4">
-        <div class="pt-4">
-          <% if notice.present? %>
-            <p class="alert alert-info"><%= notice %></p>
-          <% end %>
-
-          <% if alert.present? %>
-            <p class="alert alert-danger"><%= alert %></p>
-          <% end %>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <%= link_to "All Ratings", companies_path, :class => "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/team">The Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/bill_of_rights">The Bill of Rights</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/rating_system">The Rating System</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/break_diving">Break Diving</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/volunteer">Volunteer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/donate">Donate</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav justify-content-end">
+            <% if user_signed_in? %>
+              <li class="nav-item"><%= link_to "Profile", edit_user_registration_path, :class => "nav-link" %></li>
+              <li class="nav-item"><%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => "nav-link" %></li>
+            <% else %>
+              <li class="nav-item"><%= link_to "Sign In", new_user_session_path, :class => "nav-link" %></li>
+              <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, :class => "nav-link" %></li>
+            <% end %>
+          </ul>
         </div>
-        <%= yield %>
-      </main>
-      <%= render "layouts/footer" %>
+      </nav>
+
+      <% if notice.present? %>
+        <p class='alert alert-info'><%= notice %></p>
+      <% end %>
+      <% if alert.present? %>
+        <p class='alert alert-danger'><%= alert %></p>
+      <% end %>
+      <%= yield %>
+
+      <div id="footer">
+        <div class="container-fluid py-3">
+          <div class="row">
+            <div class="col-md-5">
+            </div>
+            <div class="col-md-7">
+              <ul class="nav justify-content-end">
+                <li class="nav-item"><a class="nav-link" href="/index.html">TOS Fairness</a></li>
+                <li class="nav-item"><a class="nav-link" href="/terms.html">Terms &amp; Privacy</a></li>
+                <li class="nav-item"><a class="nav-link" href="/tax.html">Tax Info</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="#">FAQ</a></li> -->
+                <li class="nav-item"><a class="nav-link" href="/about.html">Contact us</a></li>
+                <li class="nav-item">
+                  <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="UCB8FFTMURRAC">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif"  target="_blank" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-7"></div>
+            <div class="col-md-5 text-right small align-self-end">
+              © 2018 Break Diving, Inc. All Rights reserved.
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Bootstrap core JavaScript
       ================================================== -->
@@ -91,6 +115,6 @@
       <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
       <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
 
-    </wrapper>
+    </div>
   </body>
 </html>
