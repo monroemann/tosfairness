@@ -113,10 +113,13 @@ ul.contract-revision-list {
   float: left;
   -webkit-transform: translate(54.5%, -35%);
           transform: translate(54.5%, -35%);
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .btn-search {
   float: left;
+  border: 1px solid #007bff;
   -webkit-transform: translate(127%, -35%);
           transform: translate(127%, -35%);
 }
