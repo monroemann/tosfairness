@@ -113,15 +113,18 @@ ul.contract-revision-list {
   float: left;
   -webkit-transform: translate(54.5%, -35%);
           transform: translate(54.5%, -35%);
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .btn-search {
   float: left;
+  border: 1px solid #007bff;
   -webkit-transform: translate(127%, -35%);
           transform: translate(127%, -35%);
 }
 
-.form-control {
+.form-control-index {
   width: 110%;
   left: 50%;
   -webkit-transform: translate(33%, 5%);
@@ -139,6 +142,32 @@ ul.contract-revision-list {
 }
 .dropdown-head{
   background-color: #F0F8FF;
+}
+
+// CSS for card boxes
+
+.card {
+  border-radius: 1.50rem;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  border: 2px solid #555;
+  margin-top: 40px;
+  padding: 0 10px;
+}
+
+.handle {
+  margin: 10px;
+  color: #123688;
+  font-weight: bold;
+}
+
+.card p, .card .message {
+  font-size: 18px;
+  margin: 20px;
+}
+
+.card.form {
+  padding: 10px 30px;
 }
 
 // Extra small devices (portrait phones, less than 576px)
