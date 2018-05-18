@@ -1,6 +1,10 @@
 <div class="container pt-5">
   <div class="col-md-10">
-    <p class="h3"><%= @company.company_name %> - <%= @company.website %></p>
+    <p class="h3"><%= @company.company_name %> - <%= @company.website %>
+      <% if user_signed_in? && current_user.admin? %>
+        <span class="h4"><%= link_to 'Edit', edit_company_path(@company) %></span>
+      <% end %>
+    </p>
     <%= render 'shared/fine_print' %>
     <% if @contracts.size > 0 %>
       <table class="table" id="view-lg">

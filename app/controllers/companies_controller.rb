@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+    before_action :authorize_admin!, only: [:edit, :update]
+    before_action :set_company, only: [:edit, :update]
     autocomplete :company, :company_name, :full => true
 
     def index
@@ -33,6 +35,17 @@ class CompaniesController < ApplicationController
       end
     end
 
+    def edit
+    end
+
+    def update
+     if @company.update_attributes(company_params)
+       redirect_to company_contracts_path(@company), :notice => 'Company was successfully updated.'
+     else
+       render :edit
+     end
+   end
+   
     def autocomplete_company_company_name
       term = params[:term]
       query = "%#{term}%"
@@ -47,5 +60,9 @@ class CompaniesController < ApplicationController
       params.require(:company).permit(
         :company_name,
         :website)
+    end
+
+    def set_company
+      @company = Company.find(params[:id])
     end
 end
