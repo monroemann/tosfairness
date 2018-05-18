@@ -41,7 +41,12 @@
               <td>
                 <ul class="contract-revision-list">
                 <% contract.contract_revisions.each do |revision| %>
-                  <li><%= link_to "#{revision.total_rating.round(2)}", contract_contract_revision_path(contract,revision) %></li>
+                  <li>
+                    <a href="<%= contract_contract_revision_path(contract,revision) %>">
+                      <%= revision.total_rating.round(2) %>
+                    </a>
+                    <span> / 100</span>
+                  </li>
                 <% end %>
                 </ul>
               </td>
@@ -92,7 +97,12 @@
                 <td>
                   <ul class="contract-revision-list">
                   <% contract.contract_revisions.each do |revision| %>
-                    <li><%= link_to "#{revision.total_rating.round(2)}", contract_contract_revision_path(contract,revision) %></li>
+                    <li>
+                      <a href="<%= contract_contract_revision_path(contract,revision) %>">
+                        <%= revision.total_rating.round(2) %>
+                      </a>
+                      <span> / 100</span>
+                    </li>
                   <% end %>
                   </ul>
                 </td>
