@@ -70,8 +70,11 @@
         <tbody>
           <% @contracts.each_with_index do |contract, index| %>
             <tr class="dropdown-head">
-              <th scope="col">Title</th>
-              <td><%= contract.contract_title %></td>
+              <th scope="col">Titles</th>
+              <td>
+                <%= contract.contract_title %>
+                <span style="float: right;">▼</span>
+              </td>
             </tr>
             <tr class="dropdown-element">
               <th scope="col">Website</th>
