@@ -1,35 +1,31 @@
 <section id="hero">
   <div class="container">
-    <br />
-    <div class="hero-box">
-      <h1 class="display-5 text-center">The Terms of Service Fairness Project</h1>
-      <h6 class="text-center">This Website's TOS Fairness Rating Score: 100 / 100</h6>
-      <br>
-      <div class="row">
-        <div class="col-md-10 offset-md-1">
-          <%= form_tag companies_path, :method => 'get', :class => 'my-2 my-lg-0' do %>
-              <div class="row">
-                <div class="col-md-8 offset-md-2">
-                  <%= autocomplete_field_tag 'search', '', autocomplete_company_company_name_companies_path, :class => 'form-control form-index mr-sm-2', placeholder: "Enter Company Name or URL"  %>
+  <br />
+    <h1 class="display-5 text-center">The Terms of Service Fairness Project</h1>
+    <h6 class="text-center">This Website's TOS Fairness Rating Score: 100 / 100</h6>
+    <br>
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <%= form_tag companies_path, :method => 'get', :class => 'my-2 my-lg-0' do %>
+            <div class="row">
+              <div class="col-md-8 offset-md-2">
+                <%= autocomplete_field_tag 'search', '', autocomplete_company_company_name_companies_path, :class => 'form-control form-index mr-sm-2', placeholder: "Enter Company Name or URL. No Results? Request New Review"  %>
+              </div>
+            </div>
+            <br />
+            <div class="row text-center">
+              <div class="col-md-8 offset-md-2">
+                <div class="search-box">
+                  <%= submit_tag 'Search Company', :class => 'btn btn-primary btn-search search-index'%>
+                  <%= link_to "No Results? Request New Review.".html_safe, new_company_path, :class => 'btn btn-outline-info request' %>
                 </div>
               </div>
-              <br />
-              <div class="row">
-                <div class="col-md-8 offset-md-2">
-                  <div class="col-md-2 col-sm-12">
-                    <%= submit_tag 'Search Company', :class => 'btn btn-primary btn-search search-index'%>
-                  </div>
-                  <div class="col-md-4 col-sm-12">
-                    <%= link_to "Don't See What You Want? <span>Request New Review.</span>".html_safe, new_company_path, :class => 'btn btn-outline-info request' %>
-                  </div>
-                </div>
-              </div>
-          <% end %>
-        </div>
+            </div>
+        <% end %>
       </div>
-      <br />
-
-      <br>
+    </div>
+    <br>
+    <div class="hero-box">
       <div class="row">
         <div class="col-md-10 offset-md-1">
           <p>Most online user agreements are stacked in favor of the corporation, and not in favor of the individual user.  We aim to change that, and keep it that way.  TOSfairness is a collective of volunteer attorneys and netizens focused on corporate transparency in murky 'click' agreements on the web, on phones, on games, and online.</p>
