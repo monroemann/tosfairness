@@ -215,7 +215,6 @@ ul.contract-revision-list {
   }
 
   .table td, company-list td{
-    display: inline-block;
     //Seems really hacky. 
     width: 50vw;
     overflow-wrap: break-word;
@@ -226,6 +225,10 @@ ul.contract-revision-list {
   .table td, th{
     //I can't find where border is being defined
     border: none !important;
+  }
+  
+  .contract-table td, th{
+    display: inline-block;
   }
 
   table.company-list td:nth-of-type(1):before { content: "Company Name"; }
