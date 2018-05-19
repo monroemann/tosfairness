@@ -76,27 +76,7 @@
       <div id="footer">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-12 col-sm-4">
-              <b>ToS Fairness</b>
-              <br />
-              <%= link_to 'Home Page', root_path %>
-              <br />
-              <%= link_to 'Companies List', companies_path %>
-              <br />
-              <%= link_to 'Terms & Privacy', terms_path %>
-            </div>
-            <div class="col-12 col-sm-4">
-              <b>About Us</b>
-              <br />
-              <%= link_to 'Meet the Team', team_path %>
-              <br />
-              <%= link_to 'Tax Info', '#' %>
-              <br />
-              <%= link_to 'Break Diving, Inc.', 'http://www.breakdiving.org' %>
-            </div>
-            <div class="col-12 col-sm-4">
-              <b>Contact Us</b>
-            </div>
+
           </div>
           <br />
             <!-- <div class="col-md-5">
@@ -119,9 +99,16 @@
               </ul>
             </div> -->
           <!-- </div> -->
-          <div class="row">
-            <div class="col-md-7"></div>
-            <div class="col-md-5 text-right small align-self-end">
+          <div class="row text-center footer-desktop">
+            <div class='col-md-8 offset-md-2'>
+              <%= link_to 'TOS Fairness', root_path %>
+              <%= link_to 'Terms & Privacy', terms_path %>
+              <%= link_to 'Tax Info', '#' %>
+              <%= link_to 'Contact Us', about_path %>
+            </div>
+          </div>
+          <div class="row text-center">
+            <div class="col-md-6 offset-md-3">
               <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                 <input type="hidden" name="cmd" value="_s-xclick">
                 <input type="hidden" name="hosted_button_id" value="UCB8FFTMURRAC">
