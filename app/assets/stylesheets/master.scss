@@ -214,13 +214,18 @@ ul.contract-revision-list {
     width: 100%;
   }
 
-  table.company-list td:before {
-    position: absolute;
-    top: 12px;
-    left: 6px;
-    width: 45%;
-    padding-right: 10px;
-    white-space: nowrap;
+  .table td, company-list td{
+    display: inline-block;
+    //Seems really hacky. 
+    width: 50vw;
+    overflow-wrap: break-word;
+  }
+  .table th{
+    width: 30vw;
+  }
+  .table td, th{
+    //I can't find where border is being defined
+    border: none !important;
   }
 
   table.company-list td:nth-of-type(1):before { content: "Company Name"; }
