@@ -19,8 +19,7 @@ h1, h2, h3, h4, h5, h6, .navbar {
 body, html {
   background-color: #fff;
   color: #555;
-  font-family: 'Lato', 'Ariel', sans-serif;
-  font-weight: 300;
+  // font-family: 'Lato', 'Ariel', sans-serif;
   font-size: 16px;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
@@ -38,10 +37,10 @@ main, header, footer {
           flex:1;
 }
 
-.row {
-  max-width: 1140px;
-  margin: 0 auto;
-}
+// .row {
+//   max-width: 1140px;
+//   margin: 0 auto;
+// }
 
 // Headings
 
@@ -96,6 +95,7 @@ ul.contract-revision-list {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), image-url('hero-background.jpg');
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), image-url('hero-background.jpg');
   height: 100vh;
+  color: #fff;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -108,12 +108,22 @@ ul.contract-revision-list {
   color: #fff;
 }
 
+#top-ten {
+  margin-top: 20px;
+}
+
 .hero-box {
   font-size: 18px;
   position: relative;
   width: 1140px;
   top: 10%;
   color: #fff;
+}
+
+.search-box {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .request {
@@ -258,7 +268,6 @@ ul.contract-revision-list {
     margin-left: auto;
     margin-right: auto;
   }
-  .request { margin-top: 10px; }
 }
 
 // Medium devices (tablets, less than 992px)
@@ -272,4 +281,5 @@ ul.contract-revision-list {
     width: 100%;
     font-size: 90%;
   }
+  .request { margin-top: 10px; }
 }
