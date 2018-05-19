@@ -46,3 +46,7 @@ body {
 .footer-desktop {
   margin-bottom: 10px;
 }
+
+@media (max-width: 767.98px) {
+  #footer { font-size: 90%; }
+}
