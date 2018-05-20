@@ -219,6 +219,18 @@ ul.contract-revision-list {
     width: 50vw;
     overflow-wrap: break-word;
   }
+  
+  //Quick hack so it works for release
+  .contract-info-table td:not(.info-score){
+    width: 100% !important;
+  }
+  .contract-info-table .info-score{
+    width: 50% !important;
+  }
+  .contract-info-table th{
+    width: 50% !important;
+  }
+  
   .table th{
     width: 30vw;
   }
