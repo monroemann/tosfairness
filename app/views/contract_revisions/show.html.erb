@@ -177,6 +177,10 @@
               <th scope="col">Ways to improve</th>
               <td><div><%= @contract_revision.ways_to_improve %></div></td>
             </tr>
+            <tr>
+              <th scope="col">Review Status</th>
+              <td><div><%= @contract_revision.status %></div></td>
+            </tr>
           </tbody>
         </table>
         <% if user_signed_in? && current_user.admin? %>

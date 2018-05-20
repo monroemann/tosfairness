@@ -1,5 +1,6 @@
 class Company < ApplicationRecord
   has_many :contracts, dependent: :destroy
+  has_many :contract_revisions, through: :contracts
 
   validates :company_name, uniqueness: true, presence: true
   validates :website, uniqueness: true

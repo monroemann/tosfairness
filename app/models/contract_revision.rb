@@ -14,6 +14,7 @@ class ContractRevision < ApplicationRecord
                     '7' => 3,
                     '9' => 2,
                     '10+' => 0}
+  STATUS = ["Draft", "Completed"]
 
   validates_inclusion_of :rating_1,
                          :rating_2,
@@ -25,7 +26,7 @@ class ContractRevision < ApplicationRecord
                          :rating_8,
                          :rating_9,
                          :rating_10, in: SCORES
-
+  validates_presence_of :status, in: STATUS
   validates_presence_of :contract_date
 
   has_many :contract_user_ratings, dependent: :destroy
