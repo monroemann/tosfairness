@@ -22,25 +22,31 @@ body {
 #footer {
   position: relative;
   width: 100%;
-  min-height: 80px;
   background-color: rgba(36, 32, 33, 0.9);
   color: white;
   font-family: 'Lato', 'Ariel', sans-serif;
-  padding: 10px 0 10px 0;
-  margin-top: 30px;
-  font-weight: 100;
+  padding: 5px 0 25px 0;
+  margin-top: 20px;
+  margin-bottom: 0;
+  font-weight: bold;
 }
 
 #footer a {
   color: white;
   font-weight: 100;
   text-decoration: none;
+  margin-right: 10px;
+  font-weight: bold;
 }
 
-.social-button {
-  margin: 4px;
+#footer a:hover {
+  text-decoration: underline;
 }
 
-.social a:hover {
-  text-decoration: none;
+.footer-desktop {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 767.98px) {
+  #footer { font-size: 90%; }
 }

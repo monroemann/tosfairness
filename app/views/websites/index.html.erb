@@ -1,32 +1,44 @@
 <section id="hero">
   <div class="container">
-    <br />
-    <div class="hero-box">
-      <h1 class="display-5 text-center">The Terms of Service Fairness Project</h1>
-      <h6 class="text-center">This Website's TOS Fairness Rating Score: 100 / 100</h6>
-      <br>
-      <div class="row">
-        <div class="col-md-10">
-          <%= form_tag companies_path, :method => 'get', :class => 'my-2 my-lg-0' do %>
-              <div class="form-row">
-                <div class="col-md-8">
-                  <%= autocomplete_field_tag 'search', '', autocomplete_company_company_name_companies_path, :class => 'form-control-index mr-sm-2', placeholder: "Enter Company Name or URL"  %>
+  <br />
+    <h1 class="display-5 text-center">The Terms of Service Fairness Project</h1>
+    <h6 class="text-center">This Website's TOS Fairness Rating Score: 100 / 100</h6>
+    <br>
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <%= form_tag companies_path, :method => 'get', :class => 'my-2 my-lg-0' do %>
+            <div class="row">
+              <div class="col-md-8 offset-md-2">
+                <%= autocomplete_field_tag 'search', '', autocomplete_company_company_name_companies_path, :class => 'form-control form-index mr-sm-2', placeholder: "Enter Company Name or URL. No Results? Request New Review"  %>
+              </div>
+            </div>
+            <br />
+            <div class="row text-center">
+              <div class="col-md-8 offset-md-2">
+                <div class="search-box">
+                  <%= submit_tag 'Search Company', :class => 'btn btn-primary btn-search search-index'%>
+                  <%= link_to "No Results? Request New Review.".html_safe, new_company_path, :class => 'btn btn-outline-info request' %>
                 </div>
               </div>
-              <br />
-              <%= submit_tag 'Search Company', :class => 'btn btn-primary my-2 my-sm-0 btn-search'%>
-              <%= link_to "Don't See What You Want? <span>Request New Review.</span>".html_safe, new_company_path, :class => 'btn btn-outline-info my-2 my-sm-0 request' %>
-          <% end %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+    <br>
+    <div class="hero-box">
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <p>Most online user agreements are stacked in favor of the corporation, and not in favor of the individual user.  We aim to change that, and keep it that way.  TOSfairness is a collective of volunteer attorneys and netizens focused on corporate transparency in murky 'click' agreements on the web, on phones, on games, and online.</p>
+          <p>No one (and we mean NO ONE) reads every word of every agreement before joining a new website or agreeing to new terms of service, whether on a computer, or on your phone.  Well, until now.  Now, we read and rate as many of them for you as we can, in order of demand, so you can feel safer signing them.  Awesome, right?  You're welcome.</p>
+          <p>Brought to you by Break Diving, Inc. a 501(c)(3) not-for-profit with one primary mission: helping individuals succeed in life.  It follows that in order for people to succeed in life, they should know exactly what they are actually signing.  Right?  Let's get started!</p>
+          <p class="text-right"><a class="btn btn-primary btn-sm" role="button" href="about.html">Learn more about us »</a></p>
         </div>
       </div>
-      <br />
-
-      <br>
-      <p>Most online user agreements are stacked in favor of the corporation, and not in favor of the individual user.  We aim to change that, and keep it that way.  TOSfairness is a collective of volunteer attorneys and netizens focused on corporate transparency in murky 'click' agreements on the web, on phones, on games, and online.</p>
-      <p>No one (and we mean NO ONE) reads every word of every agreement before joining a new website or agreeing to new terms of service, whether on a computer, or on your phone.  Well, until now.  Now, we read and rate as many of them for you as we can, in order of demand, so you can feel safer signing them.  Awesome, right?  You're welcome.</p>
-      <p>Brought to you by Break Diving, Inc. a 501(c)(3) not-for-profit with one primary mission: helping individuals succeed in life.  It follows that in order for people to succeed in life, they should know exactly what they are actually signing.  Right?  Let's get started!</p>
-      <p class="text-right"><a class="btn btn-primary btn-sm" role="button" href="about.html">Learn more about us »</a></p>
-      <p class="text-center"><strong>&#8623; SCROLL DOWN FOR THE TOP TENS &#8623;</strong></p>
+      <div class="row">
+        <div class="col-md-10 offset-1">
+          <p class="text-center"><strong>&#8623; SCROLL DOWN FOR THE TOP TENS &#8623;</strong></p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -38,7 +50,7 @@
         <div class="row">
           <div class="col-lg-4 features-col">
             <h3>Top Ten Daily Fair</h3>
-            <p>Here are the top ten agreements for the day that we deem most transparent, fair, and reasonable, where we feel the company is genuinely concerned about you, the user or customer, your best interests, and your welfare.  We applaud them for leading the way!</p>
+            <p>We deem these agreements to be the most transparent, fair, and reasonable. We feel these companies genuinely respect you.  We applaud them for leading the way!</p>
               <ol>
                 <% if !@top_ten_fairs.nil? %>
                   <% @top_ten_fairs.each do |c| %>
@@ -50,7 +62,7 @@
           </div>
           <div class="col-lg-4 features-col">
             <h3>Most Recent 10 Reviews</h3>
-            <p>Here are the most recently reviewed contracts.</p>
+            <p>Here are the most recently reviewed contracts.  We are always looking for additional attorneys and law students to help us review more!  Join us and help us stick up for the underdog!  </p>
             <ol>
               <% if !@latest_reviews.nil? %>
                 <% @latest_reviews.each do |c| %>
@@ -62,7 +74,7 @@
           </div>
          <div class="col-lg-4 features-col">
             <h3>Top Ten Daily Unfair</h3>
-            <p>Here are the top ten agreements for the day that we deem most unclear, most unfair, and unreasonable, where we feel the company is genuinely unconcerned about you, the user or customer, your best interests, and your welfare.  We urge them to stop trying to take advantage of their users.</p>
+            <p>These agreements are the most unclear and most unreasonable. The company is genuinely unconcerned about your welfare.  Beware: they take advantage of you!</p>
             <ol>
               <% if !@top_ten_unfairs.nil? %>
                 <% @top_ten_unfairs.each do |c| %>
