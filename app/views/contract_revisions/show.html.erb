@@ -47,6 +47,15 @@
               <td><b><%= @contract_revision.total_rating.round(2) %></b></td>
             </tr>
             <tr>
+              <th scope="col">Total Page Count</th>
+              <td><%= @contract_revision.total_page %></td>
+              <% if !@contract_revision.total_page_note.nil? %>
+                <td>
+                  <%= @contract_revision.total_page_note %>
+                </td>
+              <% end %>
+            </tr>
+            <tr>
               <th scope="col">The Right to Privacy</th>
               <td><%= @contract_revision.rating_1 %></td>
               <% if !@contract_revision.rating_1_note.nil? %>
@@ -160,15 +169,6 @@
             </tr>
           </tbody>
           <tbody>
-            <tr>
-              <th scope="col">Total Page Count</th>
-              <td><%= @contract_revision.total_page %></td>
-              <% if !@contract_revision.total_page_note.nil? %>
-                <td>
-                  <%= @contract_revision.total_page_note %>
-                </td>
-              <% end %>
-            </tr>
             <tr>
               <th scope="col">Additional Note</th>
               <td><%= @contract_revision.additional_note %></td>

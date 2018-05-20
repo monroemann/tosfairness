@@ -1,7 +1,9 @@
 class ContractRevision < ApplicationRecord
   SCORES = [0,1,2,3,4,5]
   LAWSUITS = ['0','1','2','3','4','5','6','7','8','9','10+']
-  BADGES = [0, 10, 20]
+  BADGES = { "0" => "0.0",
+             "10" => "10.0",
+             "20" => "20.0"}
   LAWSUIT_SCORES = {'0' => 10,
                     '1' => 9,
                     '2' => 8,
@@ -23,7 +25,6 @@ class ContractRevision < ApplicationRecord
                          :rating_8,
                          :rating_9,
                          :rating_10, in: SCORES
-  validates_inclusion_of :rating_14, in: BADGES
 
   validates_presence_of :contract_date
 
