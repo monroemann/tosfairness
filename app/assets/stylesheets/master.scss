@@ -20,7 +20,7 @@ body, html {
   background-color: #fff;
   color: #555;
   // font-family: 'Lato', 'Ariel', sans-serif;
-  // font-size: 16px;
+  font-size: 16px;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
@@ -92,8 +92,8 @@ ul.contract-revision-list {
 
 // CSS for website > index.html.erb
 #hero {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.65)), to(rgba(0, 0, 0, 0.65))), image-url('hero-background.jpg');
-  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), image-url('hero-background.jpg');
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), image-url('hero-background.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), image-url('hero-background.jpg');
   height: 100vh;
   color: #fff;
   background-size: cover;
@@ -115,7 +115,7 @@ ul.contract-revision-list {
 .hero-box {
   font-size: 18px;
   position: relative;
-  width: 1140px;
+  width: 100%;
   top: 10%;
   color: #fff;
 }
@@ -132,8 +132,11 @@ ul.contract-revision-list {
 }
 
 .features-col p, ol, li {
-  font-size: 90%;
   text-align: justify;
+}
+
+.features-col ol, li {
+  margin-left: 8px;
 }
 
 //Css for contracts > index.html.erb
@@ -162,8 +165,11 @@ ul.contract-revision-list {
 }
 
 .card p, .card .message {
-  font-size: 18px;
   margin: 20px;
+}
+
+.card li, ol, ul {
+  font-size: 110%;
 }
 
 .card.form {
@@ -263,4 +269,5 @@ ul.contract-revision-list {
     font-size: 90%;
   }
   .request { margin-top: 10px; }
+  .card, .message, .card p, .card li, ol, ul { font-size: 90%; }
 }

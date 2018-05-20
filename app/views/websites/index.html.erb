@@ -49,7 +49,7 @@
         <!-- Example row of columns -->
         <div class="row">
           <div class="col-lg-4 features-col">
-            <h2>Top Ten Daily Fair</h2>
+            <h3>Top Ten Daily Fair</h3>
             <p>Here are the top ten agreements for the day that we deem most transparent, fair, and reasonable, where we feel the company is genuinely concerned about you, the user or customer, your best interests, and your welfare.  We applaud them for leading the way!</p>
               <ol>
                 <% if !@top_ten_fairs.nil? %>
@@ -61,7 +61,7 @@
             <p><a class="btn btn-secondary" role="button" href="/top_ten_fair.html">View details »</a></p>
           </div>
           <div class="col-lg-4 features-col">
-            <h2>Most Recent 10 Reviews</h2>
+            <h3>Most Recent 10 Reviews</h3>
             <p>Here are the most recently reviewed contracts.</p>
             <ol>
               <% if !@latest_reviews.nil? %>
@@ -73,7 +73,7 @@
             <p><a class="btn btn-secondary" role="button" href="/latest_reviews.html">View details »</a></p>
           </div>
          <div class="col-lg-4 features-col">
-            <h2>Top Ten Daily Unfair</h2>
+            <h3>Top Ten Daily Unfair</h3>
             <p>Here are the top ten agreements for the day that we deem most unclear, most unfair, and unreasonable, where we feel the company is genuinely unconcerned about you, the user or customer, your best interests, and your welfare.  We urge them to stop trying to take advantage of their users.</p>
             <ol>
               <% if !@top_ten_unfairs.nil? %>
