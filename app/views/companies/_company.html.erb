@@ -1,12 +1,14 @@
 <tr>
-  <td><%= company.company_name %></td>
-  <td><%= company.website %></td>
+  <td><span class="search-data"><%= company.company_name %></span></td>
+  <td><span class="search-data"><%= company.website %></span></td>
   <td>
+    <span class="search-data">
     <% if company.contract_count == 0 %>
       Waitlisted
     <% else %>
       Reviewed
     <% end %>
+    </span>
   </td>
   <td><%= link_to 'View', company_contracts_path(company) %>
   </td>
