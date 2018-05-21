@@ -140,10 +140,6 @@ ul.contract-revision-list {
   border: 1px solid white;
 }
 
-.features-col p, ol, li {
-  text-align: justify;
-}
-
 .features-col ol, li {
   margin-left: 8px;
 }
@@ -300,6 +296,7 @@ ul.contract-revision-list {
     width: 100%;
   }
   .card, .message, .card p, .card li, ol, ul { font-size: 90%; }
+  .features-col { margin-bottom: 10px; }
 }
 
 @media (max-width: 1200px) {
