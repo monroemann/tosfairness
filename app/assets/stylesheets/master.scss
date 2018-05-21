@@ -218,18 +218,33 @@ ul.contract-revision-list {
     width: 100%;
   }
 
-  .table td, company-list td{
-    display: inline-block;
-    //Seems really hacky.
+  .table td, .company-list td{
+    //Seems really hacky. 
     width: 50vw;
     overflow-wrap: break-word;
   }
+  
+  //Quick hack so it works for release
+  .contract-info-table td:not(.info-score){
+    width: 100% !important;
+  }
+  .contract-info-table .info-score{
+    width: 50% !important;
+  }
+  .contract-info-table th{
+    width: 50% !important;
+  }
+  
   .table th{
     width: 30vw;
   }
   .table td, th{
     //I can't find where border is being defined
     border: none !important;
+  }
+  
+  .contract-table td, th{
+    display: inline-block;
   }
 
   table.company-list td:nth-of-type(1):before { content: "Company Name"; }
@@ -241,6 +256,14 @@ ul.contract-revision-list {
     //Seems really hacky.
     width: 50vw;
     overflow-wrap: break-word;
+  }
+  
+  
+  .search-data{
+    float: right;
+  }
+  .search-list td{
+    padding-left: 15px !important;
   }
 }
 

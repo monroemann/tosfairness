@@ -49,7 +49,7 @@
                     <a href="<%= contract_contract_revision_path(contract,revision) %>">
                       <%= revision.total_rating.round(2) %>
                     </a>
-                    <span> / 100</span>
+                    <span>/100</span>
                   </li>
                 <% end %>
                 </ul>
@@ -70,7 +70,7 @@
           <% end %>
         </tbody>
       </table>
-      <table class="table" style="display: none;" id="view-sm">
+      <table class="table contract-table" style="display: none;" id="view-sm">
         <tbody>
           <% @contracts.each_with_index do |contract, index| %>
             <tr class="dropdown-head">
@@ -108,7 +108,7 @@
                       <a href="<%= contract_contract_revision_path(contract,revision) %>">
                         <%= revision.total_rating.round(2) %>
                       </a>
-                      <span> / 100</span>
+                      <span>/100</span>
                     </li>
                   <% end %>
                   </ul>
