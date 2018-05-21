@@ -20,7 +20,7 @@ body, html {
   background-color: #fff;
   color: #555;
   // font-family: 'Lato', 'Ariel', sans-serif;
-  font-size: 16px;
+  // font-size: 16px;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
@@ -36,11 +36,6 @@ main, header, footer {
       -ms-flex:1;
           flex:1;
 }
-
-// .row {
-//   max-width: 1140px;
-//   margin: 0 auto;
-// }
 
 // Headings
 
@@ -88,6 +83,16 @@ ul.contract-revision-list {
   -webkit-box-shadow: 0px 1px 3px #2a2a2a;
           box-shadow: 0px 1px 3px #2a2a2a;
   position: relative;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.nav-item {
+  font-weight: 300;
+  margin-left: 0;
+  margin-right: 0;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 // CSS for website > index.html.erb
@@ -129,6 +134,10 @@ ul.contract-revision-list {
 .request {
   color: #fff;
   border-color: #fff;
+}
+
+.search-index {
+  border: 1px solid white;
 }
 
 .features-col p, ol, li {
@@ -219,11 +228,11 @@ ul.contract-revision-list {
   }
 
   .table td, .company-list td{
-    //Seems really hacky. 
+    //Seems really hacky.
     width: 50vw;
     overflow-wrap: break-word;
   }
-  
+
   //Quick hack so it works for release
   .contract-info-table td:not(.info-score){
     width: 100% !important;
@@ -234,7 +243,7 @@ ul.contract-revision-list {
   .contract-info-table th{
     width: 50% !important;
   }
-  
+
   .table th{
     width: 30vw;
   }
@@ -242,7 +251,7 @@ ul.contract-revision-list {
     //I can't find where border is being defined
     border: none !important;
   }
-  
+
   .contract-table td, th{
     display: inline-block;
   }
@@ -257,14 +266,10 @@ ul.contract-revision-list {
     width: 50vw;
     overflow-wrap: break-word;
   }
-  
-  
-  .search-data{
-    float: right;
-  }
-  .search-list td{
-    padding-left: 15px !important;
-  }
+
+  .search-data{ float: right; }
+
+  .search-list td{ padding-left: 15px !important; }
 }
 
 // Small devices (landscape phones, less than 768px)
@@ -279,18 +284,26 @@ ul.contract-revision-list {
     margin-right: auto;
   }
   #hero { height: 950px; }
+  .search-index { width: 100%; }
 }
 
-// Medium devices (tablets, less than 992px)
-@media (max-width: 991.98px) {
+// Medium devices (tablets, less than 1023px)
+@media (max-width: 1023px) {
   h1 { font-size: 1.8em; }
   h2 { font-size: 1.6em; }
   h3 { font-size: 1.5em; }
   h4 { font-size: 1.45em; }
-
-  .hero-box {
-    font-size: 90%;
+  .search-index { width: 100%; }
+  .hero-box { font-size: 90%; }
+  .request {
+    margin-top: 10px;
+    width: 100%;
   }
-  .request { margin-top: 10px; }
   .card, .message, .card p, .card li, ol, ul { font-size: 90%; }
+}
+
+@media (max-width: 1200px) {
+  .nav-item {
+    font-size: 83%;
+  }
 }
