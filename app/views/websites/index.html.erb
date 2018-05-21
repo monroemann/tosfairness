@@ -9,7 +9,7 @@
         <%= form_tag companies_path, :method => 'get', :class => 'my-2 my-lg-0' do %>
             <div class="row">
               <div class="col-md-8 offset-md-2">
-                <%= autocomplete_field_tag 'search', '', autocomplete_company_company_name_companies_path, :class => 'form-control form-index mr-sm-2', placeholder: "Enter Company Name or URL. No Results? Request New Review"  %>
+                <%= autocomplete_field_tag 'search', '', autocomplete_company_company_name_companies_path, :class => 'form-control mr-sm-2', placeholder: "Enter Company Name or URL. No Results? Request New Review"  %>
               </div>
             </div>
             <br />
@@ -49,7 +49,7 @@
         <!-- Example row of columns -->
         <div class="row">
           <div class="col-lg-4 features-col">
-            <h3>Top Ten Daily Fair</h3>
+            <h2>Top Ten Daily Fair</h2>
             <p>We deem these agreements to be the most transparent, fair, and reasonable. We feel these companies genuinely respect you.  We applaud them for leading the way!</p>
               <ol>
                 <% if !@top_ten_fairs.nil? %>
@@ -61,7 +61,7 @@
             <p><a class="btn btn-secondary" role="button" href="/top_ten_fair.html">View details »</a></p>
           </div>
           <div class="col-lg-4 features-col">
-            <h3>Most Recent 10 Reviews</h3>
+            <h2>Most Recent Reviews</h2>
             <p>Here are the most recently reviewed contracts.  We are always looking for additional attorneys and law students to help us review more!  Join us and help us stick up for the underdog!  </p>
             <ol>
               <% if !@latest_reviews.nil? %>
@@ -73,7 +73,7 @@
             <p><a class="btn btn-secondary" role="button" href="/latest_reviews.html">View details »</a></p>
           </div>
          <div class="col-lg-4 features-col">
-            <h3>Top Ten Daily Unfair</h3>
+            <h2>Top Ten Daily Unfair</h2>
             <p>These agreements are the most unclear and most unreasonable. The company is genuinely unconcerned about your welfare.  Beware: they take advantage of you!</p>
             <ol>
               <% if !@top_ten_unfairs.nil? %>
