@@ -11,9 +11,13 @@ class CompaniesController < ApplicationController
       end
 
       @companies = @companies.
-                      select("companies.*, COUNT(contracts.id) AS contract_count").
-                      left_outer_joins(:contracts).group("companies.id").
-                      order("companies.company_name")
+                    left_outer_joins(:contracts).
+                    left_outer_joins(:contract_revisions).
+                    select("companies.*").
+                    select("SUM(case when contract_revisions.status = 'Completed' then 1
+                         else 0 end) AS contract_count").
+                    group("companies.id").
+                    order("companies.company_name")
 
       @company = Company.new
     end
@@ -45,7 +49,7 @@ class CompaniesController < ApplicationController
        render :edit
      end
    end
-   
+
     def autocomplete_company_company_name
       term = params[:term]
       query = "%#{term}%"

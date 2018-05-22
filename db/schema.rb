@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180507223248) do
+ActiveRecord::Schema.define(version: 20180520025016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20180507223248) do
     t.string   "tos_url"
     t.text     "total_page_note"
     t.integer  "total_page"
+    t.text     "status"
   end
 
   create_table "contract_user_ratings", force: :cascade do |t|

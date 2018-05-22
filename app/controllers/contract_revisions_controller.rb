@@ -103,7 +103,8 @@ class ContractRevisionsController < ApplicationController
       :lawsuit_note,
       :tos_url,
       :total_page,
-      :total_page_note
+      :total_page_note,
+      :status
     )
   end
 end
