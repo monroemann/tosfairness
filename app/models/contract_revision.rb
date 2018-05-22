@@ -58,14 +58,6 @@ class ContractRevision < ApplicationRecord
                     contract_id, prior_date, current_date)
   end
 
-  def calculate_historical(val, division)
-    if val.nil?
-      0
-    else
-      val/division
-    end
-  end
-
   def self.historical_user_rating(contract_revision)
     contract_revision.save
   end
@@ -75,7 +67,7 @@ class ContractRevision < ApplicationRecord
   end
 
   def calculate_total
-    # Get prior 5 years date
+    # Get prior 5 years date from contract date
     prior_5_year_date = contract_date - 5.years
 
     contract_revision_ids = []
@@ -112,9 +104,10 @@ class ContractRevision < ApplicationRecord
 
     prior_years_lawsuits[0] = prior_years_lawsuits[0] == nil ? 0 : prior_years_lawsuits[0]
 
-    # current contract revision
+    # current contract revision total ratings
     current_year_total = rating_1 + rating_2 + rating_3 + rating_4 + rating_5 + rating_6 + rating_7 + rating_8 + rating_9 + rating_10
 
+    # user ratings
     current_user_ratings_count = ContractUserRating.joins("INNER JOIN contract_revisions ON contract_revisions.id = contract_user_ratings.contract_revision_id").
                                       where("contract_revision_id = ?", id).
                                       pluck("COUNT(*)")
@@ -151,8 +144,6 @@ class ContractRevision < ApplicationRecord
     else
       self.rating_13 = lawsuit_score
     end
-
-    self.rating_11 = calculate_historical(self.rating_11,5.0)
 
     self.total_rating = self.rating_1 +
                           self.rating_2 +
