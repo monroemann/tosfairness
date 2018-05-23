@@ -238,7 +238,7 @@ ul.contract-revision-list {
   .search-data{ float: right; }
 
   .search-list td{ padding-left: 15px !important; }
-  
+
   .contract-table th{
     width: 40%;
     display: inline-block;
@@ -247,11 +247,11 @@ ul.contract-revision-list {
     width: 50%;
     display: inline-block;
   }
-  
+
   p{
     overflow-wrap: break-word;
   }
-  
+
   .contract-info-table th{
     width: 50% !important;
   }
@@ -271,7 +271,13 @@ ul.contract-revision-list {
   display: inline-block;
   border: none !important;
 }
+.contract-info-table td.note {
+  padding: 0 120px 0 25px;
+}
 
+.contract-info-table td.note p {
+  text-align: justify;
+}
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
@@ -286,6 +292,9 @@ ul.contract-revision-list {
   }
   #hero { height: 100%; }
   .search-index { width: 100%; }
+  .contract-info-table td.note {
+    padding: 0 25px 0 20px;
+  }
 }
 
 // Medium devices (tablets, less than 1023px)
@@ -302,6 +311,9 @@ ul.contract-revision-list {
   }
   .card, .message, .card p, .card li, ol, ul { font-size: 90%; }
   .features-col { margin-bottom: 10px; }
+  .contract-info-table td.note {
+    padding: 0 50px 0 25px;
+  }
 }
 
 @media (max-width: 1200px) {
