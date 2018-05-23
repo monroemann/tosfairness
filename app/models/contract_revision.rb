@@ -40,7 +40,9 @@
 class ContractRevision < ApplicationRecord
   SCORES = [0,1,2,3,4,5]
   LAWSUITS = ['0','1','2','3','4','5','6','7','8','9','10+']
-  BADGES = [0, 10, 20]
+  BADGES = { "0" => "0.0",
+             "10" => "10.0",
+             "20" => "20.0"}
   LAWSUIT_SCORES = {'0' => 10,
                     '1' => 9,
                     '2' => 8,
@@ -51,6 +53,7 @@ class ContractRevision < ApplicationRecord
                     '7' => 3,
                     '9' => 2,
                     '10+' => 0}
+  STATUS = ["Draft", "Completed"]
 
   validates_inclusion_of :rating_1,
                          :rating_2,
@@ -62,8 +65,7 @@ class ContractRevision < ApplicationRecord
                          :rating_8,
                          :rating_9,
                          :rating_10, in: SCORES
-  validates_inclusion_of :rating_14, in: BADGES
-
+  validates_presence_of :status, in: STATUS
   validates_presence_of :contract_date
 
   has_many :contract_user_ratings, dependent: :destroy
@@ -75,9 +77,9 @@ class ContractRevision < ApplicationRecord
 
   before_save :downcase_tos_url, :calculate_total
 
-  scope :top_ten,   -> { where("total_rating > 0").order(total_rating: :desc).limit(10) }
-  scope :last_ten,  -> { where("total_rating > 0").order(total_rating: :asc).limit(10) }
-  scope :recent_review, -> { where("total_rating > 0").order(updated_at: :desc).limit(10) }
+  scope :top_ten,   -> { where("total_rating > 0 and status = 'Completed'").order(total_rating: :desc).limit(10) }
+  scope :last_ten,  -> { where("total_rating > 0 and status = 'Completed'").order(total_rating: :asc).limit(10) }
+  scope :recent_review, -> { where("total_rating > 0 and status = 'Completed'").order(updated_at: :desc).limit(10) }
 
   def contract_date=(val)
     date = Date.strptime(val, "%m/%d/%Y") if val.present?
