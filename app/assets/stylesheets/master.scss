@@ -304,3 +304,11 @@ ul.contract-revision-list {
     font-size: 83%;
   }
 }
+
+//Css for contract_revisions > _form.html
+#new_contract_revision .form-control:not(.form-control-flat):not(select){
+  height: 250px;
+}
+#new_contract_revision .col-form-label{
+  font-weight: bold;
+}
