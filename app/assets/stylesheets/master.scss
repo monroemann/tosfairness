@@ -223,50 +223,55 @@ ul.contract-revision-list {
     width: 100%;
   }
 
-  .table td, .company-list td{
-    //Seems really hacky.
-    width: 50vw;
-    overflow-wrap: break-word;
-  }
-
-  //Quick hack so it works for release
-  .contract-info-table td:not(.info-score){
-    width: 100% !important;
-  }
-  .contract-info-table .info-score{
-    width: 50% !important;
-  }
-  .contract-info-table th{
-    width: 50% !important;
-  }
-
   .table th{
     width: 30vw;
   }
-  .table td, th{
+  .table td, .table th{
     //I can't find where border is being defined
     border: none !important;
-  }
-
-  .contract-table td, th{
-    display: inline-block;
   }
 
   table.company-list td:nth-of-type(1):before { content: "Company Name"; }
   table.company-list td:nth-of-type(2):before { content: "Web Site"; }
   table.company-list td:nth-of-type(3):before { content: "Status"; }
 
-  .table td{
-    display: inline-block;
-    //Seems really hacky.
-    width: 50vw;
-    overflow-wrap: break-word;
-  }
-
   .search-data{ float: right; }
 
   .search-list td{ padding-left: 15px !important; }
+  
+  .contract-table th{
+    width: 40%;
+    display: inline-block;
+  }
+  .contract-table td{
+    width: 50%;
+    display: inline-block;
+  }
+  
+  p{
+    overflow-wrap: break-word;
+  }
+  
+  .contract-info-table th{
+    width: 50% !important;
+  }
 }
+
+.contract-info-table td:not(.info-score){
+  width: 100%;
+}
+.contract-info-table .info-score{
+  width: 40%;
+  word-wrap: break-word;
+}
+.contract-info-table th{
+  width: 40%;
+}
+.contract-info-table th, .contract-info-table td{
+  display: inline-block;
+  border: none !important;
+}
+
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
