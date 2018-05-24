@@ -13,6 +13,9 @@
       </li>
     </ul>
     <br />
+    <% if user_signed_in? && current_user.admin? %>
+          <%= button_to 'Edit', edit_contract_contract_revision_path(@contract, @contract_revision), method: :get, class: 'btn btn-primary' %>
+    <% end %>
     <!-- Tab panes -->
     <div class="tab-content">
       <div class="tab-pane active" id="contract" role="tabpanel">
@@ -63,7 +66,7 @@
             </tr>
             <tr>
               <th scope="col">The Right to Privacy</th>
-              <td class="info-score"><%= @contract_revision.rating_1 %></td>
+              <td class="info-score"><%= @contract_revision.rating_1 %> out of 5</td>
               <% if !@contract_revision.rating_1_note.nil? %>
                 <td class="note">
                   <%= simple_format @contract_revision.rating_1_note %>
@@ -75,7 +78,7 @@
             </tr>
             <tr>
               <th scope="col">The Right to Equal, Fair, & Reasonable Expression</th>
-              <td class="info-score"><%= @contract_revision.rating_2 %></td>
+              <td class="info-score"><%= @contract_revision.rating_2 %> out of 5</td>
               <% if !@contract_revision.rating_2_note.nil? %>
                 <td class="note">
                   <%= simple_format @contract_revision.rating_2_note %>
@@ -87,7 +90,7 @@
             </tr>
             <tr>
               <th scope="col">The Right to Control My Intellectual Property</th>
-              <td class="info-score"><%= @contract_revision.rating_3 %></td>
+              <td class="info-score"><%= @contract_revision.rating_3 %> out of 5</td>
               <% if !@contract_revision.rating_3_note.nil? %>
                 <td class="note">
                   <%= simple_format @contract_revision.rating_3_note %>
@@ -99,7 +102,7 @@
             </tr>
             <tr>
               <th scope="col">The Right to Sue</th>
-              <td class="info-score"><%= @contract_revision.rating_4 %></td>
+              <td class="info-score"><%= @contract_revision.rating_4 %> out of 5</td>
               <% if !@contract_revision.rating_4_note.nil? %>
                 <td class="note">
                   <%= simple_format @contract_revision.rating_4_note %>
@@ -111,7 +114,7 @@
             </tr>
             <tr>
               <th scope="col">The Right to Low-Cost Arbitration</th>
-              <td class="info-score"><%= @contract_revision.rating_5 %></td>
+              <td class="info-score"><%= @contract_revision.rating_5 %> out of 5</td>
               <% if !@contract_revision.rating_5_note.nil? %>
                 <td class="note">
                   <%= simple_format @contract_revision.rating_5_note %>
@@ -123,7 +126,7 @@
             </tr>
             <tr>
               <th scope="col">The Right to Join a Class Action</th>
-              <td class="info-score"><%= @contract_revision.rating_6 %></td>
+              <td class="info-score"><%= @contract_revision.rating_6 %> out of 5</td>
               <% if !@contract_revision.rating_6_note.nil? %>
                 <td class="note">
                   <%= simple_format @contract_revision.rating_6_note %>
@@ -135,7 +138,7 @@
             </tr>
             <tr>
               <th scope="col">The Right to No Hidden Terms or Fees</th>
-              <td class="info-score"><%= @contract_revision.rating_7 %></td>
+              <td class="info-score"><%= @contract_revision.rating_7 %> out of 5</td>
               <% if !@contract_revision.rating_7_note.nil? %>
                 <td class="note">
                   <%= simple_format @contract_revision.rating_7_note %>
@@ -147,7 +150,7 @@
             </tr>
             <tr>
               <th scope="col">The Right to Fair Process & To Be Heard</th>
-              <td class="info-score"><%= @contract_revision.rating_8 %></td>
+              <td class="info-score"><%= @contract_revision.rating_8 %> out of 5</td>
               <% if !@contract_revision.rating_8_note.nil? %>
                 <td class="note">
                   <%= simple_format @contract_revision.rating_8_note %>
@@ -159,7 +162,7 @@
             </tr>
             <tr>
               <th scope="col">The Right to Appeal & The Right to Return</th>
-              <td class="info-score"><%= @contract_revision.rating_9 %></td>
+              <td class="info-score"><%= @contract_revision.rating_9 %> out of 5</td>
               <% if !@contract_revision.rating_9_note.nil? %>
                 <td class="note">
                   <%= simple_format @contract_revision.rating_9_note %>
@@ -171,7 +174,7 @@
             </tr>
             <tr>
               <th scope="col">The Right to Reasonable Terms</th>
-              <td class="info-score"><%= @contract_revision.rating_10 %></td>
+              <td class="info-score"><%= @contract_revision.rating_10 %> out of 5</td>
               <% if !@contract_revision.rating_10_note.nil? %>
                 <td class="note">
                   <%= simple_format @contract_revision.rating_10_note %>
@@ -183,23 +186,23 @@
             </tr>
             <tr>
               <th scope="col">Historical Fairness</th>
-              <td class="info-score"><%= @contract_revision.rating_11.round(2) %></td>
+              <td class="info-score"><%= @contract_revision.rating_11.round(2) %> out of 10</td>
             </tr>
             <tr>
               <th scope="col">Historical User Ratings</th>
-              <td class="info-score"><%= @contract_revision.rating_12.round(2) %></td>
+              <td class="info-score"><%= @contract_revision.rating_12.round(2) %> out of 10</td>
             </tr>
             <tr>
               <th scope="col">Historical Lack of Lawsuits or Arbitrations</th>
-              <td class="info-score"><%= @contract_revision.rating_13.round(2) %></td>
+              <td class="info-score"><%= @contract_revision.rating_13.round(2) %> out of 10</td>
             </tr>
             <tr>
               <th scope="col">Public Placement of TOS Fairness Score & Link</th>
-              <td class="info-score"><%= @contract_revision.rating_14 %></td>
+              <td class="info-score"><%= @contract_revision.rating_14 %> out of 20</td>
             </tr>
             <tr>
               <th scope="col">Total Rating</th>
-              <td class="info-score"><%= @contract_revision.total_rating.round(2) %></td>
+              <td class="info-score"><%= @contract_revision.total_rating.round(2) %> out of 100</td>
             </tr>
             <tr>
               <th scope="col">Additional Note</th>
