@@ -48,7 +48,7 @@
               <ol>
                 <% if !@top_ten_fairs.nil? %>
                   <% @top_ten_fairs.each do |c| %>
-                    <li><%= c.contract.contract_title %>: <%= c.contract.total_rating.round %>(2)</li>
+                    <li><%= c.contract.contract_title %>: <%= c.contract.total_rating.round(2) %></li>
                   <% end %>
                 <% end %>
               </ol>
