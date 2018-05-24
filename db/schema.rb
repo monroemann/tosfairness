@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180525012302) do
+=======
+ActiveRecord::Schema.define(version: 20180522083640) do
+>>>>>>> Runs migration for acts_as_votable
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
