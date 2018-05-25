@@ -5,7 +5,11 @@
         <span class="h4"><%= link_to 'Edit', edit_company_path(@company) %></span>
       <% end %>
     </p>
+
     <%= render 'shared/fine_print' %>
+
+    <h5>Note: If the contract(s) below have an updated version, please <%= link_to "request an updated review.".html_safe, new_company_path %></h5><br> 
+
     <% if @contracts.size > 0 %>
       <table class="table" id="view-lg">
         <thead class="thead-default">
