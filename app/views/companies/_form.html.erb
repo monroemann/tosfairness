@@ -9,13 +9,30 @@
       </ul>
     </div>
   <% end %>
+  <p>Is this a new terms of service review or an update to a previously reviewed TOS?</p>
+  <div class="form-group">
+    <div class="form-check form-check-inline">
+      <%= f.radio_button :tos_flag, "new", :checked => true, :class => "form-check-input" %>
+      <label class="form-check-label" for="tos_flag">New</label>
+    </div>
+    <div class="form-check form-check-inline update_tos">
+      <%= f.radio_button :tos_flag, "update", :class => "form-check-input" %>
+      <label class="form-check-label" for="tos_flag">Update</label>
+    </div>
+  </div>
   <div class="form-group">
     <%= f.label :company_name, "Company Name" %>
-    <%= f.text_field :company_name, :class => "form-control", :placeholder => "Enter Company Name" %>
+    <%= f.autocomplete_field :company_name, autocomplete_company_company_name_companies_path, :class => "form-control", :placeholder => "Enter Company Name" %>
   </div>
   <div class="form-group">
     <%= f.label :website, "Website" %>
     <%= f.text_field :website, :class => "form-control", :placeholder => "Enter URL: Optional" %>
+  </div>
+  <div id="form-tos-update" class="hidden">
+    <div class="form-group">
+       <label for="request_note">Please explain your update request</label>
+       <%= f.text_area :request_note, :class => "form-control form-control-flat", :placeholder => "Additional Note", :row => 4 %>
+   </div>
   </div>
   <%= f.submit "Save", :class => "btn btn-primary" %>
 <% end %>

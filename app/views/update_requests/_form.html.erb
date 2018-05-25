@@ -1,0 +1,25 @@
+<div class="col-md-8">
+  <%= form_for update_request do |f| %>
+    <% if update_request.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <h3><%= pluralize(update_request.errors.count, "error") %> prohibited this update_request from being saved:</h3>
+        <ul>
+          <% update_request.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <%= f.label :request_note, "Request Note" %>
+      <%= f.text_area :request_note, :class => "form-control form-control-flat", :placeholder => "Additional Note", :row => 4 %>
+    </div>
+    <div class="form-group row">
+      <%= f.label :status, "Status", :class => "col-3 col-form-label" %>
+      <div class="col-5">
+        <%= f.select(:status, UpdateRequest::STATUS,{}, {class: 'form-control'}) %>
+      </div>
+    </div>
+    <%= f.submit "Save", :class => "btn btn-primary" %>
+  <% end %>
+</div>

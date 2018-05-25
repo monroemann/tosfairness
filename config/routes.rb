@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :contract_user_ratings
   resources :user_loggings, only: [:index, :show, :new, :create]
+  resources :update_requests
 
   get "top_ten_fair", to: "websites#top_ten_fair"
   get "top_ten_unfair", to: "websites#top_ten_unfair"
