@@ -152,6 +152,23 @@ ul.contract-revision-list {
   background-color: #F0F8FF;
 }
 
+// CSS for team page
+
+.team-table-mobile {
+  display: none;
+}
+
+.team-table td {
+  padding-right: 15px;
+  padding-top: 15px;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  border: solid black 1px;
+  height: 180px;
+}
+
 // CSS for card boxes
 
 .card {
@@ -173,7 +190,7 @@ ul.contract-revision-list {
   margin: 20px;
 }
 
-.card li, ol, ul {
+.card li, ol, ul, .card p {
   font-size: 110%;
 }
 
@@ -302,6 +319,15 @@ ul.contract-revision-list {
   .contract-info-table td.note {
     padding: 0 25px 0 20px;
   }
+  .team-table-desktop { display: none; }
+  .team-table-mobile { display: block; }
+  .team-table-mobile table tr { margin-bottom: 20px; }
+  .profile-pic {
+    height: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 // Medium devices (tablets, less than 1023px)
@@ -321,12 +347,14 @@ ul.contract-revision-list {
   .contract-info-table td.note {
     padding: 0 50px 0 25px;
   }
+  .profile-pic { height: 100px; }
 }
 
 @media (max-width: 1200px) {
   .nav-item {
     font-size: 83%;
   }
+  .profile-pic { height: 140px; }
 }
 
 //Css for contract_revisions > _form.html
