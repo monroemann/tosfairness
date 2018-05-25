@@ -1,3 +1,4 @@
+require 'pry'
 class CompaniesController < ApplicationController
     before_action :authorize_admin!, only: [:edit, :update]
     before_action :set_company, only: [:edit, :update]
@@ -34,14 +35,22 @@ class CompaniesController < ApplicationController
       else
         @company = Company.find_by(company_name: company_params[:company_name])
 
-        @update_request = UpdateRequest.new
-        @update_request.company_id = @company.id
-        @update_request.request_note = company_params[:request_note]
-        @update_request.status = "Requested"
+        if @company.present?
+          @update_request = UpdateRequest.new
+          @update_request.company_id = @company.id
+          @update_request.request_note = company_params[:request_note]
+          @update_request.status = "Requested"
 
-        if @update_request.save
-          redirect_to root_path, notice: 'A contract update request was successfully created and added to a waitlist.'
+          if @update_request.save
+            redirect_to root_path, notice: 'A contract update request was successfully created and added to a waitlist.'
+          else
+            @company = Company.new
+            flash.now[:error] = "Error in creating an update request, please contact administrator"
+            render :new
+          end
         else
+          @company = Company.new
+          flash.now[:error] = "This company is currently not existing in the system."
           render :new
         end
       end

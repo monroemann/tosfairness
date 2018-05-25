@@ -70,11 +70,12 @@
         </div>
       </nav>
 
-      <% if notice.present? %>
-        <p class='alert alert-info'><%= notice %></p>
-      <% end %>
-      <% if alert.present? %>
-        <p class='alert alert-danger'><%= alert %></p>
+      <% flash.each do |key, value| %>
+          <% if key == 'notice' || key == 'success' %>
+            <p class='alert alert-info'><%= value %></p>
+          <% else key == 'alert' %>
+            <p class='alert alert-danger'><%= value %></p>
+          <% end %>
       <% end %>
       <%= yield %>
 
