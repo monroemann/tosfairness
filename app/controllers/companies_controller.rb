@@ -1,4 +1,3 @@
-require 'pry'
 class CompaniesController < ApplicationController
     before_action :authorize_admin!, only: [:edit, :update]
     before_action :set_company, only: [:edit, :update]
