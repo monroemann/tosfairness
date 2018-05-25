@@ -1,0 +1,32 @@
+<div class="container pt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <% if !@update_requests.nil? %>
+        <table class="table update-list-table">
+          <thead>
+            <tr>
+              <th scope="col">Company</th>
+              <th scope="col" class="request-note">Request Note</th>
+              <th scope="col">Status</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @update_requests.each do |c| %>
+            <tr>
+              <td><%= c.company.company_name %></td>
+              <td class="request-note"><%= c.request_note %></td>
+              <td><%= c.status %></td>
+              <td>
+                <%= link_to 'Edit', edit_update_request_path(c) %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        No record found.
+      <% end %>
+    </div>
+  </div>
+</div>

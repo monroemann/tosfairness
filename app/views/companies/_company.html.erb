@@ -3,9 +3,11 @@
   <td><span class="search-data"><%= company.website %></span></td>
   <td>
     <span class="search-data">
-    <% if company.contract_count == 0 %>
+    <% if company.request_count > 0 %>
+      Update Requested
+    <% elsif company.contract_count == 0 %>
       Waitlisted
-    <% else %>
+    <% elsif company.contract_count > 0 %>
       Reviewed
     <% end %>
     </span>

@@ -198,6 +198,10 @@ ul.contract-revision-list {
   padding: 10px 30px;
 }
 
+.hidden {
+  display: none;
+}
+
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575.98px) {
   h1 { font-size: 1.6em; }
@@ -296,6 +300,9 @@ ul.contract-revision-list {
   text-align: justify;
 }
 
+.update-list-table td.request-note {
+  width: 100%;
+}
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
   h1 { font-size: 1.7em; }

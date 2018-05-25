@@ -52,6 +52,11 @@
             <li class="nav-item">
               <a class="nav-link" href="/donate">Donate</a>
             </li>
+            <% if user_signed_in? && current_user.admin? %>
+              <li class="nav-item">
+                <%= link_to "Update Request List", update_requests_path, :class => "nav-link" %>
+              </li>
+            <% end %>
           </ul>
           <ul class="navbar-nav justify-content-end">
             <% if user_signed_in? %>
@@ -65,11 +70,12 @@
         </div>
       </nav>
 
-      <% if notice.present? %>
-        <p class='alert alert-info'><%= notice %></p>
-      <% end %>
-      <% if alert.present? %>
-        <p class='alert alert-danger'><%= alert %></p>
+      <% flash.each do |key, value| %>
+          <% if key == 'notice' || key == 'success' %>
+            <p class='alert alert-info'><%= value %></p>
+          <% else key == 'alert' %>
+            <p class='alert alert-danger'><%= value %></p>
+          <% end %>
       <% end %>
       <%= yield %>
 

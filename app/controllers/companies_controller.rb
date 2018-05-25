@@ -10,14 +10,8 @@ class CompaniesController < ApplicationController
         @companies = Company.name_like("%#{params[:search]}%")
       end
 
-      @companies = @companies.
-                    left_outer_joins(:contracts).
-                    left_outer_joins(:contract_revisions).
-                    select("companies.*").
-                    select("SUM(case when contract_revisions.status = 'Completed' then 1
-                         else 0 end) AS contract_count").
-                    group("companies.id").
-                    order("companies.company_name")
+      ids = @companies.pluck(:id)
+      @companies = Company.with_contract_review_status(ids)
 
       @company = Company.new
     end
@@ -30,12 +24,34 @@ class CompaniesController < ApplicationController
     end
 
     def create
-      @company = Company.new(company_params)
-
-      if @company.save
-        redirect_to root_path, notice: 'Company was successfully created and added to a waitlist.'
+      if company_params[:tos_flag] == 'new'
+        @company = Company.new(company_params)
+        if @company.save
+          redirect_to root_path, notice: 'Company was successfully created and added to a waitlist.'
+        else
+          render :new
+        end
       else
-        render :new
+        @company = Company.find_by(company_name: company_params[:company_name])
+
+        if @company.present?
+          @update_request = UpdateRequest.new
+          @update_request.company_id = @company.id
+          @update_request.request_note = company_params[:request_note]
+          @update_request.status = "Requested"
+
+          if @update_request.save
+            redirect_to root_path, notice: 'A contract update request was successfully created and added to a waitlist.'
+          else
+            @company = Company.new
+            flash.now[:error] = "Error in creating an update request, please contact administrator"
+            render :new
+          end
+        else
+          @company = Company.new
+          flash.now[:error] = "This company is currently not existing in the system."
+          render :new
+        end
       end
     end
 
@@ -63,7 +79,9 @@ class CompaniesController < ApplicationController
     def company_params
       params.require(:company).permit(
         :company_name,
-        :website)
+        :website,
+        :tos_flag,
+        :request_note)
     end
 
     def set_company

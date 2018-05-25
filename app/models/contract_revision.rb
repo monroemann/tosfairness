@@ -53,7 +53,7 @@ class ContractRevision < ApplicationRecord
                     '7' => 3,
                     '9' => 2,
                     '10+' => 0}
-  STATUS = ["Draft", "Completed"]
+  STATUS = ["New", "Draft", "Completed"]
 
   validates_inclusion_of :rating_1,
                          :rating_2,
