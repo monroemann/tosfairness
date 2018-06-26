@@ -9,7 +9,7 @@
         <%= form_tag companies_path, :method => 'get', :class => 'my-2 my-lg-0' do %>
             <div class="row">
               <div class="col-md-8 offset-md-2">
-                <%= autocomplete_field_tag 'search', '', autocomplete_company_company_name_companies_path, :class => 'form-control mr-sm-2', placeholder: "Enter Company Name or URL. No Results? Request New Review"  %>
+                <%= autocomplete_field_tag 'search', '', autocomplete_company_company_name_companies_path, :class => 'form-control mr-sm-2 main-search', placeholder: "Enter Company Name or URL."  %>
               </div>
             </div>
             <br />
