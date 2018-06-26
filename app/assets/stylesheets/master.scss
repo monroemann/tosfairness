@@ -144,6 +144,15 @@ ul.contract-revision-list {
   margin-left: 8px;
 }
 
+.features-col li a {
+  text-decoration: none;
+  color: #555;
+}
+
+.features-col li a:hover, a:visited {
+  text-decoration: underline;
+}
+
 //Css for contracts > index.html.erb
 .dropdown-element{
   display: none;
