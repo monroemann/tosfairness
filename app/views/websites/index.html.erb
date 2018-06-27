@@ -16,7 +16,7 @@
             <div class="row text-center">
               <div class="col-md-8 offset-md-2">
                 <div class="search-box">
-                  <%= submit_tag 'Search Company', :class => 'btn btn-primary btn-search search-index'%>
+                  <%= submit_tag 'Search Company', name: nil, :class => 'btn btn-primary btn-search search-index'%>
                   <%= link_to "No Results? Request New Review.".html_safe, new_company_path, :class => 'btn btn-outline-info request' %>
                 </div>
               </div>

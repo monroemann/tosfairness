@@ -1,10 +1,9 @@
 <div class="container pt-5">
   <h2>Alphabetical List of Entries by Company Name</h2>
   <p>Note: This list shows companies with reviewed contracts, with update requests, and also those waiting to be reviewed that met your search criteria.  Click 'view' to see a list of contracts associated with that company.  If you don't find what you are looking for, or need to request a review of an updated version of an already reviewed TOS, use the form at the bottom.</p>
-  <br />
   <div class="row">
     <div class="col-md-8">
-      <% if !@companies.nil? %>
+      <% if @companies.present? %>
         <table class="table company-list search-list">
           <thead>
             <tr>
@@ -19,7 +18,9 @@
           </tbody>
         </table>
       <% else %>
-        No record found.
+        <div class="search-box">
+          <p>Sorry, No Results Found.</p>
+        </div>
       <% end %>
     </div>
   </div>

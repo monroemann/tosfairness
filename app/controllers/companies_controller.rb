@@ -4,10 +4,10 @@ class CompaniesController < ApplicationController
     autocomplete :company, :company_name, :full => true
 
     def index
-      @companies = Company.all
-
       if params[:search]
         @companies = Company.name_like("%#{params[:search]}%")
+      else
+        @companies = Company.all
       end
 
       ids = @companies.pluck(:id)
@@ -69,10 +69,10 @@ class CompaniesController < ApplicationController
     def autocomplete_company_company_name
       term = params[:term]
       query = "%#{term}%"
-
+      
       companies = Company.name_like(query).order('company_name').all
 
-      render :json => companies.map { |company| {:id => company.id, :label => company.company_name, :value => company.company_name }}
+       render :json => companies.map { |company| {:id => company.id, :label => company.company_name, :value => company.company_name }}
     end
 
     private

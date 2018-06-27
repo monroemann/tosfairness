@@ -127,8 +127,7 @@ ul.contract-revision-list {
 
 .search-box {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 .request {
@@ -142,6 +141,13 @@ ul.contract-revision-list {
 
 .features-col ol, li {
   margin-left: 8px;
+}
+
+/* CSS for companies > index.html.erb */
+.search-box p {
+  margin: 1em 0 2em;
+  color: red;
+  font-size: 1.2em;
 }
 
 //Css for contracts > index.html.erb
