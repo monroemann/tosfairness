@@ -48,7 +48,7 @@
               <ol>
                 <% if !@top_ten_fairs.nil? %>
                   <% @top_ten_fairs.each do |c| %>
-                    <li><%= c.contract.contract_title %></li>
+                    <li><%= link_to c.contract.contract_title, contract_contract_revision_path(c.contract,c), :target => '_blank' %></li>
                   <% end %>
                 <% end %>
               </ol>
@@ -60,7 +60,7 @@
             <ol>
               <% if !@latest_reviews.nil? %>
                 <% @latest_reviews.each do |c| %>
-                  <li><%= c.contract.contract_title %></li>
+                  <li><%= link_to c.contract.contract_title, contract_contract_revision_path(c.contract,c), :target => '_blank' %></li>
                 <% end %>
               <% end %>
             </ol>
@@ -72,7 +72,7 @@
             <ol>
               <% if !@top_ten_unfairs.nil? %>
                 <% @top_ten_unfairs.each do |c| %>
-                  <li><%= c.contract.contract_title %></li>
+                  <li><%= link_to c.contract.contract_title, contract_contract_revision_path(c.contract,c), :target => '_blank' %></li>
                 <% end %>
               <% end %>
             </ol>
