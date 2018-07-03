@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'votes/create'
+
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   resources :companies do
     get :autocomplete_company_company_name, :on => :collection
     resources :contracts
+    resources :votes
   end
 
   resources :contracts do
