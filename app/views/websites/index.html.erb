@@ -9,14 +9,14 @@
         <%= form_tag companies_path, :method => 'get', :class => 'my-2 my-lg-0' do %>
             <div class="row">
               <div class="col-md-8 offset-md-2">
-                <%= autocomplete_field_tag 'search', '', autocomplete_company_company_name_companies_path, :class => 'form-control mr-sm-2', placeholder: "Enter Company Name or URL. No Results? Request New Review"  %>
+                <%= autocomplete_field_tag 'search', '', autocomplete_company_company_name_companies_path, :class => 'form-control mr-sm-2 main-search', placeholder: "Enter Company Name or URL."  %>
               </div>
             </div>
             <br />
             <div class="row text-center">
               <div class="col-md-8 offset-md-2">
                 <div class="search-box">
-                  <%= submit_tag 'Search Company', :class => 'btn btn-primary btn-search search-index'%>
+                  <%= submit_tag 'Search Company', name: nil, :class => 'btn btn-primary btn-search search-index'%>
                   <%= link_to "No Results? Request New Review.".html_safe, new_company_path, :class => 'btn btn-outline-info request' %>
                 </div>
               </div>
