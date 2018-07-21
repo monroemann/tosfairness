@@ -69,10 +69,22 @@ class CompaniesController < ApplicationController
     def autocomplete_company_company_name
       term = params[:term]
       query = "%#{term}%"
-      
+
       companies = Company.name_like(query).order('company_name').all
 
        render :json => companies.map { |company| {:id => company.id, :label => company.company_name, :value => company.company_name }}
+    end
+
+    def upvote
+      @company = Company.find(params[:id])
+      @company.upvote_by current_user
+      redirect_to :back
+    end
+
+    def downvote
+      @company = Company.find(params[:id])
+      @company.downvote_by curreny_user
+      redirect_to :back
     end
 
     private

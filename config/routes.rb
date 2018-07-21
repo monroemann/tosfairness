@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   root "websites#index"
 
   resources :companies do
+    user do
+      put "like", to: "companies#upvote"
+      put "dislike", to: "companies#downvote"
+    end
     get :autocomplete_company_company_name, :on => :collection
     resources :contracts
   end

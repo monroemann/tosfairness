@@ -11,6 +11,7 @@ class Company < ApplicationRecord
   scope :name_like, -> (name) { where("company_name ilike ? or companies.website ilike ?", name, name) }
 
   before_save :downcase_url
+  acts_as_votable
 
   def downcase_url
     self.website.downcase!
