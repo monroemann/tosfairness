@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root "websites#index"
 
   resources :companies do
-    user do
+    member do
       put "like", to: "companies#upvote"
       put "dislike", to: "companies#downvote"
     end
