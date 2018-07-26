@@ -15,13 +15,13 @@
   <td><%= link_to 'View', company_contracts_path(company) %>
   </td>
   <td>
-    <%= link_to like_link_path(link), method: :put do %>
+    <%= link_to like_company_path(company), method: :put do %>
       Upvote
       <%= link.get_upvotes.size %>
     <% end %>
   </td>
   <td>
-    <%= link_to dislike_link_path(link), method: :put do %>
+    <%= link_to dislike_company_path(company), method: :put do %>
       Downvote
       <%= link.get_downvotes.size %>
     <% end %>
