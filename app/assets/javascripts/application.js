@@ -14,6 +14,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui/widgets/autocomplete
+//= require turbolinks
 //= require autocomplete-rails
 //= require popper
 //= require_tree .
