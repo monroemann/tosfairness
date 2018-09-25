@@ -8,7 +8,7 @@
 
     <%= render 'shared/fine_print' %>
 
-    <h5>Note: If the contract(s) below have an updated version, please <%= link_to "request an updated review.".html_safe, new_company_path %></h5><br> 
+    <h5>Note: If the contract(s) below have an updated version, please <%= link_to "request an updated review.".html_safe, new_company_path %></h5><br>
 
     <% if @contracts.size > 0 %>
       <table class="table" id="view-lg">
@@ -30,6 +30,15 @@
               <th><%= contract.contract_title %></th>
               <td><%= contract.website %></td>
               <td><%= contract.application %></td>
+              <% contract.contract_revisions.each do |revision| %>
+                <li>
+                  <% if revision.tos_url.present? %>
+                    <a href="http://<%= revision.tos_url %>" target="_blank">
+                      <%= revision.contract_date.strftime('%m/%d/%Y') %>
+                    </a>
+                  <% end %>
+                </li>
+              <% end %>
               <% if contract.contract_revisions.size > 0 %>
               <td>
                 <ul class="contract-revision-list">
