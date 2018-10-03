@@ -15,6 +15,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'devise', '>=3.2.4'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'acts_as_votable', '~> 0.11.1'
+gem 'turbolinks'
 
 group :development, :test do
   gem 'byebug', platform: :mri

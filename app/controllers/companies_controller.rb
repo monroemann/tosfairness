@@ -83,7 +83,7 @@ class CompaniesController < ApplicationController
 
     def downvote
       @company = Company.find(params[:id])
-      @company.downvote_by curreny_user
+      @company.downvote_by current_user
       redirect_to :back
     end
 
