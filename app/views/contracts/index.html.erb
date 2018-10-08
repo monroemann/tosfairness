@@ -49,12 +49,7 @@
                 <ul class="contract-revision-list">
                 <% contract.contract_revisions.each do |revision| %>
                   <li>
-                    <% if revision.tos_url.present? %>
-                        <%= revision.contract_date.strftime('%m/%d/%Y') %>
-                      </a>
-                    <% else %>
                       <%= revision.contract_date.strftime('%m/%d/%Y') %>
-                    <% end %>
                   </li>
                 <% end %>
                 </ul>
