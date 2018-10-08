@@ -45,7 +45,7 @@
           <div class="col-lg-4 features-col">
             <h2>Top Ten Daily Fair</h2>
             <p>We deem these agreements to be the most transparent, fair, and reasonable. We feel these companies genuinely respect you.  We applaud them for leading the way!</p>
-              <ol>
+              <ol class="fair-color">
                 <% if !@top_ten_fairs.nil? %>
                   <% @top_ten_fairs.each do |c| %>
                     <li><%= link_to c.contract.contract_title, contract_contract_revision_path(c.contract,c), :target => '_blank' %></li>
@@ -69,7 +69,7 @@
          <div class="col-lg-4 features-col">
             <h2>Top Ten Daily Unfair</h2>
             <p>These agreements are the most unclear and most unreasonable. The company is genuinely unconcerned about your welfare.  Beware: they take advantage of you!</p>
-            <ol>
+            <ol class="unfair-color">
               <% if !@top_ten_unfairs.nil? %>
                 <% @top_ten_unfairs.each do |c| %>
                   <li><%= link_to c.contract.contract_title, contract_contract_revision_path(c.contract,c), :target => '_blank' %></li>
