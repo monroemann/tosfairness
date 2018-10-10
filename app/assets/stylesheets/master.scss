@@ -153,7 +153,14 @@ ul.contract-revision-list {
 
 .features-col li a {
   text-decoration: none;
-  color: #555;
+}
+
+.fair-color li a {
+  color: #008000;
+}
+
+.unfair-color li a {
+  color: #FF0000;
 }
 
 .features-col li a:hover, a:visited {
