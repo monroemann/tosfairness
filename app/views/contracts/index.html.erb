@@ -8,17 +8,17 @@
 
     <%= render 'shared/fine_print' %>
 
-    <h5>Note: If the contract(s) below have an updated version, please <%= link_to "request an updated review.".html_safe, new_company_path %></h5><br> 
+    <h5>Note: If the contract(s) below have an updated version, please <%= link_to "request an updated review.".html_safe, new_company_path %></h5><br>
 
     <% if @contracts.size > 0 %>
       <table class="table" id="view-lg">
         <thead class="thead-default">
           <tr>
             <th>Title</th>
-            <th>Website</th>
-            <th>Application</th>
-            <th>Date</th>
-            <th>Total Rating</th>
+            <th>Link to Terms</th>
+            <th>Company</th>
+            <th>Date of Terms</th>
+            <th>Rating</th>
             <th>Type</th>
             <th> </th>
             <th> </th>
@@ -28,20 +28,28 @@
           <% @contracts.each_with_index do |contract, index| %>
             <tr>
               <th><%= contract.contract_title %></th>
-              <td><%= contract.website %></td>
-              <td><%= contract.application %></td>
-              <% if contract.contract_revisions.size > 0 %>
               <td>
                 <ul class="contract-revision-list">
                 <% contract.contract_revisions.each do |revision| %>
                   <li>
                     <% if revision.tos_url.present? %>
                       <a href="http://<%= revision.tos_url %>" target="_blank">
-                        <%= revision.contract_date.strftime('%m/%d/%Y') %>
+                        <%= contract.website %>
                       </a>
                     <% else %>
-                      <%= revision.contract_date.strftime('%m/%d/%Y') %>
+                      <%= contract.website %>
                     <% end %>
+                  </li>
+                <% end %>
+                </ul>
+              </td>
+              <td><%= contract.application %></td>
+              <% if contract.contract_revisions.size > 0 %>
+              <td>
+                <ul class="contract-revision-list">
+                <% contract.contract_revisions.each do |revision| %>
+                  <li>
+                      <%= revision.contract_date.strftime('%m/%d/%Y') %>
                   </li>
                 <% end %>
                 </ul>
