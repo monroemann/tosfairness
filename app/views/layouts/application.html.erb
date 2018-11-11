@@ -13,7 +13,6 @@
   </head>
 
   <body>
-    <div class="d-flex flex-column">
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-secondary">
         <%= link_to "TOSfairness", root_path, :class => "navbar-brand" %>
         <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarsExampleDefault" aria-label="Toggle navigation" type="button" data-target="#navbarsExampleDefault" data-toggle="collapse">
@@ -71,7 +70,11 @@
             <p class='alert alert-danger'><%= value %></p>
           <% end %>
       <% end %>
-      <%= yield %>
+      <main>
+        <div class="d-flex flex-column">
+          <%= yield %>
+        </div>
+      </main>
 
       <div id="footer">
         <div class="container-fluid">
@@ -92,14 +95,16 @@
               <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                 <input type="hidden" name="cmd" value="_s-xclick">
                 <input type="hidden" name="hosted_button_id" value="UCB8FFTMURRAC">
-                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif"  target="_blank" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <input type="submit" class="btn-donate" target="_blank" border="0" width="92px" height="26ox" value="Donate" alt="PayPal - The safer, easier way to pay online!" text"Donate">
                 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
               </form>
               © 2018 Break Diving, Inc. All Rights reserved.
             </div>
           </div>
         </div>
-      </div>
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
 
       <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" crossorigin="anonymous" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"></script>
       <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>

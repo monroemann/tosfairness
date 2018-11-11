@@ -12,6 +12,10 @@
           box-sizing: border-box;
 }
 
+.alert{
+  margin: 0;
+}
+
 h1, h2, h3, h4, h5, h6, .navbar {
   margin: 0;
 }
@@ -153,7 +157,14 @@ ul.contract-revision-list {
 
 .features-col li a {
   text-decoration: none;
-  color: #555;
+}
+
+.fair-color li a {
+  color: #008000;
+}
+
+.unfair-color li a {
+  color: #FF0000;
 }
 
 .features-col li a:hover, a:visited {
