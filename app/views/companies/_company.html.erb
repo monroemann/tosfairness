@@ -14,4 +14,12 @@
   </td>
   <td><%= link_to 'View', company_contracts_path(company) %>
   </td>
+  <td>
+    <% if company.request_count > 0 || company.contract_count == 0 %>
+      <%= link_to like_company_path(company), method: :put do %>
+        Upvote
+        <%= company.get_upvotes.size %>
+      <% end %>
+    <% end %>
+  </td>
 </tr>
