@@ -1,4 +1,4 @@
-$( function() {
+$(document).on('turbolinks:load', function() {
   if ( $('.edit-rating').length > 0) {
 
     var isEditing = false;
@@ -25,5 +25,4 @@ $( function() {
       isEditing = !isEditing;
     });
   }
-
 });
