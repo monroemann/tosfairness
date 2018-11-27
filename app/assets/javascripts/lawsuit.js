@@ -1,4 +1,4 @@
-$( function() {
+$(document).on('turbolinks:load', function() {
   if ( $('.edit-lawsuit').length > 0) {
 
     var isEditing = false;

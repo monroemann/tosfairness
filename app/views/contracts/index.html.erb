@@ -1,6 +1,14 @@
 <div class="container pt-5">
   <div class="col-md-10">
-    <p class="h3"><%= @company.company_name %> - <%= @company.website %>
+    <p class="h3"><%= @company.company_name %> - <%= @company.website %> 
+      <% if @company.update_requests.count > 0 || @company.contracts.count == 0 %>
+      <p><small>Want this company reviewed sooner? 
+          <%= link_to like_company_path(@company), method: :put do %>
+            Upvote
+            <%= @company.get_upvotes.size %>
+          <% end %>
+        <% end %>
+       </small></p>
       <% if user_signed_in? && current_user.admin? %>
         <span class="h4"><%= link_to 'Edit', edit_company_path(@company) %></span>
       <% end %>
